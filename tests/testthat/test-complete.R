@@ -4,7 +4,6 @@ test_that("completed.Date", {
   expect_false(dtt_completed(dates))
   expect_true(dtt_completed(dates[1]))
   expect_error(dtt_completed(dates[integer(0)]), "units must not include missing values")
-  expect_false(dtt_completed(dates[integer(0)], "seconds"))
   expect_true(dtt_completed(dates[integer(0)], "days"))
   expect_true(dtt_completed(as.Date(c("2001-01-02", "2001-01-01"))))
   expect_false(dtt_completed(as.Date(c("2001-01-03", "2001-01-01"))))

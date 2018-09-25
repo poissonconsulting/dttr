@@ -32,11 +32,9 @@ dtt_complete <- function(x, units, ...) {
 
 #' @export
 dtt_completed.Date <- function(x, units = dtt_units(x), ...) {
-  check_scalar(units, c("seconds", "minutes", "hours", "days", "months", "years"))
+  check_scalar(units, c("days", "months", "years"))
   check_unused(...)
 
-  if(units %in% c("seconds", "minutes", "hours")) return(FALSE)
-  
   if(anyNA(x)) return(NA)
   if(length(x) <= 1) return(TRUE)
   
@@ -63,14 +61,11 @@ dtt_completed.POSIXct <- function(x, units = dtt_units(x), ...) {
 
 #' @export
 dtt_complete.Date <- function(x, units = dtt_units(x), ...) {
-  check_scalar(units, c("seconds", "minutes", "hours", "days", "months", "years"))
+  check_scalar(units, c("days", "months", "years"))
   check_unused(...)
   
   if(anyNA(x)) err("Date vectors with missing values cannot be completed")
 
-  if(units %in% c("seconds", "minutes", "hours"))
-    err("Date vectors cannot be completed for '", units, "'")
-  
   if(length(x) <= 1) return(x)
   
   x_floor <- dtt_floor(x, units)

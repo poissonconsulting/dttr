@@ -1,7 +1,6 @@
 context("floor")
 
 test_that("floor", {
-  expect_identical(dtt_floor(dates, "hours"), dates)
   expect_identical(dtt_floor(dates, "days"), dates)
   expect_identical(dtt_floor(dates, "months"), as.Date(c("2000-01-01", "1899-12-01", "1972-04-01")))
 

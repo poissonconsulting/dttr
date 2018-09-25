@@ -16,9 +16,15 @@ dtt_floor <- function(x, units, ...) {
 
 #' @export
 dtt_floor.Date <- function(x, units, ...) {
-  check_scalar(units, c("seconds", "minutes", "hours", "days", "months", "years"))
+  check_scalar(units, c("days", "months", "years"))
   
-  if(!length(x) || units %in% c("seconds", "minutes", "hours", "days")) return(x)
+  if(!length(x)) return(x)
+  if(units %in% c("days")) {
+    x <- unclass(x)
+    x <- floor(x)
+    class(x) <- "Date"
+    return(x)
+  }
   dtt_days(x) <- 1L
   if(identical(units, "months")) return(x)
   dtt_months(x) <- 1L
