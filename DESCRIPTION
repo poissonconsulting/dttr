@@ -1,0 +1,21 @@
+Package: dttr
+Title: Manipulate Date and POSIXct Vectors
+Version: 0.0.0.9000
+Authors@R: 
+    person("Joe",
+           family = "Thorley",
+           role = c("aut", "cre"),
+           email = "joe@poissonconsulting.ca",
+           comment = c(ORCID = "0000-0002-7683-4592"))
+Description: Manipulates Date and POSIXct vectors.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.4.0)
+Imports: 
+    checkr,
+    err
+Suggests: 
+    testthat,
+    covr
+RoxygenNote: 6.1.0
