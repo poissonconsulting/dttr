@@ -15,8 +15,9 @@ dtt_floor <- function(x, units, ...) {
 }
 
 #' @export
-dtt_floor.Date <- function(x, units, ...) {
+dtt_floor.Date <- function(x, units = "days", ...) {
   check_scalar(units, c("days", "months", "years"))
+  check_unused(...)
   
   if(!length(x)) return(x)
   if(units %in% c("days")) {
@@ -32,8 +33,9 @@ dtt_floor.Date <- function(x, units, ...) {
 }
 
 #' @export
-dtt_floor.POSIXct <- function(x, units, ...) {
+dtt_floor.POSIXct <- function(x, units = "second", ...) {
   check_scalar(units, c("seconds", "minutes", "hours", "days", "months", "years"))
+  check_unused(...)
   
   if(!length(x)) return(x)
   if(identical(units, "seconds")) {
