@@ -40,8 +40,9 @@ dtt_completed.Date <- function(x, units = dtt_units(x), ...) {
   
   x <- dtt_floor(x, units)
   x <- unique(x)
-  n <- diff(range(as.integer(x))) + 1L
-  identical(length(x), n) 
+  seq <- try(seq(min(x), max(x), by = dtt_units2by(units)), silent = TRUE)
+  if(inherits(seq, "try-error")) return(FALSE)
+  identical(length(x), length(seq)) 
 }
 
 #' @export

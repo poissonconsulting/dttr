@@ -7,6 +7,9 @@ test_that("completed.Date", {
   expect_true(dtt_completed(dates[integer(0)], "days"))
   expect_true(dtt_completed(as.Date(c("2001-01-02", "2001-01-01"))))
   expect_false(dtt_completed(as.Date(c("2001-01-03", "2001-01-01"))))
+  expect_true(dtt_completed(as.Date(c("2001-01-01", "2001-02-01"))))
+  expect_false(dtt_completed(as.Date(c("2001-01-01", "2002-02-01"))))
+  expect_true(dtt_completed(as.Date(c("2001-01-01", "2002-01-01"))))
 })
 
 test_that("completed.POSIXct", {
