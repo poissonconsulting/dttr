@@ -20,7 +20,7 @@ dtt_floor.Date <- function(x, units = "days", ...) {
   check_unused(...)
   
   if(!length(x)) return(x)
-  if(units %in% c("days")) {
+  if(units == "days") {
     x <- unclass(x)
     x <- floor(x)
     class(x) <- "Date"

@@ -58,7 +58,7 @@ dtt_dayte_time <- function(x, tz, ...) {
 #' @export
 dtt_date.Date <- function(x, ...) {
   check_unused(...)
-  x
+  dtt_floor(x, units = "days")
 }
 
 #' @export

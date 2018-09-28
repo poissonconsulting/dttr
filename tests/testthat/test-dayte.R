@@ -3,6 +3,10 @@ context("dayte")
 test_that("date", {
   expect_identical(dtt_date(dates), dates)
   expect_identical(dtt_date(date_times), as.Date(c("2000-01-01", "1899-12-31", "1972-06-30")))
+  date <- as.Date("2001-01-01")
+  expect_identical(dtt_date(date), date)
+  date2 <- date + 0.5
+  expect_identical(dtt_date(date2), date)
 })
 
 test_that("dayte", {
