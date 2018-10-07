@@ -299,8 +299,6 @@ dtt_days.POSIXct <- function(x, ...) {
 `dtt_days<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  value <- sprintf("%02d", value)
-  x <- format(x, "%Y-%m-%d")
   if(identical(length(value), 1L)) {
     x <- sub_day(x, value)
   } else {
@@ -331,8 +329,6 @@ dtt_months.POSIXct <- function(x, ...) {
 `dtt_months<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  value <- sprintf("%02d", value)
-  x <- format(x, "%Y-%m-%d")
   if(identical(length(value), 1L)) {
     x <- sub_month(x, value)
   } else {
@@ -363,8 +359,6 @@ dtt_years.POSIXct <- function(x, ...) {
 `dtt_years<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  value <- sprintf("%04d", value)
-  x <- format(x, "%Y-%m-%d")
   if(identical(length(value), 1L)) {
     x <- sub_year(x, value)
   } else {
