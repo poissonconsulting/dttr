@@ -105,8 +105,10 @@ test_that("set 1", {
   dtt_year(dates_na) <- c(1L, 2L, 3L)
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
   dtt_month(dates_na) <- c(2L, 3L, 4L)
+  print(dates_na)
   expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))
   dtt_day(dates_na) <- c(5L, 6L, 7L)
+  print(dates_na)
   expect_identical(dates_na, as.Date(c("0001-02-05", NA, "0003-04-07")))
 })
 
