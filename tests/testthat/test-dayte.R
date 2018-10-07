@@ -1,8 +1,10 @@
 context("dayte")
 
 test_that("date", {
+  is.na(dates[2]) <- TRUE
   expect_identical(dtt_date(dates), dates)
-  expect_identical(dtt_date(date_times), as.Date(c("2000-01-01", "1899-12-31", "1972-06-30")))
+  is.na(date_times[2]) <- TRUE
+  expect_identical(dtt_date(date_times), as.Date(c("2000-01-01", NA, "1972-06-30")))
   date <- as.Date("2001-01-01")
   expect_identical(dtt_date(date), date)
   date2 <- date + 0.5
@@ -10,10 +12,10 @@ test_that("date", {
 })
 
 test_that("date_time", {
+  is.na(dates[1]) <- TRUE
   expect_identical(dtt_date_time(dates), as.POSIXct(
-    c("2000-01-01 00:00:00", "1899-12-31 00:00:00", "1972-04-29 00:00:00"), 
+    c(NA, "1899-12-31 00:00:00", "1972-04-29 00:00:00"), 
     format = "%Y-%m-%d %H:%M:%S", tz = Sys.timezone()))
-
 })
 
 test_that("dayte", {

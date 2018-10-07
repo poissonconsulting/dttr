@@ -125,7 +125,12 @@ dtt_date_time.character <- function(x, tz = dtt_sys_tz(), ...) {
 dtt_date_time.Date <- function(x, tz = dtt_sys_tz(), ...) {
   check_unused(...)
   check_string(tz)
-  as.POSIXct(paste(format(x, "%Y-%m-%d"), "00:00:00"), tz = tz)
+  x <- format(x, "%Y-%m-%d")
+  is_na <- is.na(x)
+  x[is_na] <- "2000-01-01"
+  x <- as.POSIXct(paste(x, "00:00:00"), tz = tz)
+  is.na(x[is_na]) <- TRUE
+  x
 }
 
 #' @export
