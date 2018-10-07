@@ -2,9 +2,12 @@
 % Please edit documentation in R/units.R
 \name{dtt_months}
 \alias{dtt_months}
+\alias{dtt_month}
 \title{Get Months}
 \usage{
 dtt_months(x, ...)
+
+dtt_month(x)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

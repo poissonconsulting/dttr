@@ -2,9 +2,12 @@
 % Please edit documentation in R/units.R
 \name{dtt_minutes}
 \alias{dtt_minutes}
+\alias{dtt_minute}
 \title{Get Minutes}
 \usage{
 dtt_minutes(x, ...)
+
+dtt_minute(x)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

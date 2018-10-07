@@ -2,9 +2,12 @@
 % Please edit documentation in R/units.R
 \name{dtt_days}
 \alias{dtt_days}
+\alias{dtt_day}
 \title{Get Days}
 \usage{
 dtt_days(x, ...)
+
+dtt_day(x)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

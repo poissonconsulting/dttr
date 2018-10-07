@@ -2,9 +2,12 @@
 % Please edit documentation in R/units.R
 \name{dtt_seconds}
 \alias{dtt_seconds}
+\alias{dtt_second}
 \title{Get Seconds}
 \usage{
 dtt_seconds(x, ...)
+
+dtt_second(x)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

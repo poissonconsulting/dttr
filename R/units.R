@@ -26,6 +26,11 @@ dtt_seconds <- function(x, ...) {
   UseMethod("dtt_seconds")
 }
 
+#' @rdname dtt_seconds
+#' @export
+dtt_second <- function(x)
+  dtt_seconds(x)
+
 #' Set Seconds
 #'
 #' @param x A POSIXct vector.
@@ -47,6 +52,11 @@ dtt_seconds <- function(x, ...) {
 dtt_minutes <- function(x, ...) {
   UseMethod("dtt_minutes")
 }
+
+#' @rdname dtt_minutes
+#' @export
+dtt_minute <- function(x)
+  dtt_minutes(x)
 
 #' Set Minutes
 #'
@@ -70,6 +80,11 @@ dtt_hours <- function(x, ...) {
   UseMethod("dtt_hours")
 }
 
+#' @rdname dtt_hours
+#' @export
+dtt_hour <- function(x)
+  dtt_hours(x)
+
 #' Set Hours
 #'
 #' @param x A POSIXct vector.
@@ -91,6 +106,11 @@ dtt_hours <- function(x, ...) {
 dtt_days <- function(x, ...) {
   UseMethod("dtt_days")
 }
+
+#' @rdname dtt_days
+#' @export
+dtt_day <- function(x)
+  dtt_days(x)
 
 #' Set Days
 #'
@@ -114,6 +134,11 @@ dtt_months <- function(x, ...) {
   UseMethod("dtt_months")
 }
 
+#' @rdname dtt_months
+#' @export
+dtt_month <- function(x)
+  dtt_months(x)
+
 #' Set Months
 #'
 #' @param x A POSIXct vector.
@@ -135,6 +160,11 @@ dtt_months <- function(x, ...) {
 dtt_years <- function(x, ...) {
   UseMethod("dtt_years")
 }
+
+#' @rdname dtt_years
+#' @export
+dtt_year <- function(x)
+  dtt_years(x)
 
 #' Set Years
 #'

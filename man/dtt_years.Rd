@@ -2,9 +2,12 @@
 % Please edit documentation in R/units.R
 \name{dtt_years}
 \alias{dtt_years}
+\alias{dtt_year}
 \title{Get Years}
 \usage{
 dtt_years(x, ...)
+
+dtt_year(x)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
