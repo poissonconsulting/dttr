@@ -4,7 +4,7 @@
 \alias{dtt_date_time}
 \title{Date}
 \usage{
-dtt_date_time(x, tz = dtt_tz(x), ...)
+dtt_date_time(x, tz = dtt_sys_tz(), ...)
 }
 \arguments{
 \item{x}{A Date vector.}

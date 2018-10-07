@@ -1,6 +1,6 @@
 Package: dttr
 Title: Manipulate Date and POSIXct Vectors
-Version: 0.0.0.9002
+Version: 0.0.0.9003
 Date: 2018-10-07
 Authors@R: 
     person("Joe",

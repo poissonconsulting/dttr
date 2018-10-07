@@ -4,7 +4,7 @@
 \alias{dtt_dayte_time}
 \title{Dayte Time}
 \usage{
-dtt_dayte_time(x, tz = dtt_tz(x), ...)
+dtt_dayte_time(x, tz = dtt_sys_tz(), ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

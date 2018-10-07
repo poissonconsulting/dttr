@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Units — dtt_floor • dttr</title>
+<title>Date — dtt_date_time • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get Units — dtt_floor" />
+<meta property="og:title" content="Date — dtt_date_time" />
 
-<meta property="og:description" content="The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'." />
+<meta property="og:description" content="Date" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,29 +92,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Units</h1>
+    <h1>Date</h1>
     
-    <div class="hidden name"><code>dtt_floor.Rd</code></div>
+    <div class="hidden name"><code>dtt_date_time.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.</p>
+    <p>Date</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_floor</span>(<span class='no'>x</span>, <span class='no'>units</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_date_time</span>(<span class='no'>x</span>, <span class='kw'>tz</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_sys_tz.html'>dtt_sys_tz</a></span>(), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A Date or POSIXct vector.</p></td>
+      <td><p>A Date vector.</p></td>
     </tr>
     <tr>
-      <th>units</th>
-      <td><p>A string of the units to floor by.</p></td>
+      <th>tz</th>
+      <td><p>A string of the time zone.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -124,11 +124,11 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The floored Date or POSIXct vector.</p>
+    <p>A DateTime vector.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dtt_floor</span>(<span class='fu'>Sys.time</span>(), <span class='st'>"hours"</span>)</div><div class='output co'>#&gt; [1] "2018-10-07 14:00:00 PDT"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='dtt_dayte_time.html'>dtt_dayte_time</a></span>(<span class='fu'>Sys.Date</span>())</div><div class='output co'>#&gt; [1] "1972-10-07 PDT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
