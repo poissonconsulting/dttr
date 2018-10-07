@@ -40,6 +40,21 @@ dtt_doy <- function(x, ...) {
   UseMethod("dtt_doy")
 }
 
+#' Date
+#'
+#' @param x A Date vector.
+#' @param tz A string of the time zone.
+#' @param ... Unused.
+#'
+#' @return A DateTime vector.
+#' @export
+#'
+#' @examples
+#' dtt_dayte_time(Sys.Date())
+dtt_date_time <- function(x, tz = dtt_tz(x), ...) {
+  UseMethod("dtt_date_time")
+}
+
 #' Dayte Time
 #'
 #' @param x A Date or POSIXct vector.
@@ -50,8 +65,9 @@ dtt_doy <- function(x, ...) {
 #' @export
 #'
 #' @examples
+#' dtt_dayte_time(Sys.Date())
 #' dtt_dayte_time(Sys.time())
-dtt_dayte_time <- function(x, tz, ...) {
+dtt_dayte_time <- function(x, tz = dtt_tz(x), ...) {
   UseMethod("dtt_dayte_time")
 }
 
@@ -77,9 +93,7 @@ dtt_dayte.Date <- function(x, ...) {
 #' @export
 dtt_dayte.POSIXct <- function(x, ...) {
   check_unused(...)
-  x <- dtt_date(x)
-  dtt_years(x) <- 1972L
-  x
+  dtt_dayte(dtt_date(x))
 }
 
 #' @export
@@ -95,8 +109,33 @@ dtt_doy.POSIXct <- function(x, ...) {
 }
 
 #' @export
-dtt_dayte_time.POSIXct <- function(x, ...) {
+dtt_date_time.Date <- function(x, tz = dtt_tz(x), ...) {
   check_unused(...)
+  check_string(tz)
+  as.POSIXct(paste(format(x, "%Y-%m-%d"), "00:00:00"), tz = tz)
+}
+
+#' @export
+dtt_date_time.POSIXct <- function(x, tz = dtt_tz(x), ...) {
+  check_unused(...)
+  check_string(tz)
+  if(dtt_tz(x) != tz) err("time zone conversion not yet implemented")
+  dtt_floor(x, units = "seconds")
+}
+
+#' @export
+dtt_dayte_time.Date <- function(x, tz = dtt_tz(x), ...) {
+  check_unused(...)
+  x <- dtt_date_time(x, tz = tz)
+  dtt_dayte_time(x)
+}
+
+#' @export
+dtt_dayte_time.POSIXct <- function(x, tz = dtt_tz(x), ...) {
+  check_unused(...)
+  check_string(tz)
+  if(dtt_tz(x) != tz) err("time zone conversion not yet implemented")
   dtt_years(x) <- 1972L
+  dtt_floor(x, units = "seconds")
   x
 }
