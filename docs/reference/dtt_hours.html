@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Hours — dtt_hours • dttr</title>
+<title>Get and Set Hours — dtt_hours • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get Hours — dtt_hours" />
+<meta property="og:title" content="Get and Set Hours — dtt_hours" />
 
-<meta property="og:description" content="Get Hours" />
+<meta property="og:description" content="Get and Set Hours" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,18 +92,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Hours</h1>
+    <h1>Get and Set Hours</h1>
     
     <div class="hidden name"><code>dtt_hours.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get Hours</p>
+    <p>Get and Set Hours</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_hours</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_hours</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>dtt_hour</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>dtt_hours</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+
+<span class='fu'>dtt_hour</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -115,6 +121,10 @@
     <tr>
       <th>...</th>
       <td><p>Unused.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>A numeric vector of the hour value(s).</p></td>
     </tr>
     </table>
     

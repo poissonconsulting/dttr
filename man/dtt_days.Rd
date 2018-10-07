@@ -3,22 +3,30 @@
 \name{dtt_days}
 \alias{dtt_days}
 \alias{dtt_day}
-\title{Get Days}
+\alias{dtt_days<-}
+\alias{dtt_day<-}
+\title{Get and Set Days}
 \usage{
 dtt_days(x, ...)
 
-dtt_day(x)
+dtt_day(x, ...)
+
+dtt_days(x) <- value
+
+dtt_day(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the day value(s).}
 }
 \value{
 An integer vector.
 }
 \description{
-Get Days
+Get and Set Days
 }
 \examples{
 dtt_days(Sys.time())

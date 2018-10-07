@@ -74,7 +74,7 @@ test_that("set 1", {
   dtt_seconds(date_times_na) <- 30L
   expect_identical(dtt_seconds(date_times_na), c(30L, NA, 30L))
 
-  dtt_minutes(date_times_na) <- 29L
+  dtt_minute(date_times_na) <- 29L
   expect_identical(dtt_minutes(date_times_na), c(29L, NA, 29L))
   
   dtt_hours(date_times_na) <- 22L
@@ -86,13 +86,13 @@ test_that("set 1", {
   dtt_days(dates_na) <- 28L
   expect_identical(dtt_days(date_times_na), c(28L, NA, 28L))
   
-  dtt_months(date_times_na) <- 10L
+  dtt_month(date_times_na) <- 10L
   expect_identical(dtt_months(date_times_na), c(10L, NA, 10L))
   
   dtt_months(dates_na) <- 10L
   expect_identical(dtt_months(dates_na), c(10L, NA, 10L))
   
-  dtt_years(date_times_na) <- 1L
+  dtt_year(date_times_na) <- 1L
   expect_identical(dtt_years(date_times_na), c(1L, NA, 1L))
   
   dtt_years(dates_na) <- 1L
@@ -102,11 +102,11 @@ test_that("set 1", {
     c("0001-10-28 22:29:30", NA, "0001-10-28 22:29:30"), tz = "Etc/GMT+8"))
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0001-10-28")))
   
-  dtt_years(dates_na) <- c(1L, 2L, 3L)
+  dtt_year(dates_na) <- c(1L, 2L, 3L)
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
-  dtt_months(dates_na) <- c(2L, 3L, 4L)
+  dtt_month(dates_na) <- c(2L, 3L, 4L)
   expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))
-  dtt_days(dates_na) <- c(5L, 6L, 7L)
+  dtt_day(dates_na) <- c(5L, 6L, 7L)
   expect_identical(dates_na, as.Date(c("0001-02-05", NA, "0003-04-07")))
 })
 

@@ -3,22 +3,30 @@
 \name{dtt_seconds}
 \alias{dtt_seconds}
 \alias{dtt_second}
-\title{Get Seconds}
+\alias{dtt_seconds<-}
+\alias{dtt_second<-}
+\title{Get and Set Seconds}
 \usage{
 dtt_seconds(x, ...)
 
-dtt_second(x)
+dtt_second(x, ...)
+
+dtt_seconds(x) <- value
+
+dtt_second(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the second value(s).}
 }
 \value{
 An integer vector.
 }
 \description{
-Get Seconds
+Get and Set Seconds
 }
 \examples{
 dtt_seconds(Sys.time())

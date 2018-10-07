@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get Seconds — dtt_seconds • dttr</title>
+<title>Get and Set Seconds — dtt_seconds • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Get Seconds — dtt_seconds" />
+<meta property="og:title" content="Get and Set Seconds — dtt_seconds" />
 
-<meta property="og:description" content="Get Seconds" />
+<meta property="og:description" content="Get and Set Seconds" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,18 +92,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get Seconds</h1>
+    <h1>Get and Set Seconds</h1>
     
     <div class="hidden name"><code>dtt_seconds.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Get Seconds</p>
+    <p>Get and Set Seconds</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_seconds</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_seconds</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>dtt_second</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>dtt_seconds</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+
+<span class='fu'>dtt_second</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -116,6 +122,10 @@
       <th>...</th>
       <td><p>Unused.</p></td>
     </tr>
+    <tr>
+      <th>value</th>
+      <td><p>A numeric vector of the second value(s).</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -124,7 +134,7 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dtt_seconds</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] 57</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dtt_seconds</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] 27</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

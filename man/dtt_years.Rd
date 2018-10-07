@@ -3,16 +3,24 @@
 \name{dtt_years}
 \alias{dtt_years}
 \alias{dtt_year}
+\alias{dtt_years<-}
+\alias{dtt_year<-}
 \title{Get Years}
 \usage{
 dtt_years(x, ...)
 
-dtt_year(x)
+dtt_year(x, ...)
+
+dtt_years(x) <- value
+
+dtt_year(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the years value(s).}
 }
 \value{
 An integer vector.

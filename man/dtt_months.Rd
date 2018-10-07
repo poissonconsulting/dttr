@@ -3,22 +3,30 @@
 \name{dtt_months}
 \alias{dtt_months}
 \alias{dtt_month}
-\title{Get Months}
+\alias{dtt_months<-}
+\alias{dtt_month<-}
+\title{Get and Set Months}
 \usage{
 dtt_months(x, ...)
 
-dtt_month(x)
+dtt_month(x, ...)
+
+dtt_months(x) <- value
+
+dtt_month(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the month value(s).}
 }
 \value{
 An integer vector.
 }
 \description{
-Get Months
+Get and Set Months
 }
 \examples{
 dtt_months(Sys.time())

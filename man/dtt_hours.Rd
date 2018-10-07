@@ -3,22 +3,30 @@
 \name{dtt_hours}
 \alias{dtt_hours}
 \alias{dtt_hour}
-\title{Get Hours}
+\alias{dtt_hours<-}
+\alias{dtt_hour<-}
+\title{Get and Set Hours}
 \usage{
 dtt_hours(x, ...)
 
-dtt_hour(x)
+dtt_hour(x, ...)
+
+dtt_hours(x) <- value
+
+dtt_hour(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the hour value(s).}
 }
 \value{
 An integer vector.
 }
 \description{
-Get Hours
+Get and Set Hours
 }
 \examples{
 dtt_hours(Sys.time())

@@ -13,9 +13,10 @@ dtt_units <- function(x, ...) {
   UseMethod("dtt_units")
 }
 
-#' Get Seconds
+#' Get and Set Seconds
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the second value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -28,21 +29,26 @@ dtt_seconds <- function(x, ...) {
 
 #' @rdname dtt_seconds
 #' @export
-dtt_second <- function(x)
-  dtt_seconds(x)
+dtt_second <- function(x, ...) {
+  UseMethod("dtt_seconds")
+}
 
-#' Set Seconds
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the seconds.
+#' @rdname dtt_seconds
 #' @export
 `dtt_seconds<-` <- function(x, value) {
   UseMethod("dtt_seconds<-")
 }
 
-#' Get Minutes
+#' @rdname dtt_seconds
+#' @export
+`dtt_second<-` <- function(x, value) {
+  UseMethod("dtt_seconds<-")
+}
+
+#' Get and Set Minutes
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the minute value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -55,21 +61,26 @@ dtt_minutes <- function(x, ...) {
 
 #' @rdname dtt_minutes
 #' @export
-dtt_minute <- function(x)
-  dtt_minutes(x)
+dtt_minute <- function(x, ...) {
+  UseMethod("dtt_minutes")
+}
 
-#' Set Minutes
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the minutes.
+#' @rdname dtt_minutes
 #' @export
 `dtt_minutes<-` <- function(x, value) {
   UseMethod("dtt_minutes<-")
 }
 
-#' Get Hours
+#' @rdname dtt_minutes
+#' @export
+`dtt_minute<-` <- function(x, value) {
+  UseMethod("dtt_minutes<-")
+}
+
+#' Get and Set Hours
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the hour value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -82,21 +93,26 @@ dtt_hours <- function(x, ...) {
 
 #' @rdname dtt_hours
 #' @export
-dtt_hour <- function(x)
-  dtt_hours(x)
+dtt_hour <- function(x, ...) {
+  UseMethod("dtt_hours")
+}
 
-#' Set Hours
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the hours.
+#' @rdname dtt_hours
 #' @export
 `dtt_hours<-` <- function(x, value) {
   UseMethod("dtt_hours<-")
 }
 
-#' Get Days
+#' @rdname dtt_hours
+#' @export
+`dtt_hour<-` <- function(x, value) {
+  UseMethod("dtt_hours<-")
+}
+
+#' Get and Set Days
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the day value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -109,21 +125,26 @@ dtt_days <- function(x, ...) {
 
 #' @rdname dtt_days
 #' @export
-dtt_day <- function(x)
-  dtt_days(x)
+dtt_day <- function(x, ...) {
+  UseMethod("dtt_days")
+}
 
-#' Set Days
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the days
+#' @rdname dtt_days
 #' @export
 `dtt_days<-` <- function(x, value) {
   UseMethod("dtt_days<-")
 }
 
-#' Get Months
+#' @rdname dtt_days
+#' @export
+`dtt_day<-` <- function(x, value) {
+  UseMethod("dtt_days<-")
+}
+
+#' Get and Set Months
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the month value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -136,21 +157,26 @@ dtt_months <- function(x, ...) {
 
 #' @rdname dtt_months
 #' @export
-dtt_month <- function(x)
-  dtt_months(x)
+dtt_month <- function(x, ...) {
+  UseMethod("dtt_months")
+}
 
-#' Set Months
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the months
+#' @rdname dtt_months
 #' @export
 `dtt_months<-` <- function(x, value) {
+  UseMethod("dtt_months<-")
+}
+
+#' @rdname dtt_months
+#' @export
+`dtt_month<-` <- function(x, value) {
   UseMethod("dtt_months<-")
 }
 
 #' Get Years
 #'
 #' @param x A Date or POSIXct vector.
+#' @param value A numeric vector of the years value(s).
 #' @param ... Unused.
 #' @return An integer vector.
 #' @export
@@ -163,15 +189,19 @@ dtt_years <- function(x, ...) {
 
 #' @rdname dtt_years
 #' @export
-dtt_year <- function(x)
-  dtt_years(x)
+dtt_year <- function(x, ...) {
+  UseMethod("dtt_years")
+}
 
-#' Set Years
-#'
-#' @param x A POSIXct vector.
-#' @param value An integer of the years
+#' @rdname dtt_years
 #' @export
 `dtt_years<-` <- function(x, value) {
+  UseMethod("dtt_years<-")
+}
+
+#' @rdname dtt_years
+#' @export
+`dtt_year<-` <- function(x, value) {
   UseMethod("dtt_years<-")
 }
 

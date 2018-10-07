@@ -3,22 +3,30 @@
 \name{dtt_minutes}
 \alias{dtt_minutes}
 \alias{dtt_minute}
-\title{Get Minutes}
+\alias{dtt_minutes<-}
+\alias{dtt_minute<-}
+\title{Get and Set Minutes}
 \usage{
 dtt_minutes(x, ...)
 
-dtt_minute(x)
+dtt_minute(x, ...)
+
+dtt_minutes(x) <- value
+
+dtt_minute(x) <- value
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
 \item{...}{Unused.}
+
+\item{value}{A numeric vector of the minute value(s).}
 }
 \value{
 An integer vector.
 }
 \description{
-Get Minutes
+Get and Set Minutes
 }
 \examples{
 dtt_minutes(Sys.time())
