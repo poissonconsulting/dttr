@@ -183,7 +183,7 @@ dtt_seconds.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_seconds<-.POSIXct` <- function(x, value) {
-  check_scalar(value, c(0L, 59L))
+  check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$sec <- value
@@ -201,7 +201,7 @@ dtt_minutes.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_minutes<-.POSIXct` <- function(x, value) {
-  check_scalar(value, c(0L, 59L))
+  check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$min <- value
@@ -219,7 +219,7 @@ dtt_hours.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_hours<-.POSIXct` <- function(x, value) {
-  check_scalar(value, c(0L, 23L))
+  check_vector(value, c(0L, 23L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$hour <- value
@@ -237,17 +237,21 @@ dtt_days.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_days<-.Date` <- function(x, value) {
-  check_scalar(value, c(1L, 31L))
+  check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   value <- sprintf("%02d", value)
   x <- format(x, "%Y-%m-%d")
-  x <- sub("^(\\d{4,4}-\\d{2,2}-)(\\d{2,2})$", paste0("\\1", value), x)
+  if(identical(length(value), 1L)) {
+    x <- sub_day(x, value)
+  } else {
+    x <- mapply(sub_day, x, value)
+  }
   as.Date(x)
 }
 
 #' @export
 `dtt_days<-.POSIXct` <- function(x, value) {
-  check_scalar(value, c(0L, 31L))
+  check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$mday <- value
@@ -265,17 +269,21 @@ dtt_months.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_months<-.Date` <- function(x, value) {
-  check_scalar(value, c(1L, 12L))
+  check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   value <- sprintf("%02d", value)
   x <- format(x, "%Y-%m-%d")
-  x <- sub("^(\\d{4,4}-)(\\d{2,2})(-\\d{2,2})$", paste0("\\1", value, "\\3"), x)
+  if(identical(length(value), 1L)) {
+    x <- sub_month(x, value)
+  } else {
+    x <- mapply(sub_month, x, value)
+  }
   as.Date(x)
 }
 
 #' @export
 `dtt_months<-.POSIXct` <- function(x, value) {
-  check_scalar(value, c(0L, 12L))
+  check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$mon <- value - 1L
@@ -293,17 +301,21 @@ dtt_years.POSIXct <- function(x, ...) {
 
 #' @export
 `dtt_years<-.Date` <- function(x, value) {
-  check_scalar(value, c(1L, 2999L))
+  check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   value <- sprintf("%04d", value)
   x <- format(x, "%Y-%m-%d")
-  x <- sub("^(\\d{4,4})(-\\d{2,2}-\\d{2,2})$", paste0(value, "\\2"), x)
+  if(identical(length(value), 1L)) {
+    x <- sub_year(x, value)
+  } else {
+    x <- mapply(sub_year, x, value)
+  }
   as.Date(x)
 }
 
 #' @export
 `dtt_years<-.POSIXct` <- function(x, value) {
-  check_scalar(value, 1L)
+  check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- as.POSIXlt(x)
   x$year <- value - 1900L
