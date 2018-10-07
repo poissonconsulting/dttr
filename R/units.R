@@ -299,12 +299,10 @@ dtt_days.POSIXct <- function(x, ...) {
 `dtt_days<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  if(identical(length(value), 1L)) {
-    x <- sub_day(x, value)
-  } else {
-    x <- mapply(sub_day, x, value)
-  }
-  as.Date(x)
+  if(identical(length(value), 1L)) return(sub_day(x, value))
+  x <- mapply(sub_day, x, value)
+  class(x) <- "Date"
+  x
 }
 
 #' @export
@@ -329,12 +327,10 @@ dtt_months.POSIXct <- function(x, ...) {
 `dtt_months<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  if(identical(length(value), 1L)) {
-    x <- sub_month(x, value)
-  } else {
-    x <- mapply(sub_month, x, value)
-  }
-  as.Date(x)
+  if(identical(length(value), 1L)) return(sub_month(x, value))
+  x <- mapply(sub_month, x, value)
+  class(x) <- "Date"
+  x
 }
 
 #' @export
@@ -359,12 +355,10 @@ dtt_years.POSIXct <- function(x, ...) {
 `dtt_years<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  if(identical(length(value), 1L)) {
-    x <- sub_year(x, value)
-  } else {
-    x <- mapply(sub_year, x, value)
-  }
-  as.Date(x)
+  if(identical(length(value), 1L)) return(sub_year(x, value))
+  x <- mapply(sub_year, x, value)
+  class(x) <- "Date"
+  x
 }
 
 #' @export

@@ -35,7 +35,7 @@ To install the latest development version from the Poisson drat
 To cite package 'dttr' in publications use:
 
   Joe Thorley (2018). dttr: Manipulate Date and POSIXct Vectors. R
-  package version 0.0.0.9004.
+  package version 0.0.0.9005.
 
 A BibTeX entry for LaTeX users is
 
@@ -43,7 +43,7 @@ A BibTeX entry for LaTeX users is
     title = {dttr: Manipulate Date and POSIXct Vectors},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9004},
+    note = {R package version 0.0.0.9005},
   }
 ```
 
@@ -57,4 +57,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.
