@@ -104,10 +104,10 @@ test_that("set 1", {
   
   dtt_years(dates_na) <- c(1L, 2L, 3L)
 #  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0001-10-28")))
-  expect_identical(dates_na[1], as.Date(c("0001-10-28")))
-  expect_identical(dates_na[2], as.Date(NA))
-  expect_identical(dates_na[3], as.Date("0001-10-28"))
-  expect_identical(dates_na[3], as.Date("0003-10-28"))
+  expect_identical(dates_na[1], "0001-10-28")
+  expect_identical(dates_na[2], NA_character_)
+  expect_identical(dates_na[3], "0001-10-28")
+  expect_identical(dates_na[3], "0003-10-28")
 
 #  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
 #  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
