@@ -108,8 +108,11 @@ test_that("set 1", {
   expect_is(dates_na, "integer")
   expect_is(dates_na, "numeric")
   expect_is(dates_na, "character")
+  expect_is(dates_na, "Date")
   expect_identical(length(dates_na), 3L)
   
+  expect_identical(dates_na[1], as.Date(c("0001-10-28")))
+  expect_identical(dates_na[3], as.Date("0003-10-28"))
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
 #  dtt_months(dates_na) <- c(2L, 3L, 4L)
 #  expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))
