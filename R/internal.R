@@ -11,16 +11,13 @@ dtt_units2by <- function(x) {
 }
 
 sub_year <- function(x, value) {
-  value <- sprintf("%04d", value)
   sub("^(\\d{4,4})(-\\d{2,2}-\\d{2,2})$", paste0(value, "\\2"), x)
 }
 
 sub_month <- function(x, value) {
-  value <- sprintf("%02d", value)
   sub("^(\\d{4,4}-)(\\d{2,2})(-\\d{2,2})$", paste0("\\1", value, "\\3"), x)
 }
 
 sub_day <- function(x, value) {
-  value <- sprintf("%02d", value)
   sub("^(\\d{4,4}-\\d{2,2}-)(\\d{2,2})$", paste0("\\1", value), x)
 }

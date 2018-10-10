@@ -104,17 +104,11 @@ test_that("set 1", {
   
   dtt_years(dates_na) <- c(1L, 2L, 3L)
 #  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0001-10-28")))
-  expect_identical(dates_na[1], "0001-10-28")
-  expect_identical(dates_na[2], NA_character_)
-  expect_identical(dates_na[3], "0001-10-28")
-  expect_identical(dates_na[3], "0003-10-28")
-
-#  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
-#  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
-#  dtt_months(dates_na) <- c(2L, 3L, 4L)
-#  expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))
-#  dtt_days(dates_na) <- c(5L, 6L, 7L)
-#  expect_identical(dates_na, as.Date(c("0001-02-05", NA, "0003-04-07")))
+  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
+  dtt_months(dates_na) <- c(2L, 3L, 4L)
+  expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))
+  dtt_days(dates_na) <- c(5L, 6L, 7L)
+  expect_identical(dates_na, as.Date(c("0001-02-05", NA, "0003-04-07")))
 })
 
 test_that("units", {

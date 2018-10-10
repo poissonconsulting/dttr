@@ -355,7 +355,7 @@ dtt_years.POSIXct <- function(x, ...) {
   if(!length(x)) return(x)
   x <- format(x, "%Y-%m-%d")
   if(identical(length(value), 1L)) return(dtt_date(sub_year(x, value)))
-  mapply(FUN = sub_year, x, value, USE.NAMES = FALSE)
+  dtt_date(mapply(FUN = sub_year, x, value))
 }
 
 #' @export
