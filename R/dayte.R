@@ -26,20 +26,6 @@ dtt_dayte <- function(x, ...) {
   UseMethod("dtt_dayte")
 }
 
-#' Doy
-#'
-#' @param x A Date or POSIXct vector.
-#' @param ... Unused.
-#'
-#' @return A integer vector between 1 and 366 of the day of the year.
-#' @export
-#'
-#' @examples
-#' dtt_doy(Sys.Date())
-dtt_doy <- function(x, ...) {
-  UseMethod("dtt_doy")
-}
-
 #' Date
 #'
 #' @param x A Date vector.
@@ -100,18 +86,6 @@ dtt_dayte.Date <- function(x, ...) {
 dtt_dayte.POSIXct <- function(x, ...) {
   check_unused(...)
   dtt_dayte(dtt_date(x))
-}
-
-#' @export
-dtt_doy.Date <- function(x, ...) {
-  check_unused(...)
-  as.integer(format(x, "%j"))
-}
-
-#' @export
-dtt_doy.POSIXct <- function(x, ...) {
-  check_unused(...)
-  dtt_doy(dtt_date(x))
 }
 
 #' @export
