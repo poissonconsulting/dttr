@@ -13,7 +13,17 @@ test_that("tz.Date", {
   expect_identical(dtt_tz(dates), Sys.timezone())
 })
 
-test_that("tz.Date", {
+test_that("tz.POSIXct", {
   expect_identical(dtt_tz(Sys.time()), Sys.timezone())
   expect_identical(dtt_tz(date_times), "Etc/GMT+8")
+})
+
+test_that("adjust_tz.Date", {
+  expect_identical(dtt_adjust_tz(date_times[1], tz = "UTC"), 
+                   as.POSIXct("2000-01-01 08:00:00", tz = "UTC"))
+})
+
+test_that("set_tz.Date", {
+  expect_identical(dtt_set_tz(date_times[1], tz = "UTC"), 
+                   as.POSIXct("2000-01-01 00:00:00", tz = "UTC"))
 })

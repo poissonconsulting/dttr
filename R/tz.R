@@ -70,3 +70,51 @@ dtt_tz.POSIXct <- function(x, ...) {
   if(is.null(tz)) return(dtt_sys_tz())
   tz
 }
+
+#' Set Time Zone
+#' 
+#' Sets the time zone without adjusting the time.
+#'
+#' @param x A POSIXct vector.
+#' @param tz A string of the new time zone.
+#' @param ... Unused.
+#'
+#' @return The POSIXct vector with the new time zone.
+#' @export
+#'
+#' @examples
+#' dtt_set_tz(Sys.time(), tz = "UTC")
+dtt_set_tz <- function(x, tz = dtt_sys_tz(), ...) {
+  UseMethod("dtt_set_tz")
+}
+
+#' @export
+dtt_set_tz.POSIXct <- function(x, tz = dtt_sys_tz(), ...) {
+  check_string(tz)
+  dtt_date_time(format(x, format = "%Y-%m-%d %H:%M:%S", tz = dtt_tz(x)), tz = tz)
+}
+
+#' Adjust Time Zone
+#' 
+#' Adjust the time zone and time.
+#'
+#' @param x A POSIXct vector.
+#' @param tz A string of the new time zone.
+#' @param ... Unused.
+#'
+#' @return The POSIXct vector with the new time zone and time.
+#' @export
+#'
+#' @examples
+#' dtt_adjust_tz(Sys.time(), tz = "UTC")
+dtt_adjust_tz <- function(x, tz = dtt_sys_tz(), ...) {
+  UseMethod("dtt_adjust_tz")
+}
+
+#' @export
+dtt_adjust_tz.POSIXct <- function(x, tz = dtt_sys_tz(), ...) {
+  check_string(tz)
+  attr(x, "tzone") <- tz
+  x
+}
+

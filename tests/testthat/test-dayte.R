@@ -16,6 +16,8 @@ test_that("date_time", {
   expect_identical(dtt_date_time(dates), as.POSIXct(
     c(NA, "1899-12-31 00:00:00", "1972-04-29 00:00:00"), 
     format = "%Y-%m-%d %H:%M:%S", tz = Sys.timezone()))
+  
+  dtt_date_time("2001-01-01 00:00:00")
 })
 
 test_that("dayte", {
