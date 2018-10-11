@@ -13,6 +13,9 @@ status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.s
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+`dttr` is a light-weight R package to manipulate Date and POSIXct
+objects.
+
 ## Installation
 
 To install the latest development version from
@@ -35,7 +38,7 @@ To install the latest development version from the Poisson drat
 To cite package 'dttr' in publications use:
 
   Joe Thorley (2018). dttr: Manipulate Date and POSIXct Vectors. R
-  package version 0.0.0.9005.
+  package version 0.0.0.9007.
 
 A BibTeX entry for LaTeX users is
 
@@ -43,7 +46,7 @@ A BibTeX entry for LaTeX users is
     title = {dttr: Manipulate Date and POSIXct Vectors},
     author = {Joe Thorley},
     year = {2018},
-    note = {R package version 0.0.0.9005},
+    note = {R package version 0.0.0.9007},
   }
 ```
 

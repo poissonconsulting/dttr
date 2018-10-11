@@ -103,7 +103,6 @@ test_that("set 1", {
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0001-10-28")))
   
   dtt_years(dates_na) <- c(1L, 2L, 3L)
-#  expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0001-10-28")))
   expect_identical(dates_na, as.Date(c("0001-10-28", NA, "0003-10-28")))
   dtt_months(dates_na) <- c(2L, 3L, 4L)
   expect_identical(dates_na, as.Date(c("0001-02-28", NA, "0003-04-28")))

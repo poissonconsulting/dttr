@@ -1,5 +1,5 @@
 Package: dttr
-Title: Manipulate Date and POSIXct Vectors
+Title: Manipulate Date and POSIXct Objects
 Version: 0.0.0.9007
 Date: 2018-10-10
 Authors@R: 
@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "joe@poissonconsulting.ca",
            comment = c(ORCID = "0000-0002-7683-4592"))
-Description: Manipulates Date and POSIXct vectors.
+Description: A light-weight package to manipulate Date and POSIXct objects.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

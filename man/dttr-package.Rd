@@ -4,9 +4,9 @@
 \name{dttr-package}
 \alias{dttr}
 \alias{dttr-package}
-\title{dttr: Manipulate Date and POSIXct Vectors}
+\title{dttr: Manipulate Date and POSIXct Objects}
 \description{
-Manipulates Date and POSIXct vectors.
+A light-weight package to manipulate Date and POSIXct objects.
 }
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
