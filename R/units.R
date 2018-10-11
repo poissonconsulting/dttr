@@ -299,7 +299,7 @@ dtt_days.POSIXct <- function(x, ...) {
 `dtt_days<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- format(x, "%Y-%m-%d")
+  x <- format(x)
   if(identical(length(value), 1L)) return(dtt_date(sub_day(x, value)))
   dtt_date(mapply(sub_day, x, value))
 }
@@ -326,7 +326,7 @@ dtt_months.POSIXct <- function(x, ...) {
 `dtt_months<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- format(x, "%Y-%m-%d")
+  x <- format(x)
   if(identical(length(value), 1L)) return(dtt_date(sub_month(x, value)))
   dtt_date(mapply(sub_month, x, value))
 }
@@ -353,7 +353,7 @@ dtt_years.POSIXct <- function(x, ...) {
 `dtt_years<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- format(x, "%Y-%m-%d")
+  x <- format(x)
   if(identical(length(value), 1L)) return(dtt_date(sub_year(x, value)))
   dtt_date(mapply(FUN = sub_year, x, value))
 }

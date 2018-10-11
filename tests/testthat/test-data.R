@@ -7,5 +7,5 @@ test_that("dates", {
 test_that("date_times", {
   expect_identical(date_times, as.POSIXct(
     c("2000-01-01 00:00:00", "1899-12-31 23:59:59", "1972-06-30 23:59:59"), 
-    format = "%Y-%m-%d %H:%M:%S", tz = "Etc/GMT+8"))
+    tz = "Etc/GMT+8"))
 })

@@ -91,7 +91,7 @@ dtt_set_tz <- function(x, tz = dtt_sys_tz(), ...) {
 #' @export
 dtt_set_tz.POSIXct <- function(x, tz = dtt_sys_tz(), ...) {
   check_string(tz)
-  dtt_date_time(format(x, format = "%Y-%m-%d %H:%M:%S", tz = dtt_tz(x)), tz = tz)
+  dtt_date_time(format(x, tz = dtt_tz(x)), tz = tz)
 }
 
 #' Adjust Time Zone
