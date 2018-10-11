@@ -1,0 +1,24 @@
+context("season")
+
+test_that("dtt_season", {
+  dates <- as.Date(c(
+    "2001-01-01", "2011-05-30", "2001-02-28", "2011-03-01", "2013-06-01",
+    "2012-09-01", "2012-12-31", NA))
+
+  expect_identical(dtt_season(dates),
+    ordered(c("Winter", "Spring", "Winter", "Spring", "Summer", "Autumn", "Winter", NA),
+    levels = c("Winter", "Spring", "Summer", "Autumn")))
+
+  expect_identical(dtt_season(dates,
+    seasons = c(Spring = 1L, Summer = 6L, Autumn = 8L, Winter = 11L)),
+    ordered(c("Spring", "Spring", "Spring", "Spring", "Summer", "Autumn", "Winter", NA),
+    levels = c("Spring", "Summer", "Autumn", "Winter")))
+
+  expect_identical(dtt_season(dates,
+    seasons = c(Monsoon = 2L, `Dry Period` = 6L)),
+    ordered(c("Dry Period", "Monsoon", "Monsoon", "Monsoon", "Dry Period", "Dry Period", "Dry Period", NA),
+    levels = c("Dry Period", "Monsoon")))
+
+  expect_length(dtt_season(dates[1][-1]), 0)
+  expect_is(dtt_season(dates[1][-1]), "ordered")
+})
