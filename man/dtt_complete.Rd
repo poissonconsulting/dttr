@@ -4,17 +4,21 @@
 \alias{dtt_complete}
 \title{Complete}
 \usage{
-dtt_complete(x, units, ...)
+dtt_complete(x, unique = TRUE, sort = TRUE, units, ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
+
+\item{unique}{A flag indicating whether the returned vector must be unique.}
+
+\item{sort}{A flag indicating whether the returned vector must be sorted.}
 
 \item{units}{A string of the units.}
 
 \item{...}{Unused.}
 }
 \value{
-A flag indicating whether complete.
+The complete and possibly unique and sorted vector.
 }
 \description{
 Completes a Date or POSIXct vector.

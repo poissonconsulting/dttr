@@ -1,7 +1,7 @@
 Package: dttr
 Title: Manipulate Date and POSIXct Objects
-Version: 0.0.0.9008
-Date: 2018-10-11
+Version: 0.0.0.9009
+Date: 2018-10-12
 Authors@R: 
     person("Joe",
            family = "Thorley",

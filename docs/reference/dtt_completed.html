@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dttr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9008</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9009</span>
       </span>
     </div>
 
@@ -103,7 +103,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_completed</span>(<span class='no'>x</span>, <span class='no'>units</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_completed</span>(<span class='no'>x</span>, <span class='no'>unique</span>, <span class='no'>sorted</span>, <span class='no'>units</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -111,6 +111,14 @@
     <tr>
       <th>x</th>
       <td><p>A Date or POSIXct vector</p></td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td><p>A flag indicating whether the floored values must be unique.</p></td>
+    </tr>
+    <tr>
+      <th>sorted</th>
+      <td><p>A flag indicating whether the floored values must be sorted.</p></td>
     </tr>
     <tr>
       <th>units</th>
