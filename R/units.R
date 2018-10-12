@@ -207,7 +207,8 @@ dtt_year <- function(x, ...) {
 
 #' @export
 dtt_units.Date <- function(x, ...) {
-  if(!length(x) || anyNA(x)) return(NA_character_)
+  x <- x[!is.na(x)]
+  if(!length(x)) return("days")
 
   if(any(dtt_days(x) != 1L)) return("days")
   if(any(dtt_months(x) != 1L)) return("months")
@@ -216,7 +217,8 @@ dtt_units.Date <- function(x, ...) {
 
 #' @export
 dtt_units.POSIXct <- function(x, ...) {
-  if(!length(x) || anyNA(x)) return(NA_character_)
+  x <- x[!is.na(x)]
+  if(!length(x)) return("seconds")
 
   if(any(dtt_seconds(x) != 0L)) return("seconds")
   if(any(dtt_minutes(x) != 0L)) return("minutes")

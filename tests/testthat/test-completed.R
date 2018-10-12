@@ -3,7 +3,7 @@ context("completed")
 test_that("completed.Date", {
   expect_false(dtt_completed(dates))
   expect_true(dtt_completed(dates[1]))
-  expect_error(dtt_completed(dates[integer(0)]), "units must not include missing values")
+  expect_true(dtt_completed(dates[integer(0)]))
   expect_true(dtt_completed(dates[integer(0)], units = "days"))
   expect_false(dtt_completed(as.Date(c("2001-01-02", "2001-01-01"))))
   expect_true(dtt_completed(as.Date(c("2001-01-02", "2001-01-01")), sorted = FALSE))
@@ -17,7 +17,7 @@ test_that("completed.Date", {
 test_that("completed.POSIXct", {
   expect_false(dtt_completed(date_times))
   expect_true(dtt_completed(date_times[1]))
-  expect_error(dtt_completed(date_times[integer(0)]), "units must not include missing values")
+  expect_true(dtt_completed(date_times[integer(0)]))
   expect_true(dtt_completed(date_times[integer(0)], units = "seconds"))
   expect_true(dtt_completed(date_times[integer(0)], units = "days"))
   expect_false(dtt_completed(as.POSIXct(c("2001-01-01 00:00:02", "2001-01-01 00:00:01"))))
