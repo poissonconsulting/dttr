@@ -13,24 +13,24 @@
 #'
 #' @examples
 #' dtt_completed(date_times)
-dtt_completed <- function(x, unique = TRUE, sorted = TRUE, floored = TRUE, 
+dtt_completed <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,  
                           units = dtt_units(x), ...) {
   UseMethod("dtt_completed")
 }
 
 #' @export
-dtt_completed.Date <- function(x, unique = TRUE, sorted = TRUE, floored = TRUE, 
+dtt_completed.Date <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,  
                                units = dtt_units(x), ...) {
+  check_flag(floored)
   check_flag(unique)
   check_flag(sorted)
-  check_flag(floored)
   check_string(units)
   check_unused(...)
 
   if(anyNA(x)) return(NA)
-  if(length(x) <= 1) return(TRUE)
   
   if(floored && !dtt_floored(x, units = units)) return(FALSE)
+  if(length(x) <= 1) return(TRUE)
   if(unique && anyDuplicated(x)) return(FALSE)
   if(sorted && is.unsorted(x)) return(FALSE)
   x <- dtt_floor(x, units)
@@ -41,18 +41,18 @@ dtt_completed.Date <- function(x, unique = TRUE, sorted = TRUE, floored = TRUE,
 }
 
 #' @export
-dtt_completed.POSIXct <- function(x, unique = TRUE, sorted = TRUE, floored = TRUE,
+dtt_completed.POSIXct <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE, 
                                   units = dtt_units(x), ...) {
+  check_flag(floored)
   check_flag(unique)
   check_flag(sorted)
-  check_flag(floored)
   check_string(units)
   check_unused(...)
   
   if(anyNA(x)) return(NA)
-  if(length(x) <= 1) return(TRUE)
   
   if(floored && !dtt_floored(x, units = units)) return(FALSE)
+  if(length(x) <= 1) return(TRUE)
   if(unique && anyDuplicated(x)) return(FALSE)
   if(sorted && is.unsorted(x)) return(FALSE)
   x <- dtt_floor(x, units)

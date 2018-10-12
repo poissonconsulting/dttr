@@ -4,17 +4,17 @@
 \alias{dtt_complete}
 \title{Complete}
 \usage{
-dtt_complete(x, unique = TRUE, sort = TRUE, floor = TRUE,
+dtt_complete(x, floor = TRUE, unique = TRUE, sort = TRUE,
   units = dtt_units(x), ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
-\item{unique}{A flag indicating whether the returned vector must be unique.}
+\item{floor}{A flag indicating whether to floor the values.}
+
+\item{unique}{A flag indicating whether to return distinct values.}
 
 \item{sort}{A flag indicating whether the returned vector must be sorted.}
-
-\item{floor}{A flag indicating whether to floor the values.}
 
 \item{units}{A string of the units.}
 

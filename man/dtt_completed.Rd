@@ -4,17 +4,17 @@
 \alias{dtt_completed}
 \title{Completed}
 \usage{
-dtt_completed(x, unique = TRUE, sorted = TRUE, floored = TRUE,
+dtt_completed(x, floored = TRUE, unique = TRUE, sorted = TRUE,
   units = dtt_units(x), ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector}
 
+\item{floored}{A flag indicating whether the values must be floored.}
+
 \item{unique}{A flag indicating whether the values must be unique.}
 
 \item{sorted}{A flag indicating whether the values must be sorted.}
-
-\item{floored}{A flag indicating whether the values must be floored.}
 
 \item{units}{A string of the units.}
 

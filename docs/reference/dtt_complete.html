@@ -103,7 +103,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -114,16 +114,16 @@
       <td><p>A Date or POSIXct vector.</p></td>
     </tr>
     <tr>
+      <th>floor</th>
+      <td><p>A flag indicating whether to floor the values.</p></td>
+    </tr>
+    <tr>
       <th>unique</th>
-      <td><p>A flag indicating whether the returned vector must be unique.</p></td>
+      <td><p>A flag indicating whether to return distinct values.</p></td>
     </tr>
     <tr>
       <th>sort</th>
       <td><p>A flag indicating whether the returned vector must be sorted.</p></td>
-    </tr>
-    <tr>
-      <th>floor</th>
-      <td><p>A flag indicating whether to floor the values.</p></td>
     </tr>
     <tr>
       <th>units</th>

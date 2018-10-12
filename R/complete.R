@@ -3,9 +3,9 @@
 #' Completes a Date or POSIXct vector.
 #'
 #' @param x A Date or POSIXct vector.
-#' @param sort A flag indicating whether the returned vector must be sorted.
-#' @param unique A flag indicating whether the returned vector must be unique.
 #' @param floor A flag indicating whether to floor the values.
+#' @param unique A flag indicating whether to return distinct values.
+#' @param sort A flag indicating whether the returned vector must be sorted.
 #' @param units A string of the units.
 #' @param ... Unused.
 #' @return The complete and possibly unique and sorted floored vector.
@@ -13,17 +13,18 @@
 #'
 #' @examples
 #' dtt_completed(date_times)
-dtt_complete <- function(x, unique = TRUE, sort = TRUE, floor = TRUE, 
+dtt_complete <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
                          units = dtt_units(x), ...) {
   UseMethod("dtt_complete")
 }
 
 #' @export
-dtt_complete.Date <- function(x, unique = TRUE, sort = TRUE, floor = TRUE, units = dtt_units(x), ...) {
+dtt_complete.Date <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
+                              units = dtt_units(x), ...) {
+  check_flag(floor)
   check_flag(unique)
   check_flag(sort)
-  check_flag(floor)
-  check_scalar(units, c("days", "months", "years"))
+  check_string(units)
   check_unused(...)
   
   if(anyNA(x)) err("Date vectors with missing values cannot be completed")
@@ -42,12 +43,12 @@ dtt_complete.Date <- function(x, unique = TRUE, sort = TRUE, floor = TRUE, units
 }
 
 #' @export
-dtt_complete.POSIXct <- function(x, unique = TRUE, sort = TRUE, floor = TRUE,
+dtt_complete.POSIXct <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
                                  units = dtt_units(x), ...) {
+  check_flag(floor)
   check_flag(unique)
   check_flag(sort)
-  check_flag(floor)
-  check_scalar(units, c("seconds", "minutes", "hours", "days", "months", "years"))
+  check_string(units)
   check_unused(...)
 
   if(anyNA(x)) err("POSIXct vectors with missing values cannot be completed")
