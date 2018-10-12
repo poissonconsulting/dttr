@@ -5,12 +5,12 @@
 \alias{dtt_reset_sys_tz}
 \title{Set System Time Zone}
 \usage{
-dtt_set_sys_tz(x = NULL)
+dtt_set_sys_tz(tz = NULL)
 
 dtt_reset_sys_tz()
 }
 \arguments{
-\item{x}{A string of the time zone to treat as if its the system time zone
+\item{tz}{A string of the time zone to treat as if its the system time zone
 when call \code{\link{dtt_sys_tz}} or \code{NULL} to reset.}
 }
 \value{

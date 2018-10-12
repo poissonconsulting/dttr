@@ -1,6 +1,6 @@
 #' Set System Time Zone
 #'
-#' @param x A string of the time zone to treat as if its the system time zone
+#' @param tz A string of the time zone to treat as if its the system time zone
 #' when call \code{\link{dtt_sys_tz}} or \code{NULL} to reset.
 #'
 #' @return A string of the old value.
@@ -16,9 +16,9 @@
 #' dtt_set_sys_tz(old)
 #' dtt_sys_tz()
 #' }
-dtt_set_sys_tz <- function(x = NULL) {
-  checkor(check_null(x), check_string(x))
-  sys_tz <- options(dtt.sys_tz = x)$dtt.sys_tz
+dtt_set_sys_tz <- function(tz = NULL) {
+  checkor(check_null(tz), check_string(tz))
+  sys_tz <- options(dtt.sys_tz = tz)$dtt.sys_tz
   if(is.null(sys_tz)) sys <- Sys.timezone()
   invisible(sys_tz)
 }

@@ -1,5 +1,10 @@
 context("check")
 
+test_that("check_tz", {
+  expect_identical(check_tz(dates), dates)
+  expect_error(check_tz(dates, "UTC"), "dates's time zone must be 'UTC' not [(]'America/Vancouver'[)]")
+})
+
 test_that("check_floored", {
   expect_identical(check_floored(dates, units = "days"), dates)
   expect_error(check_floored(dates, units = "months"), "dates must be floored")

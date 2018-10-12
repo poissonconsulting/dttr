@@ -4,12 +4,15 @@
 \alias{check_dtt}
 \title{Check DateTime Vector}
 \usage{
-check_dtt(x, length = NA, unique = FALSE, sorted = FALSE,
-  floored = FALSE, complete = FALSE, units = dtt_units(x),
-  named = NA, x_name = substitute(x), error = TRUE)
+check_dtt(x, values = NULL, length = NA, unique = FALSE,
+  sorted = FALSE, floored = FALSE, complete = FALSE,
+  tz = dtt_tz(x), units = dtt_units(x), named = NA,
+  x_name = substitute(x), error = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
+
+\item{values}{NULL or a vector specifying the values.}
 
 \item{length}{A flag indicating whether x should have elements (versus no elements) or a missing value indicating no requirements or a count or count range of the number of elements or a count vector of the permitted number of elements.}
 
@@ -20,6 +23,8 @@ check_dtt(x, length = NA, unique = FALSE, sorted = FALSE,
 \item{floored}{A flag indicating whether x should be floored.}
 
 \item{complete}{A flag indicating whether x should be complete.}
+
+\item{tz}{A string of the time zone.}
 
 \item{units}{A string of the units.}
 
@@ -36,7 +41,6 @@ An invisible copy of x (if it doesn't throw an error).
 Checks whether object x is a Date or POSIXct vector.
 }
 \examples{
-check_dtt(1, error = FALSE)
 check_dtt(Sys.Date())
 check_dtt(Sys.time())
 }
