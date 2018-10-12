@@ -5,8 +5,8 @@
 \title{Check DateTime Vector}
 \usage{
 check_DateTime(x, length = NA, unique = FALSE, sorted = FALSE,
-  floored = FALSE, units = dtt_units(x), named = NA,
-  x_name = substitute(x), error = TRUE)
+  floored = FALSE, complete = FALSE, units = dtt_units(x),
+  named = NA, x_name = substitute(x), error = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
@@ -18,6 +18,8 @@ check_DateTime(x, length = NA, unique = FALSE, sorted = FALSE,
 \item{sorted}{A flag indicating whether the vector must be sorted.}
 
 \item{floored}{A flag indicating whether x should be floored.}
+
+\item{complete}{A flag indicating whether x should be complete.}
 
 \item{units}{A string of the units.}
 

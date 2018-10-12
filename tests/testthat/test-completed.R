@@ -23,4 +23,5 @@ test_that("completed.POSIXct", {
   expect_false(dtt_completed(as.POSIXct(c("2001-01-01 00:00:02", "2001-01-01 00:00:01"))))
   expect_true(dtt_completed(as.POSIXct(c("2001-01-01 00:00:02", "2001-01-01 00:00:01")), sorted = FALSE))
   expect_false(dtt_completed(as.POSIXct(c("2001-01-01 00:00:03", "2001-01-01 00:00:01"))))
+  expect_true(dtt_completed(as.POSIXct("2018-10-12 14:01:48")))
 })
