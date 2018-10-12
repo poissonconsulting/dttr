@@ -1,25 +1,21 @@
 Package: dttr
 Title: Manipulate Date and POSIXct Objects
-Version: 0.0.0.9009
+Version: 0.0.0.9010
 Date: 2018-10-12
 Authors@R: 
-    person("Joe",
-           family = "Thorley",
-           role = c("aut", "cre"),
-           email = "joe@poissonconsulting.ca",
-           comment = c(ORCID = "0000-0002-7683-4592"))
+  person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592"))
 Description: A light-weight package to manipulate Date and POSIXct objects.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 Depends: R (>= 3.4.0)
 Imports: 
-    checkr,
-    err
+    err,
+    checkr
 Suggests: 
     testthat,
     covr
 Remotes:
     poissonconsulting/err,
     poissonconsulting/checkr
+Encoding: UTF-8
+LazyData: true
 RoxygenNote: 6.1.0
