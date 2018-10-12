@@ -61,10 +61,10 @@ check_complete <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
 #' @export
 #'
 #' @examples
-#' check_DateTime(1, error = FALSE)
-#' check_DateTime(Sys.Date())
-#' check_DateTime(Sys.time())
-check_DateTime <- function(x, length = NA, unique = FALSE,
+#' check_dtt(1, error = FALSE)
+#' check_dtt(Sys.Date())
+#' check_dtt(Sys.time())
+check_dtt <- function(x, length = NA, unique = FALSE,
                            sorted = FALSE, floored = FALSE, 
                            complete = FALSE,
                            units = dtt_units(x), named = NA, 

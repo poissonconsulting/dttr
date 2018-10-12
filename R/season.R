@@ -16,7 +16,7 @@
 #' dtt_season(dates, season = c(Monsoon = 2L, `Dry Period` = 6L))
 dtt_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
                                             Autumn = 9L, Winter = 12L)) {
-  check_DateTime(x)
+  check_dtt(x)
   check_vector(seasons, c(1L, 12L), length = c(1, .Machine$integer.max),
                unique = TRUE, sorted = TRUE)
   check_names(seasons, unique = TRUE)
