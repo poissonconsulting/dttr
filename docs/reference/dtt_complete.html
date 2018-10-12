@@ -103,7 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>units</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -121,6 +122,10 @@
       <td><p>A flag indicating whether the returned vector must be sorted.</p></td>
     </tr>
     <tr>
+      <th>floor</th>
+      <td><p>A flag indicating whether to floor the values.</p></td>
+    </tr>
+    <tr>
       <th>units</th>
       <td><p>A string of the units.</p></td>
     </tr>
@@ -132,7 +137,7 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The complete and possibly unique and sorted vector.</p>
+    <p>The complete and possibly unique and sorted floored vector.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>

@@ -103,7 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_completed</span>(<span class='no'>x</span>, <span class='no'>unique</span>, <span class='no'>sorted</span>, <span class='no'>units</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_completed</span>(<span class='no'>x</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -114,11 +115,15 @@
     </tr>
     <tr>
       <th>unique</th>
-      <td><p>A flag indicating whether the floored values must be unique.</p></td>
+      <td><p>A flag indicating whether the values must be unique.</p></td>
     </tr>
     <tr>
       <th>sorted</th>
-      <td><p>A flag indicating whether the floored values must be sorted.</p></td>
+      <td><p>A flag indicating whether the values must be sorted.</p></td>
+    </tr>
+    <tr>
+      <th>floor</th>
+      <td><p>A flag indicating whether to floor the values.</p></td>
     </tr>
     <tr>
       <th>units</th>

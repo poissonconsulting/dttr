@@ -4,7 +4,8 @@
 \alias{dtt_complete}
 \title{Complete}
 \usage{
-dtt_complete(x, unique = TRUE, sort = TRUE, units, ...)
+dtt_complete(x, unique = TRUE, sort = TRUE, floor = TRUE,
+  units = dtt_units(x), ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
@@ -13,12 +14,14 @@ dtt_complete(x, unique = TRUE, sort = TRUE, units, ...)
 
 \item{sort}{A flag indicating whether the returned vector must be sorted.}
 
+\item{floor}{A flag indicating whether to floor the values.}
+
 \item{units}{A string of the units.}
 
 \item{...}{Unused.}
 }
 \value{
-The complete and possibly unique and sorted vector.
+The complete and possibly unique and sorted floored vector.
 }
 \description{
 Completes a Date or POSIXct vector.

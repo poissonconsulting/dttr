@@ -31,7 +31,8 @@ test_that("complete.Date", {
   expect_identical(dtt_complete(dates[1]), dates[1])
   dates <- as.Date(c("2001-01-03", "2001-01-01"))
   expect_identical(dtt_complete(dates, sort = FALSE), as.Date(c("2001-01-03", "2001-01-01", "2001-01-02")))
-  expect_identical(dtt_complete(dates, units = "months"), sort(dates))
+  expect_identical(dtt_complete(dates, units = "months", floor = FALSE), sort(dates))
+  expect_identical(dtt_complete(dates, units = "months"), as.Date("2001-01-01"))
 })
 
 test_that("complete.POSIXct", {
@@ -40,7 +41,6 @@ test_that("complete.POSIXct", {
   expect_identical(dtt_complete(dates[1]), dates[1])
   dates <- as.Date(c("2001-01-03", "2001-01-01"))
   expect_identical(dtt_complete(dates, sort = FALSE), as.Date(c("2001-01-03", "2001-01-01", "2001-01-02")))
-  expect_identical(dtt_complete(dates, sort = FALSE, units = "months"), dates)
-    expect_identical(dtt_complete(dates[c(1L,1L)], unique = FALSE, units = "months"), dates[c(1L,1L)])
-    expect_identical(dtt_complete(dates[c(1L,1L)], units = "months"), dates[1L])
+  expect_identical(dtt_complete(dates, sort = FALSE, units = "months", floor = FALSE), dates)
+  expect_identical(dtt_complete(dates, units = "months"), dates[2])
 })
