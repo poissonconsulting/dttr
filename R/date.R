@@ -21,7 +21,7 @@ dtt_date.integer <- function(x, ...) {
 #' @export
 dtt_date.numeric <- function(x, ...) {
   check_unused(...)
-  as.Date(floor(x), origin = "1970-01-01")
+  as.Date(as.integer(floor(x)), origin = "1970-01-01")
 }
 
 #' @export

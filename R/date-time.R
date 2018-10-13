@@ -23,7 +23,7 @@ dtt_date_time.integer <- function(x, tz = dtt_sys_tz(), ...) {
 #' @export
 dtt_date_time.numeric <- function(x, tz = dtt_sys_tz(), ...) {
   check_unused(...)
-  dtt_date_time(floor(x), tz = tz)
+  dtt_date_time(as.integer(floor(x)), tz = tz)
 }
 
 #' @export

@@ -9,6 +9,8 @@ test_that("date_time", {
   
   expect_identical(dtt_date_time(as.integer(date_times[1]), tz = "Etc/GMT+8"), 
                    date_times[1])
+  expect_identical(dtt_date_time(as.numeric(date_times[1]), tz = "Etc/GMT+8"), 
+                   date_times[1])
 })
 
 test_that("date_time", {
