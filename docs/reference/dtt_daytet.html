@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Day of the Year to Date — dtt_doy_to_date • dttr</title>
+<title>Dayte-Time — dtt_daytet • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Day of the Year to Date — dtt_doy_to_date" />
+<meta property="og:title" content="Dayte-Time — dtt_daytet" />
 
-<meta property="og:description" content="Day of the Year to Date" />
+<meta property="og:description" content="Dayte-Time" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,39 +92,35 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Day of the Year to Date</h1>
+    <h1>Dayte-Time</h1>
     
-    <div class="hidden name"><code>dtt_doy_to_date.Rd</code></div>
+    <div class="hidden name"><code>dtt_daytet.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Day of the Year to Date</p>
+    <p>Dayte-Time</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_doy_to_date</span>(<span class='no'>x</span>, <span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>1972L</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_daytet</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An integer vector of the Day of the Year.</p></td>
-    </tr>
-    <tr>
-      <th>year</th>
-      <td><p>An integer scalar or vector of the year.</p></td>
+      <td><p>A Date or POSIXct vector.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A Date vector.</p>
+    <p>The Date or POSIXct vector with years set to 1972.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dtt_doy_to_date</span>(<span class='fl'>3L</span>)</div><div class='output co'>#&gt; [1] "1972-01-03"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dtt_daytet</span>(<span class='fu'>Sys.Date</span>())</div><div class='output co'>#&gt; [1] "1972-10-13"</div><div class='input'><span class='fu'>dtt_daytet</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] "1972-10-13 09:17:06 PDT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

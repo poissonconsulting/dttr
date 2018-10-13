@@ -88,6 +88,33 @@ dtt_add_seconds <- function(x, n = 1L, ...) {
   UseMethod("dtt_add_seconds")
 }
 
+#' Add Units
+#'
+#' @param x A Date or POSIXct vector.
+#' @param n An integer of the number of units.
+#' @param units A string of the units.
+#' @param ... Unused.
+#'
+#' @return The modified Date or POSIXct vector.
+#' @export
+#'
+#' @examples
+#' dtt_add_units(Sys.time())
+dtt_add_units <- function(x, n = 1L, units = dtt_units(x)) {
+  check_dtt(x)
+  check_string(units)
+  
+  switch(units,
+         years = dtt_add_years(x, n),
+         months = dtt_add_months(x, n),
+         days = dtt_add_days(x, n),
+         hours = dtt_add_hours(x, n),
+         minutes = dtt_add_minutes(x, n),
+         seconds = dtt_add_seconds(x, n),
+         err("units must be ", cc(.units, "or"), " not ('", units, "')")
+  )
+}
+
 #' @export
 dtt_add_years.default <- function(x, n = 1L, ...) {
   check_dtt(x)
@@ -112,7 +139,7 @@ dtt_add_months.default <- function(x, n = 1L, ...) {
     months <- 12L
     years <- years - 1L
   }
-    
+  
   dtt_months(x) <- months
   dtt_add_years(x, years)
 }

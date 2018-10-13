@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check DateTime Vector — check_DateTime • dttr</title>
+<title>Add Years — dtt_add_years • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Check DateTime Vector — check_DateTime" />
+<meta property="og:title" content="Add Years — dtt_add_years" />
 
-<meta property="og:description" content="Checks whether object x is a Date or POSIXct vector." />
+<meta property="og:description" content="Add Years" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dttr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9010</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9011</span>
       </span>
     </div>
 
@@ -92,74 +92,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check DateTime Vector</h1>
+    <h1>Add Years</h1>
     
-    <div class="hidden name"><code>check_DateTime.Rd</code></div>
+    <div class="hidden name"><code>dtt_add_years.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Checks whether object x is a Date or POSIXct vector.</p>
+    <p>Add Years</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>check_DateTime</span>(<span class='no'>x</span>, <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>sorted</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>floored</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='kw'>named</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>x_name</span> <span class='kw'>=</span> <span class='fu'>substitute</span>(<span class='no'>x</span>), <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_add_years</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The object to check.</p></td>
+      <td><p>A Date or POSIXct vector.</p></td>
     </tr>
     <tr>
-      <th>length</th>
-      <td><p>A flag indicating whether x should have elements (versus no elements) or a missing value indicating no requirements or a count or count range of the number of elements or a count vector of the permitted number of elements.</p></td>
+      <th>n</th>
+      <td><p>An integer of the number of years to add</p></td>
     </tr>
     <tr>
-      <th>unique</th>
-      <td><p>A flag indicating whether the values must be unique.</p></td>
-    </tr>
-    <tr>
-      <th>sorted</th>
-      <td><p>A flag indicating whether the vector must be sorted.</p></td>
-    </tr>
-    <tr>
-      <th>floored</th>
-      <td><p>A flag indicating whether x should be floored.</p></td>
-    </tr>
-    <tr>
-      <th>units</th>
-      <td><p>A string of the units.</p></td>
-    </tr>
-    <tr>
-      <th>named</th>
-      <td><p>A flag indicating whether the vector must be named or unnamed or NA if it doesn't matter.</p></td>
-    </tr>
-    <tr>
-      <th>x_name</th>
-      <td><p>A string of the name of the object.</p></td>
-    </tr>
-    <tr>
-      <th>error</th>
-      <td><p>A flag indicating whether to throw an informative error or immediately generate an informative message if the check fails.</p></td>
+      <th>...</th>
+      <td><p>Unused.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An invisible copy of x (if it doesn't throw an error).</p>
-    
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='http://www.rdocumentation.org/packages/checkr/topics/check_vector'>check_vector</a></code></p></div>
+    <p>The modified Date or POSIXct vector.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>check_DateTime</span>(<span class='fl'>1</span>, <span class='kw'>error</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 1 must be class Date</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 1 must be class POSIXct</span></div><div class='input'><span class='fu'>check_DateTime</span>(<span class='fu'>Sys.Date</span>())
-<span class='fu'>check_DateTime</span>(<span class='fu'>Sys.time</span>())</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dtt_add_years</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] "2019-10-13 09:17:05 PDT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -167,8 +136,6 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -1,6 +1,6 @@
 units_less_than <- function(x, y) {
-  x <- ordered(x, levels = c("seconds", "minutes", "hours", "days", "months", "years"))
-  y <- ordered(y, levels = c("seconds", "minutes", "hours", "days", "months", "years"))
+  x <- ordered(x, levels = .units)
+  y <- ordered(y, levels = .units)
   x < y
 }
 

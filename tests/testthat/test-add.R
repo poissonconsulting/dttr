@@ -8,6 +8,11 @@ test_that("add Date", {
   expect_identical(dtt_add_months(dates[3], -4L), as.Date("1971-12-29"))
   expect_identical(dtt_add_days(dates[1], 2L), as.Date("2000-01-03"))
   expect_identical(dtt_add_days(dates[1], -2L), as.Date("1999-12-30"))
+  
+  expect_identical(dtt_add_units(dates[3], 13L, units = "months"), as.Date("1973-05-29"))
+  expect_error(dtt_add_units(dates[3], 13L, units = "hectares"), 
+               "units must be 'seconds', 'minutes', 'hours', 'days', 'months' or 'years' not [(]'hectares'[)]")
+
 })
 
 test_that("add POSIXct", {
