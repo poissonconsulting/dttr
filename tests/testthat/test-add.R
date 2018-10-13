@@ -13,6 +13,7 @@ test_that("add Date", {
   expect_error(dtt_add_units(dates[3], 13L, units = "hectares"), 
                "units must be 'seconds', 'minutes', 'hours', 'days', 'months' or 'years' not [(]'hectares'[)]")
 
+  expect_identical(dtt_add_units(as.Date("1972-02-28")), as.Date("1972-02-29"))
 })
 
 test_that("add POSIXct", {

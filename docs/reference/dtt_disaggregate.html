@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add Days — dtt_add_days • dttr</title>
+<title>Disaggregate — dtt_disaggregate • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Add Days — dtt_add_days" />
+<meta property="og:title" content="Disaggregate — dtt_disaggregate" />
 
-<meta property="og:description" content="Add Days" />
+<meta property="og:description" content="Breaks a floored, unique, ordered, complete Date or POSIXct vector
+into its subunits." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -92,18 +93,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add Days</h1>
+    <h1>Disaggregate</h1>
     
-    <div class="hidden name"><code>dtt_add_days.Rd</code></div>
+    <div class="hidden name"><code>dtt_disaggregate.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Add Days</p>
+    <p>Breaks a floored, unique, ordered, complete Date or POSIXct vector
+into its subunits.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_add_days</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_disaggregate</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -113,10 +115,6 @@
       <td><p>A Date or POSIXct vector.</p></td>
     </tr>
     <tr>
-      <th>n</th>
-      <td><p>An integer of the number of days to add</p></td>
-    </tr>
-    <tr>
       <th>...</th>
       <td><p>Unused.</p></td>
     </tr>
@@ -124,11 +122,13 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The modified Date or POSIXct vector.</p>
+    <p>The disaggregated Date or POSIXct vector.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dtt_add_days</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] "2018-10-14 10:11:20 PDT"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>dtt_disaggregate</span>(<span class='fu'>as.Date</span>(<span class='st'>"2002-01-01"</span>))</div><div class='output co'>#&gt;  [1] "2002-01-01" "2002-02-01" "2002-03-01" "2002-04-01" "2002-05-01"
+#&gt;  [6] "2002-06-01" "2002-07-01" "2002-08-01" "2002-09-01" "2002-10-01"
+#&gt; [11] "2002-11-01" "2002-12-01"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
