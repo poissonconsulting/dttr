@@ -20,5 +20,5 @@ A DateTime vector.
 Date Time
 }
 \examples{
-dtt_dayte_time(Sys.Date())
+dtt_date_time(Sys.Date())
 }
