@@ -11,6 +11,11 @@ test_that("date", {
   expect_identical(dtt_date(date2), date)
 })
 
+test_that("integer", {
+  expect_identical(as.integer(dates[3]), 849L)
+  expect_identical(dtt_date(as.integer(dates[3])), dates[3])
+})
+
 test_that("doy", {
   expect_identical(dtt_doy(dates), c(1L, 365L, 120L))
   expect_identical(dtt_doy(date_times), c(1L, 365L, 182L))

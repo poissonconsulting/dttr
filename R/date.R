@@ -13,6 +13,18 @@ dtt_date <- function(x, ...) {
 }
 
 #' @export
+dtt_date.integer <- function(x, ...) {
+  check_unused(...)
+  as.Date(x, origin = "1970-01-01")
+}
+
+#' @export
+dtt_date.numeric <- function(x, ...) {
+  check_unused(...)
+  as.Date(floor(x), origin = "1970-01-01")
+}
+
+#' @export
 dtt_date.character <- function(x, ...) {
   check_unused(...)
   as.Date(x)

@@ -14,6 +14,19 @@ dtt_date_time <- function(x, tz, ...) {
 }
 
 #' @export
+dtt_date_time.integer <- function(x, tz = dtt_sys_tz(), ...) {
+  check_unused(...)
+  check_string(tz)
+  as.POSIXct(x, tz = tz, origin = '1970-01-01')
+}
+
+#' @export
+dtt_date_time.numeric <- function(x, tz = dtt_sys_tz(), ...) {
+  check_unused(...)
+  dtt_date_time(floor(x), tz = tz)
+}
+
+#' @export
 dtt_date_time.character <- function(x, tz = dtt_sys_tz(), ...) {
   check_unused(...)
   check_string(tz)
