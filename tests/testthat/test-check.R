@@ -18,5 +18,10 @@ test_that("check_complete", {
 
 test_that("check_dtt", {
   expect_identical(check_dtt(dates), dates)
+  dates[2] <- NA
+  expect_identical(check_dtt(dates), dates)
+  expect_error(check_dtt(dates, nas = FALSE), 
+               "dates must not include missing values OR dates must be class POSIXct")
+  expect_error(check_dtt(1), "1 must be class Date OR 1 must be class POSIXct")
   expect_error(check_dtt(1), "1 must be class Date OR 1 must be class POSIXct")
 })

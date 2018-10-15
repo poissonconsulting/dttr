@@ -4,11 +4,15 @@
 \alias{dtt_complete}
 \title{Complete}
 \usage{
-dtt_complete(x, floor = TRUE, unique = TRUE, sort = TRUE,
-  units = dtt_units(x), ...)
+dtt_complete(x, from = min(x), to = max(x), floor = TRUE,
+  unique = TRUE, sort = TRUE, units = dtt_units(x), ...)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
+
+\item{from}{A Date or POSIXct scalar of the start date.}
+
+\item{to}{A Date or POSIXct scalar of the to date.}
 
 \item{floor}{A flag indicating whether to floor the values.}
 

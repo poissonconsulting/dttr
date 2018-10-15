@@ -4,15 +4,17 @@
 \alias{check_dtt}
 \title{Check DateTime Vector}
 \usage{
-check_dtt(x, values = NULL, length = NA, unique = FALSE,
-  sorted = FALSE, floored = FALSE, complete = FALSE,
-  tz = dtt_tz(x), units = dtt_units(x), named = NA,
-  x_name = substitute(x), error = TRUE)
+check_dtt(x, values = NULL, nas = TRUE, length = NA,
+  unique = FALSE, sorted = FALSE, floored = FALSE,
+  complete = FALSE, tz = dtt_tz(x), units = dtt_units(x),
+  named = NA, x_name = substitute(x), error = TRUE)
 }
 \arguments{
 \item{x}{The object to check.}
 
 \item{values}{NULL or a vector specifying the values.}
+
+\item{nas}{A flag indicating whether missing values are permitted.}
 
 \item{length}{A flag indicating whether x should have elements (versus no elements) or a missing value indicating no requirements or a count or count range of the number of elements or a count vector of the permitted number of elements.}
 

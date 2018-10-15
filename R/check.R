@@ -80,6 +80,7 @@ check_complete <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
 #' Checks whether object x is a Date or POSIXct vector.
 #' 
 #' @inheritParams checkr::check_vector
+#' @param nas A flag indicating whether missing values are permitted.
 #' @param floored A flag indicating whether x should be floored.
 #' @param complete A flag indicating whether x should be complete.
 #' @param tz A string of the time zone.
@@ -91,24 +92,27 @@ check_complete <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
 #' @examples
 #' check_dtt(Sys.Date())
 #' check_dtt(Sys.time())
-check_dtt <- function(x, values = NULL, length = NA, unique = FALSE,
+check_dtt <- function(x, values = NULL, nas = TRUE, 
+                      length = NA, unique = FALSE,
                       sorted = FALSE, floored = FALSE, 
                       complete = FALSE, tz = dtt_tz(x),
                       units = dtt_units(x), named = NA, 
                       x_name = substitute(x),
                       error = TRUE) {
   x_name <- chk_deparse(x_name)
+  check_flag(nas)
   
+  indices <- if(nas) 1:2 else 1L
   if(is.null(values)) {
     checkor(
-      check_vector(x, c(Sys.Date(), NA), length = length, unique = unique, 
+      check_vector(x, c(Sys.Date(), NA)[indices], length = length, unique = unique, 
                    sorted = sorted, named = named, x_name = x_name, error = TRUE),
-      check_vector(x, c(Sys.time(), NA), length = length, unique = unique, 
+      check_vector(x, c(Sys.time(), NA)[indices], length = length, unique = unique, 
                    sorted = sorted, named = named, x_name = x_name, error = TRUE)
     )
   } else {
-    checkor(check_vector(values, c(Sys.Date, NA)), 
-            check_vector(values, c(Sys.time(), NA)))
+    checkor(check_vector(values, c(Sys.Date, NA)[indices]), 
+            check_vector(values, c(Sys.time(), NA)[indices]))
     check_tz(values, tz)
     check_vector(x, values, length = length, unique = unique, 
                  sorted = sorted, named = named, x_name = x_name, error = error)  

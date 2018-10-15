@@ -3,6 +3,8 @@
 #' Completes a Date or POSIXct vector.
 #'
 #' @param x A Date or POSIXct vector.
+#' @param from A Date or POSIXct scalar of the start date.
+#' @param to A Date or POSIXct scalar of the to date.
 #' @param floor A flag indicating whether to floor the values.
 #' @param unique A flag indicating whether to return distinct values.
 #' @param sort A flag indicating whether the returned vector must be sorted.
@@ -13,28 +15,37 @@
 #'
 #' @examples
 #' dtt_completed(date_times)
-dtt_complete <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
+dtt_complete <- function(x, from = min(x), to = max(x), floor = TRUE, unique = TRUE, sort = TRUE, 
                          units = dtt_units(x), ...) {
   UseMethod("dtt_complete")
 }
 
 #' @export
-dtt_complete.Date <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
+dtt_complete.Date <- function(x, from = min(x), to = max(x), floor = TRUE, unique = TRUE, sort = TRUE, 
                               units = dtt_units(x), ...) {
+  check_vector(x, Sys.Date(), length = TRUE)
+  check_dtt(from, nas = FALSE, length = 1)
+  check_dtt(to, nas = FALSE, length = 1)
   check_flag(floor)
   check_flag(unique)
   check_flag(sort)
   check_string(units)
   check_unused(...)
   
-  if(anyNA(x)) err("Date vectors with missing values cannot be completed")
-
-  x_floor <- dtt_floor(x, units)
-  if(floor) x <- x_floor
-
-  if(length(x) <= 1) return(x)
+  from <- dtt_date(from)
+  to <- dtt_date(to)
   
-  seq <- seq(min(x_floor), max(x_floor), by = units)
+  x_floor <- dtt_floor(x, units)
+  from <- dtt_floor(from, units = units)
+  to <- dtt_floor(to, units = units)
+  
+  if(from > to) err("from must not be greater than to")
+  if(from > min(x_floor) || to < max(x_floor)) err("from and to must span x")
+  
+  if(floor) x <- x_floor
+  
+  seq <- seq(from, to, by = units)
+  seq <- dtt_floor(seq, units = units)
   seq <- setdiff(seq, x_floor)
   if(unique) x <- unique(x)
   x <- c(x, seq)
@@ -43,23 +54,35 @@ dtt_complete.Date <- function(x, floor = TRUE, unique = TRUE, sort = TRUE,
 }
 
 #' @export
-dtt_complete.POSIXct <- function(x, floor = TRUE, unique = TRUE, sort = TRUE, 
+dtt_complete.POSIXct <- function(x, from = min(x), to = max(x), 
+                                 floor = TRUE, unique = TRUE, sort = TRUE, 
                                  units = dtt_units(x), ...) {
+  
+  check_vector(x, Sys.time(), length = TRUE)
+  check_dtt(from, nas = FALSE, length = 1)
+  check_dtt(to, nas = FALSE, length = 1)
+  
   check_flag(floor)
   check_flag(unique)
   check_flag(sort)
   check_string(units)
   check_unused(...)
-
-  if(anyNA(x)) err("POSIXct vectors with missing values cannot be completed")
+  
+  from <- dtt_date_time(from, tz = dtt_tz(x))
+  to <- dtt_date_time(to, tz = dtt_tz(x))
   
   x_floor <- dtt_floor(x, units)
+  from <- dtt_floor(from, units = units)
+  to <- dtt_floor(to, units = units)
+  
+  if(from > to) err("from must not be greater than to")
+  if(from > min(x_floor) || to < max(x_floor)) err("from and to must span x")
+  
   if(floor) x <- x_floor
 
-  if(length(x) <= 1) return(x)
-  
-  seq <- try(seq(min(x_floor), max(x_floor), by = dtt_units2by(units)), silent = FALSE)
+  seq <- try(seq(from, to, by = dtt_units2by(units)), silent = FALSE)
   if(inherits(seq, "try-error")) err("attempting to generate more than 2^32 POSIXct values")
+  seq <- dtt_floor(seq, units = units)
   seq <- setdiff(seq, x_floor)
   if(unique) x <- unique(x)
   x <- c(x, seq)
