@@ -1,3 +1,10 @@
+set_class <- function(x, class) {
+  class(x) <- class
+  x
+}
+
+duration <- function(x) set_class(as.integer(x), "dtt_duration")
+
 units_less_than <- function(x, y) {
   x <- ordered(x, levels = .units)
   y <- ordered(y, levels = .units)

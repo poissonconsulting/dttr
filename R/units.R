@@ -229,6 +229,22 @@ dtt_units.POSIXct <- function(x, ...) {
 }
 
 #' @export
+dtt_units.dtt_duration <- function(x, ...) {
+  x <- unclass(x)
+  if(all(is.na(x))) return("seconds")
+  if(mean(x, na.rm = TRUE) < 60) return("seconds")
+  x <- x / 60
+  if(mean(x, na.rm = TRUE) < 60) return("minutes")
+  x <- x / 60
+  if(mean(x, na.rm = TRUE) < 24) return("hours")
+  x <- x / 24
+  if(mean(x, na.rm = TRUE) < 30.41667) return("days")
+  x < x / 30.41667
+  if(mean(x, na.rm = TRUE) < 12) return("months")
+  "years"
+}
+
+#' @export
 dtt_seconds.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x)
   as.integer(x$sec)

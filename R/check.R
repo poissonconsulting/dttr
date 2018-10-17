@@ -1,3 +1,21 @@
+#' Check Duration
+#' 
+#' Checks an object is a \code{dtt_duration}.
+#' 
+#' @inheritParams checkr::check_integer
+#' @return An invisible copy of x (if it doesn't throw an error).
+#' @seealso \code{\link{dtt_duration}}
+#' @export
+#'
+#' @examples
+#' check_duration(dtt_duration(1L))
+check_duration <- function(x, x_name = substitute(x)) {
+  x_name <- chk_deparse(x_name)
+  check_inherits(x, "dtt_duration", x_name = x_name)
+  check_integer(x, coerce = TRUE)
+  invisible(x)
+}
+
 #' Check Time Zone
 #' 
 #' Checks an object's time zone as returned by \code{dtt_tz()}.
