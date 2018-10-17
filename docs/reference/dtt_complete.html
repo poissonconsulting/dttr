@@ -61,7 +61,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dttr</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9011</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.0.9013</span>
       </span>
     </div>
 
@@ -103,8 +103,8 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>dtt_complete</span>(<span class='no'>x</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fu'>min</span>(<span class='no'>x</span>), <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'>max</span>(<span class='no'>x</span>), <span class='kw'>floor</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='fu'><a href='dtt_units.html'>dtt_units</a></span>(<span class='no'>x</span>), <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -112,6 +112,14 @@
     <tr>
       <th>x</th>
       <td><p>A Date or POSIXct vector.</p></td>
+    </tr>
+    <tr>
+      <th>from</th>
+      <td><p>A Date or POSIXct scalar of the start date.</p></td>
+    </tr>
+    <tr>
+      <th>to</th>
+      <td><p>A Date or POSIXct scalar of the to date.</p></td>
     </tr>
     <tr>
       <th>floor</th>

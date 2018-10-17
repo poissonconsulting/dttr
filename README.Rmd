@@ -43,6 +43,10 @@ install.packages("dttr")
 citation(package = "dttr")
 ```
 
+## Inspiration
+
+[lubridate](https://lubridate.tidyverse.org)
+
 ## Contribution
 
 Please report any [issues](https://github.com/poissonconsulting/dttr/issues).

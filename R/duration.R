@@ -31,7 +31,6 @@ as_numeric_dtt_duration <- function(x, units = "seconds") {
   x <- as.numeric(x)
   if(units == "seconds") return(x)
   x <- x / 60
-  print(x)
   if(units == "minutes") return(x)
   x <- x / 60
   if(units == "hours") return(x)
@@ -48,16 +47,17 @@ as_integer_dtt_duration <- function(x, units = "seconds") {
 }
 
 #' @export
-format.dtt_duration <- function(x, units = "auto", ...) {
+format.dtt_duration <- function(x, units = "auto", digits = 2, ...) {
   check_unused(...)
   check_scalar(units, c("auto", .units))
   if(units == "auto") units <- dtt_units(x)
-  
+
   secs <- unclass(x)
   if(units == "seconds")
-    return(paste0(secs, " s"))
-  x <- as.numeric(x, units = units)
-  paste0(secs, " s (~", x, " ", units, ")")
+    return(paste0(secs, "s"))
+  x <- as_numeric_dtt_duration(x, units = units)
+  x <- signif(x, digits)
+  paste0(secs, "s (~", x, " ", units, ")")
 }
 
 #' @export

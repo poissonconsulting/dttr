@@ -1,3 +1,23 @@
+#' Check Timer
+#' 
+#' Checks an object is a \code{dtt_timer}.
+#' 
+#' @inheritParams checkr::check_integer
+#' @return An invisible copy of x (if it doesn't throw an error).
+#' @seealso \code{\link{dtt_duration}}
+#' @export
+#'
+#' @examples
+#' check_timer(dtt_timer(1L))
+check_timer <- function(x, x_name = substitute(x)) {
+  x_name <- chk_deparse(x_name)
+  check_inherits(x, "dtt_timer", x_name = x_name)
+  check_int(x$seconds, x_name = paste0("element seconds of ", x_name))
+  checkor(check_null(x$start), 
+          check_int(x$start, x_name = paste0("element start of ", x_name)))
+  x
+}
+
 #' Check Duration
 #' 
 #' Checks an object is a \code{dtt_duration}.
