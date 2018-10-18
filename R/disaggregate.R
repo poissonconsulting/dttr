@@ -33,6 +33,7 @@ dtt_disaggregate.Date <- function(x, ...) {
     end <- dtt_subtract_months(end)
   }
   x <- c(x, end)
+  x <- dtt_floor(x)
   x <- dtt_complete(x)
   x
 }

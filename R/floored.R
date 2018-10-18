@@ -10,7 +10,9 @@
 #'
 #' @examples
 #' dtt_floored(Sys.time(), "hours")
-dtt_floored <- function(x, units) {
-  check_string(units)
-  identical(dtt_floor(x, units = units), x)
+dtt_floored <- function(x, units = dtt_units(x)) {
+  check_dtt(x)
+  check_scalar(units, .units)
+  y <- dtt_floor(x, units)
+  isTRUE(all.equal(y, x))
 }

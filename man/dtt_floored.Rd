@@ -4,7 +4,7 @@
 \alias{dtt_floored}
 \title{Floored}
 \usage{
-dtt_floored(x, units)
+dtt_floored(x, units = dtt_units(x))
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}

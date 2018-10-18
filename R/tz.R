@@ -66,8 +66,8 @@ dtt_tz.Date <- function(x, ...) {
 #' @export
 dtt_tz.POSIXct <- function(x, ...) {
   check_unused(...)
-  tz <- attr(x,"tzone")
-  if(is.null(tz)) return(dtt_sys_tz())
+  tz <- attr(x, "tzone")
+  if(is.null(tz) || identical(tz, "")) return(dtt_sys_tz())
   tz
 }
 
