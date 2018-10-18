@@ -36,6 +36,25 @@ check_duration <- function(x, x_name = substitute(x)) {
   invisible(x)
 }
 
+
+#' Check Rate
+#' 
+#' Checks an object is a \code{dtt_rate}.
+#' 
+#' @inheritParams checkr::check_integer
+#' @return An invisible copy of x (if it doesn't throw an error).
+#' @seealso \code{\link{dtt_rate}}
+#' @export
+#'
+#' @examples
+#' check_rate(dtt_rate(1.5))
+check_rate <- function(x, x_name = substitute(x)) {
+  x_name <- chk_deparse(x_name)
+  check_inherits(x, "dtt_rate", x_name = x_name)
+  check_double(x, coerce = TRUE)
+  invisible(x)
+}
+
 #' Check Time Zone
 #' 
 #' Checks an object's time zone as returned by \code{dtt_tz()}.

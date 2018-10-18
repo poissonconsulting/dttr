@@ -7,7 +7,7 @@
 dtt_duration(x, units = "seconds")
 }
 \arguments{
-\item{x}{An integer vector of the duration.}
+\item{x}{An numeric vector of the duration.}
 
 \item{units}{A string of the time units.}
 }

@@ -245,6 +245,11 @@ dtt_units.dtt_duration <- function(x, ...) {
 }
 
 #' @export
+dtt_units.dtt_rate <- function(x, ...) {
+  dtt_units(dtt_duration(as_numeric(x)))
+}
+
+#' @export
 dtt_seconds.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x)
   as.integer(x$sec)
@@ -252,6 +257,12 @@ dtt_seconds.POSIXct <- function(x, ...) {
 
 #' @export
 dtt_seconds.Date <- function(x, ...) rep(0L, length(x))
+
+#' @export
+dtt_seconds.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as.integer(x)
+}
 
 #' @export
 dtt_seconds.POSIXct <- function(x, ...) {
@@ -273,8 +284,15 @@ dtt_minutes.Date <- function(x, ...) rep(0L, length(x))
 
 #' @export
 dtt_minutes.POSIXct <- function(x, ...) {
+  check_unused(...)
   x <- as.POSIXlt(x)
   as.integer(x$min)
+}
+
+#' @export
+dtt_minutes.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as_numeric(x, "minutes")
 }
 
 #' @export
@@ -296,6 +314,12 @@ dtt_hours.POSIXct <- function(x, ...) {
 }
 
 #' @export
+dtt_hours.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as_numeric(x, "hours")
+}
+
+#' @export
 `dtt_hours<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 23L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
@@ -311,6 +335,12 @@ dtt_days.Date <- function(x, ...) as.integer(format(x, "%d"))
 dtt_days.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x)
   as.integer(x$mday)
+}
+
+#' @export
+dtt_days.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as_numeric(x, "days")
 }
 
 #' @export
@@ -341,6 +371,12 @@ dtt_months.POSIXct <- function(x, ...) {
 }
 
 #' @export
+dtt_months.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as_numeric(x, "months")
+}
+
+#' @export
 `dtt_months<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
@@ -365,6 +401,12 @@ dtt_years.Date <- function(x, ...) as.integer(format(x, "%Y"))
 dtt_years.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x)
   as.integer(x$year + 1900L)
+}
+
+#' @export
+dtt_years.dtt_duration <- function(x, ...) {
+  check_unused(...)
+  as_numeric(x, "years")
 }
 
 #' @export
