@@ -11,7 +11,7 @@ as_numeric <- function(x, ...) {
 #' @export
 as_numeric.dtt_duration <- function(x, units = "seconds", ...) {
   check_unused(...)
-  check_scalar(units, .units)
+  check_time_units(units)
   x <- unclass(x)
   x <- as.numeric(x)
   if(units == "seconds") return(x)
@@ -30,7 +30,7 @@ as_numeric.dtt_duration <- function(x, units = "seconds", ...) {
 #' @export
 as_numeric.dtt_rate <- function(x, units = "seconds", ...) {
   check_unused(...)
-  check_scalar(units, .units)
+  check_time_units(units)
   x <- unclass(x)
   x <- as.numeric(x)
   if(units == "seconds") return(x)

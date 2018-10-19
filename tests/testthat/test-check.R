@@ -1,5 +1,11 @@
 context("check")
 
+test_that("check_time_units", {
+  expect_identical(check_time_units("hours"), "hours")
+  expect_error(check_time_units("hour"), 
+               "hour can only include values 'days', 'hours', 'minutes', 'months', 'seconds' or 'years'")
+})
+
 test_that("check_tz", {
   expect_identical(check_tz(dates), dates)
   expect_error(check_tz(dates, "UTC"), "dates's time zone must be 'UTC' not [(]'America/Vancouver'[)]")

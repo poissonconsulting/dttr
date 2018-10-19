@@ -10,7 +10,7 @@
 #' dtt_duration(60)
 dtt_duration <- function(x, units = "seconds") {
   x <- check_double(x, coerce = TRUE)
-  check_scalar(units, .units)
+  check_time_units(units)
   
   if(units == "seconds") return(duration(x))
   x <- x * 60

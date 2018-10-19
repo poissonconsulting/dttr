@@ -11,7 +11,7 @@
 #' dtt_rate(60)
 dtt_rate <- function(x, duration = dtt_duration(1L)) {
   x <- check_double(x, coerce = TRUE)
-  checkor(check_duration(duration), check_scalar(.units))
+  checkor(check_duration(duration), check_time_units(.units))
   
   if(is.character(duration)) duration <- dtt_duration(1L, units = duration)
   

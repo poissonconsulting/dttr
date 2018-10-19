@@ -1,3 +1,19 @@
+#' Check Time Units
+#' 
+#' Checks an object is string of the possible time units.
+#' 
+#' @inheritParams checkr::check_integer
+#' @return An invisible copy of x (if it doesn't throw an error).
+#' @export
+#'
+#' @examples
+#' check_time_units("hours")
+check_time_units <- function(x, x_name = substitute(x)) {
+  x_name <- chk_deparse(x_name)
+  check_scalar(x, .units, x_name = x_name)
+  invisible(x)
+}
+
 #' Check Timer
 #' 
 #' Checks an object is a \code{dtt_timer}.

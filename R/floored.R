@@ -12,7 +12,7 @@
 #' dtt_floored(Sys.time(), "hours")
 dtt_floored <- function(x, units = dtt_units(x)) {
   check_dtt(x)
-  check_scalar(units, .units)
+  check_time_units(units)
   y <- dtt_floor(x, units)
   isTRUE(all.equal(y, x))
 }
