@@ -50,7 +50,7 @@ dtt_is_dtt <- function(x) {
 #'
 #' @examples
 #' dtt_units_per_unit("hours")
-dtt_units_per_unit <- function(units = "days", unit = "days") {
+dtt_units_per_unit <- function(units = "seconds", unit = "days") {
   check_scalar(units, .units)
   check_scalar(unit, .units)
   as_numeric(dtt_duration(1, unit)) / as_numeric(dtt_duration(1, units))

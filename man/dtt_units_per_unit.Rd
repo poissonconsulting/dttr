@@ -4,7 +4,7 @@
 \alias{dtt_units_per_unit}
 \title{Units per Unit}
 \usage{
-dtt_units_per_unit(units = "days", unit = "days")
+dtt_units_per_unit(units = "seconds", unit = "days")
 }
 \arguments{
 \item{units}{A string of the time units.}
