@@ -39,3 +39,19 @@ dtt_is_date <- function(x) {
 dtt_is_dtt <- function(x) {
   dtt_is_date(x) || dtt_is_date_time(x)
 }
+
+#' Units per Unit
+#'
+#' @param units A string of the time units.
+#' @param unit A string of the time unit.
+#'
+#' @return A number of the units per unit
+#' @export
+#'
+#' @examples
+#' dtt_units_per_unit("hours")
+dtt_units_per_unit <- function(units = "days", unit = "days") {
+  check_scalar(units, .units)
+  check_scalar(unit, .units)
+  as_numeric(dtt_duration(1, unit)) / as_numeric(dtt_duration(1, units))
+}
