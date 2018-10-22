@@ -35,7 +35,7 @@ dtt_completed.Date <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
   if(sorted && is.unsorted(x)) return(FALSE)
   x <- dtt_floor(x, units)
   x <- unique(x)
-  seq <- try(seq(min(x), max(x), by = dtt_units2by(units)), silent = TRUE)
+  seq <- try(dtt_seq(min(x), max(x), units = units), silent = TRUE)
   if(inherits(seq, "try-error")) return(FALSE)
   identical(length(x), length(seq)) 
 }
@@ -57,7 +57,7 @@ dtt_completed.POSIXct <- function(x, floored = TRUE, unique = TRUE, sorted = TRU
   if(sorted && is.unsorted(x)) return(FALSE)
   x <- dtt_floor(x, units)
   x <- unique(x)
-  seq <- try(seq(min(x), max(x), by = dtt_units2by(units)), silent = TRUE)
+  seq <- try(dtt_seq(min(x), max(x), units = units), silent = TRUE)
   if(inherits(seq, "try-error")) return(FALSE)
   identical(length(x), length(seq)) 
 }

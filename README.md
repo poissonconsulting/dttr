@@ -33,22 +33,23 @@ To install the latest development version from the Poisson drat
 
 ## Citation
 
-``` 
-
-To cite package 'dttr' in publications use:
-
-  Joe Thorley (2018). dttr: Manipulate Date and POSIXct Objects. R
-  package version 0.0.0.9013.
-
-A BibTeX entry for LaTeX users is
-
-  @Manual{,
-    title = {dttr: Manipulate Date and POSIXct Objects},
-    author = {Joe Thorley},
-    year = {2018},
-    note = {R package version 0.0.0.9013},
-  }
-```
+    Warning in citation(package = "dttr"): no date field in DESCRIPTION file of
+    package 'dttr'
+    Warning in citation(package = "dttr"): could not determine year for 'dttr'
+    from package DESCRIPTION file
+    
+    To cite package 'dttr' in publications use:
+    
+      Joe Thorley (NA). dttr: Manipulate Date and POSIXct Objects. R
+      package version 0.0.0.9015.
+    
+    A BibTeX entry for LaTeX users is
+    
+      @Manual{,
+        title = {dttr: Manipulate Date and POSIXct Objects},
+        author = {Joe Thorley},
+        note = {R package version 0.0.0.9015},
+      }
 
 ## Inspiration
 
@@ -64,4 +65,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms.
+agree to abide by its terms
