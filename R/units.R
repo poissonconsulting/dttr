@@ -245,11 +245,6 @@ dtt_units.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_units.dtt_rate <- function(x, ...) {
-  dtt_units(dtt_duration(as_numeric(x)))
-}
-
-#' @export
 dtt_seconds.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x)
   as.integer(x$sec)

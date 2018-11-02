@@ -8,6 +8,14 @@
 \description{
 A light-weight package to manipulate Date and POSIXct objects.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/poissonconsulting/dttr}
+  \item Report bugs at \url{https://github.com/poissonconsulting/dttr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (0000-0002-7683-4592)
 

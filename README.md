@@ -21,13 +21,15 @@ objects.
 To install the latest development version from
 [GitHub](https://github.com/poissonconsulting/dttr)
 
-    # install.packages("devtools")
+    install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
     devtools::install_github("poissonconsulting/dttr")
 
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
-    # install.packages("drat")
+    install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("dttr")
 
@@ -65,4 +67,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.
