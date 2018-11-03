@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add Years — dtt_add_years • dttr</title>
+<title>Is Date or POSIXct — is.Date_or_POSIXct • dttr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Add Years — dtt_add_years" />
+<meta property="og:title" content="Is Date or POSIXct — is.Date_or_POSIXct" />
 
-<meta property="og:description" content="Add Years" />
+<meta property="og:description" content="Tests whether an R object is a Date or POSIXct." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -97,43 +97,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add Years</h1>
-    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/dttr/blob/master/R/add.R'><code>R/add.R</code></a></small>
-    <div class="hidden name"><code>dtt_add_years.Rd</code></div>
+    <h1>Is Date or POSIXct</h1>
+    <small class="dont-index">Source: <a href='https://github.com/poissonconsulting/dttr/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>is.Date_or_POSIXct.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Add Years</p>
+    <p>Tests whether an R object is a Date or POSIXct.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>dtt_add_years</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1L</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>is.Date_or_POSIXct</span>(<span class='no'>x</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A Date or POSIXct vector.</p></td>
-    </tr>
-    <tr>
-      <th>n</th>
-      <td><p>An integer of the number of years to add</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Unused.</p></td>
+      <td><p>The R object to test.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The modified Date or POSIXct vector.</p>
+    <p>A flag indicating whether x inherits from Date or POSIXct.</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>dtt_add_years</span>(<span class='fu'>Sys.time</span>())</div><div class='output co'>#&gt; [1] "2019-11-02 17:11:10 PDT"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -141,9 +131,7 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>

@@ -15,7 +15,7 @@ dtt_seq <- function(from, to, units = "days") {
   check_dtt(to, length = 1, nas = FALSE)
   check_time_units(units)
   
-  if(dtt_is_date(from)) {
+  if(is.Date(from)) {
     to <- dtt_date(to)
     if(!units %in% c("years", "months", "days"))
       err("units must be ", cc(c("years", "months", "days"), "or"))
@@ -30,7 +30,7 @@ dtt_seq <- function(from, to, units = "days") {
   to <- max(from)
   from <- min(from)
 
-  if(dtt_is_date(from)) {
+  if(is.Date(from)) {
     seq <- seq(from, to, by = dtt_units2by(units))
   } else
     seq <- seq(from, to, by = dtt_units2by(units), tz = dtt_tz(from))

@@ -15,7 +15,3 @@ A flag indicating whether R is a Date vector.
 \description{
 Is Date
 }
-\examples{
-dtt_is_date(Sys.Date())
-dtt_is_date(Sys.time())
-}

@@ -7,9 +7,9 @@ test_that("date_time", {
   expect_identical(as.integer(date_times[1]), 
                    as.integer(dtt_set_tz(date_times[1], tz = "Etc/GMT+7")) + 3600L)
   
-  expect_identical(dtt_date_time(as.integer(date_times[1]), tz = "Etc/GMT+8"), 
+  expect_equal(dtt_date_time(as.integer(date_times[1]), tz = "Etc/GMT+8"), 
                    date_times[1])
-  expect_identical(dtt_date_time(as.numeric(date_times[1]), tz = "Etc/GMT+8"), 
+  expect_equal(dtt_date_time(as.numeric(date_times[1]), tz = "Etc/GMT+8"), 
                    date_times[1])
 })
 

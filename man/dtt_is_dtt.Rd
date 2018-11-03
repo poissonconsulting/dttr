@@ -15,7 +15,3 @@ A flag indicating whether R is a Date or POSIXct vector.
 \description{
 Is Date or DateTime Object
 }
-\examples{
-dtt_is_dtt(Sys.Date())
-dtt_is_dtt(Sys.time())
-}
