@@ -20,7 +20,8 @@ knitr::opts_chunk$set(
 [![Coverage status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-`dttr` is a light-weight R package to manipulate Date and POSIXct objects.
+`dttr` is a light-weight package to manipulate Date and POSIXct objects.
+As well as functions to get, set, add and subtract years, months, days, hours etc it includes functions to floor objects, set or adjust time zones and create complete sequences. It also provides duration and timer objects.
 
 ## Installation
 
@@ -37,6 +38,71 @@ To install the latest development version from the Poisson drat [repository](htt
 install.packages("drat")
 drat::addRepo("poissonconsulting")
 install.packages("dttr")
+```
+
+## Demonstration
+
+### Get, Set and Seq
+
+The core functions allow the user to easily get and set the components of Date and POSIXct objects and create a sequence.
+
+```{r}
+library(dttr)
+date_times <- dttr::date_times
+date_times
+dtt_year(date_times)
+dtt_year(date_times) <- c(2000L, 2000L, 2002L)
+date_times
+dtt_add_years(date_times, 2L)
+dtt_floor(date_times, units = "months")
+dtt_seq(date_times[1], date_times[2], units = "months")
+```
+
+### Time Zones
+
+As well as setting the time zone which does not change the clock time the user can adjust the time zone which alters the clock time so that the old and new events are coincident.
+
+```{r}
+date_times
+dtt_set_tz(date_times, tz = "Etc/GMT-1")
+dtt_adjust_tz(date_times, tz = "Etc/GMT-1")
+```
+
+The user is also able to use `dtt_set_sys_tz()` to define the default time zone for all package function calls.
+
+### Timer
+
+A object of class `dtt_timer` tracks the clock time in seconds.
+`dtt_elapsed()` returns the duration for which the timer has been running (see below).
+
+```{r}
+timer <- dtt_timer(start = TRUE)
+timer
+Sys.sleep(1)
+timer
+Sys.sleep(1)
+timer
+timer <- dtt_stop(timer)
+timer
+Sys.sleep(1)
+timer
+timer <- dtt_start(timer)
+Sys.sleep(1)
+timer
+as.integer(dtt_elapsed(timer))
+```
+
+
+### Duration
+
+An object of class `dtt_duration` is an integer vector that stores the time in seconds.
+
+```{r}
+duration <- dtt_elapsed(timer)
+duration
+class(duration)
+dtt_minutes(duration)
+
 ```
 
 ## Citation

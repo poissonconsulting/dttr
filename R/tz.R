@@ -19,7 +19,7 @@
 dtt_set_sys_tz <- function(tz = NULL) {
   checkor(check_null(tz), check_string(tz))
   sys_tz <- options(dtt.sys_tz = tz)$dtt.sys_tz
-  if(is.null(sys_tz)) sys <- Sys.timezone()
+  if(is.null(sys_tz)) sys_tz <- Sys.timezone()
   invisible(sys_tz)
 }
 
