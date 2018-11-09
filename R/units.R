@@ -209,7 +209,7 @@ dtt_year <- function(x, ...) {
 dtt_units.Date <- function(x, ...) {
   x <- x[!is.na(x)]
   if(!length(x)) return("days")
-
+  
   if(any(dtt_days(x) != 1L)) return("days")
   if(any(dtt_months(x) != 1L)) return("months")
   "years"
@@ -219,7 +219,7 @@ dtt_units.Date <- function(x, ...) {
 dtt_units.POSIXct <- function(x, ...) {
   x <- x[!is.na(x)]
   if(!length(x)) return("seconds")
-
+  
   if(any(dtt_seconds(x) != 0L)) return("seconds")
   if(any(dtt_minutes(x) != 0L)) return("minutes")
   if(any(dtt_hours(x) != 0L)) return("hours")
@@ -246,7 +246,7 @@ dtt_units.dtt_duration <- function(x, ...) {
 
 #' @export
 dtt_seconds.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$sec)
 }
 
@@ -261,7 +261,7 @@ dtt_seconds.dtt_duration <- function(x, ...) {
 
 #' @export
 dtt_seconds.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$sec)
 }
 
@@ -269,9 +269,10 @@ dtt_seconds.POSIXct <- function(x, ...) {
 `dtt_seconds<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$sec <- value
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }
 
 #' @export
@@ -280,7 +281,7 @@ dtt_minutes.Date <- function(x, ...) rep(0L, length(x))
 #' @export
 dtt_minutes.POSIXct <- function(x, ...) {
   check_unused(...)
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$min)
 }
 
@@ -294,9 +295,10 @@ dtt_minutes.dtt_duration <- function(x, ...) {
 `dtt_minutes<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$min <- value
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }
 
 #' @export
@@ -304,7 +306,7 @@ dtt_hours.Date <- function(x, ...) rep(0L, length(x))
 
 #' @export
 dtt_hours.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$hour)
 }
 
@@ -318,9 +320,10 @@ dtt_hours.dtt_duration <- function(x, ...) {
 `dtt_hours<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 23L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$hour <- value
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }
 
 #' @export
@@ -328,7 +331,7 @@ dtt_days.Date <- function(x, ...) as.integer(format(x, "%d"))
 
 #' @export
 dtt_days.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$mday)
 }
 
@@ -351,9 +354,10 @@ dtt_days.dtt_duration <- function(x, ...) {
 `dtt_days<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$mday <- value
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }
 
 #' @export
@@ -361,7 +365,7 @@ dtt_months.Date <- function(x, ...) as.integer(format(x, "%m"))
 
 #' @export
 dtt_months.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$mon + 1L)
 }
 
@@ -384,9 +388,10 @@ dtt_months.dtt_duration <- function(x, ...) {
 `dtt_months<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$mon <- value - 1L
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }
 
 #' @export
@@ -394,7 +399,7 @@ dtt_years.Date <- function(x, ...) as.integer(format(x, "%Y"))
 
 #' @export
 dtt_years.POSIXct <- function(x, ...) {
-  x <- as.POSIXlt(x)
+  x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$year + 1900L)
 }
 
@@ -417,7 +422,8 @@ dtt_years.dtt_duration <- function(x, ...) {
 `dtt_years<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  x <- as.POSIXlt(x)
+  tz <- dtt_tz(x)
+  x <- as.POSIXlt(x, tz = tz)
   x$year <- value - 1900L
-  as.POSIXct(x)
+  as.POSIXct(x, tz = tz)
 }

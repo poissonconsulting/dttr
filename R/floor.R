@@ -39,9 +39,10 @@ dtt_floor.POSIXct <- function(x, units = "second", ...) {
   
   if(!length(x)) return(x)
   if(identical(units, "seconds")) {
-    x <- as.POSIXlt(x)
+    tz <- dtt_tz(x)
+    x <- as.POSIXlt(x, tz = tz)
     x$sec <- floor(x$sec)
-    x <- as.POSIXct(x)
+    x <- as.POSIXct(x, tz = tz)
     return(x)
   }
   dtt_seconds(x) <- 0L

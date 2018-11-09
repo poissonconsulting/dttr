@@ -43,8 +43,8 @@ dtt_complete.Date <- function(x, from = min(x), to = max(x), floor = TRUE, uniqu
   if(from > min(x_floor) || to < max(x_floor)) err("from and to must span x")
   
   if(floor) x <- x_floor
-  
   seq <- dtt_seq(from, to, units = units)
+  
   seq <- setdiff(seq, x_floor)
   if(unique) x <- unique(x)
   x <- c(x, seq)
@@ -69,7 +69,7 @@ dtt_complete.POSIXct <- function(x, from = min(x), to = max(x),
   
   from <- dtt_date_time(from, tz = dtt_tz(x))
   to <- dtt_date_time(to, tz = dtt_tz(x))
-  
+
   x_floor <- dtt_floor(x, units)
   from <- dtt_floor(from, units = units)
   to <- dtt_floor(to, units = units)
@@ -78,7 +78,6 @@ dtt_complete.POSIXct <- function(x, from = min(x), to = max(x),
   if(from > min(x_floor) || to < max(x_floor)) err("from and to must span x")
   
   if(floor) x <- x_floor
-
   seq <- try(dtt_seq(from, to, units = units), silent = FALSE)
   if(inherits(seq, "try-error")) err("attempting to generate more than 2^32 POSIXct values")
   seq <- setdiff(seq, x_floor)

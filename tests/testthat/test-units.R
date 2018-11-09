@@ -37,6 +37,9 @@ test_that("get", {
   expect_identical(dtt_hours(date_times), c(0L, 23L, 23L))
   expect_identical(dtt_hour(date_times_na), c(0L, NA, 23L))
   
+  expect_identical(dtt_hours(c(date_times[1], as.POSIXct("2000-12-01 00:00:00", tz =  "Etc/GMT+8"))),
+                   c(0L, 0L))
+  
   expect_identical(dtt_day(dates[integer(0)]), integer(0))
   expect_identical(dtt_days(dates[1]), 1L)
   expect_identical(dtt_days(dates), c(1L, 31L, 29L))
@@ -114,4 +117,5 @@ test_that("units", {
   expect_identical(dtt_units(dates), "days")
   expect_identical(dtt_units(date_times), "seconds")
   expect_identical(dtt_units(as.Date("2000-01-01")), "years")
+  expect_identical(dtt_units(c(date_times[1], as.POSIXct("2000-12-01 00:00:00", tz =  "Etc/GMT+8"))), "months")
 })
