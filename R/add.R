@@ -121,7 +121,7 @@ dtt_add_years.default <- function(x, n = 1L, ...) {
   check_scalar(n, 1L)
   check_unused(...)
   
-  dtt_years(x) <- dtt_years(x) + n
+  dtt_year(x) <- dtt_year(x) + n
   x
 }
 
@@ -131,7 +131,7 @@ dtt_add_months.default <- function(x, n = 1L, ...) {
   check_scalar(n, 1L)
   check_unused(...)
   
-  months <- dtt_months(x) + n
+  months <- dtt_month(x) + n
   years <- months %/% 12L
   months <- months %% 12L
   
@@ -140,7 +140,7 @@ dtt_add_months.default <- function(x, n = 1L, ...) {
     years <- years - 1L
   }
   
-  dtt_months(x) <- months
+  dtt_month(x) <- months
   dtt_add_years(x, years)
 }
 

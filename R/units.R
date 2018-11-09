@@ -13,6 +13,7 @@ dtt_units <- function(x, ...) {
   UseMethod("dtt_units")
 }
 
+
 #' Get and Set Seconds
 #'
 #' @param x A Date or POSIXct vector.
@@ -22,27 +23,29 @@ dtt_units <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_seconds(Sys.time())
-dtt_seconds <- function(x, ...) {
-  UseMethod("dtt_seconds")
-}
-
-#' @rdname dtt_seconds
-#' @export
+#' dtt_second(Sys.time())
 dtt_second <- function(x, ...) {
-  UseMethod("dtt_seconds")
+  UseMethod("dtt_second")
 }
 
-#' @rdname dtt_seconds
+#' @rdname dtt_second
+#' @export
+dtt_seconds <- function(x, ...) {
+  .Deprecated("dtt_second")
+  UseMethod("dtt_second")
+}
+
+#' @rdname dtt_second
 #' @export
 `dtt_seconds<-` <- function(x, value) {
-  UseMethod("dtt_seconds<-")
+  .Deprecated("dtt_second<-")
+  UseMethod("dtt_second<-")
 }
 
-#' @rdname dtt_seconds
+#' @rdname dtt_second
 #' @export
 `dtt_second<-` <- function(x, value) {
-  UseMethod("dtt_seconds<-")
+  UseMethod("dtt_second<-")
 }
 
 #' Get and Set Minutes
@@ -54,27 +57,30 @@ dtt_second <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_minutes(Sys.time())
-dtt_minutes <- function(x, ...) {
-  UseMethod("dtt_minutes")
-}
-
-#' @rdname dtt_minutes
-#' @export
+#' dtt_minute(Sys.time())
 dtt_minute <- function(x, ...) {
-  UseMethod("dtt_minutes")
+  UseMethod("dtt_minute")
 }
 
-#' @rdname dtt_minutes
+
+#' @rdname dtt_minute
 #' @export
-`dtt_minutes<-` <- function(x, value) {
-  UseMethod("dtt_minutes<-")
+dtt_minutes <- function(x, ...) {
+  .Deprecated("dtt_minute")
+  UseMethod("dtt_minute")
 }
 
-#' @rdname dtt_minutes
+#' @rdname dtt_minute
 #' @export
 `dtt_minute<-` <- function(x, value) {
-  UseMethod("dtt_minutes<-")
+  .Deprecated("dtt_minute<-")
+  UseMethod("dtt_minute<-")
+}
+
+#' @rdname dtt_minute
+#' @export
+`dtt_minute<-` <- function(x, value) {
+  UseMethod("dtt_minute<-")
 }
 
 #' Get and Set Hours
@@ -86,27 +92,29 @@ dtt_minute <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_hours(Sys.time())
-dtt_hours <- function(x, ...) {
-  UseMethod("dtt_hours")
-}
-
-#' @rdname dtt_hours
-#' @export
+#' dtt_hour(Sys.time())
 dtt_hour <- function(x, ...) {
-  UseMethod("dtt_hours")
+  UseMethod("dtt_hour")
 }
 
-#' @rdname dtt_hours
+#' @rdname dtt_hour
+#' @export
+dtt_hours <- function(x, ...) {
+  .Deprecated("dtt_hour")
+  UseMethod("dtt_hour")
+}
+
+#' @rdname dtt_hour
 #' @export
 `dtt_hours<-` <- function(x, value) {
-  UseMethod("dtt_hours<-")
+  .Deprecated("dtt_hour<-")
+  UseMethod("dtt_hour<-")
 }
 
-#' @rdname dtt_hours
+#' @rdname dtt_hour
 #' @export
 `dtt_hour<-` <- function(x, value) {
-  UseMethod("dtt_hours<-")
+  UseMethod("dtt_hour<-")
 }
 
 #' Get and Set Days
@@ -118,27 +126,29 @@ dtt_hour <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_days(Sys.time())
-dtt_days <- function(x, ...) {
-  UseMethod("dtt_days")
-}
-
-#' @rdname dtt_days
-#' @export
+#' dtt_day(Sys.time())
 dtt_day <- function(x, ...) {
-  UseMethod("dtt_days")
+  UseMethod("dtt_day")
 }
 
-#' @rdname dtt_days
+#' @rdname dtt_day
 #' @export
-`dtt_days<-` <- function(x, value) {
-  UseMethod("dtt_days<-")
+dtt_days <- function(x, ...) {
+  .Deprecated("dtt_day")
+  UseMethod("dtt_day")
 }
 
-#' @rdname dtt_days
+#' @rdname dtt_day
 #' @export
 `dtt_day<-` <- function(x, value) {
-  UseMethod("dtt_days<-")
+  .Deprecated("dtt_day<-")
+  UseMethod("dtt_day<-")
+}
+
+#' @rdname dtt_day
+#' @export
+`dtt_day<-` <- function(x, value) {
+  UseMethod("dtt_day<-")
 }
 
 #' Get and Set Months
@@ -150,27 +160,29 @@ dtt_day <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_months(Sys.time())
-dtt_months <- function(x, ...) {
-  UseMethod("dtt_months")
-}
-
-#' @rdname dtt_months
-#' @export
+#' dtt_month(Sys.time())
 dtt_month <- function(x, ...) {
-  UseMethod("dtt_months")
+  UseMethod("dtt_month")
 }
 
-#' @rdname dtt_months
+#' @rdname dtt_month
+#' @export
+dtt_months <- function(x, ...) {
+  .Deprecated("dtt_month")
+  UseMethod("dtt_month")
+}
+
+#' @rdname dtt_month
 #' @export
 `dtt_months<-` <- function(x, value) {
-  UseMethod("dtt_months<-")
+  .Deprecated("dtt_month<-")
+  UseMethod("dtt_month<-")
 }
 
-#' @rdname dtt_months
+#' @rdname dtt_month
 #' @export
 `dtt_month<-` <- function(x, value) {
-  UseMethod("dtt_months<-")
+  UseMethod("dtt_month<-")
 }
 
 #' Get Years
@@ -182,27 +194,29 @@ dtt_month <- function(x, ...) {
 #' @export
 #'
 #' @examples
-#' dtt_years(Sys.time())
-dtt_years <- function(x, ...) {
-  UseMethod("dtt_years")
-}
-
-#' @rdname dtt_years
-#' @export
+#' dtt_year(Sys.time())
 dtt_year <- function(x, ...) {
-  UseMethod("dtt_years")
+  UseMethod("dtt_year")
 }
 
-#' @rdname dtt_years
+#' @rdname dtt_year
+#' @export
+dtt_years <- function(x, ...) {
+  .Deprecated("dtt_year")
+  UseMethod("dtt_year")
+}
+
+#' @rdname dtt_year
 #' @export
 `dtt_years<-` <- function(x, value) {
-  UseMethod("dtt_years<-")
+  .Deprecated("dtt_year<-")
+  UseMethod("dtt_year<-")
 }
 
-#' @rdname dtt_years
+#' @rdname dtt_year
 #' @export
 `dtt_year<-` <- function(x, value) {
-  UseMethod("dtt_years<-")
+  UseMethod("dtt_year<-")
 }
 
 #' @export
@@ -210,8 +224,8 @@ dtt_units.Date <- function(x, ...) {
   x <- x[!is.na(x)]
   if(!length(x)) return("days")
   
-  if(any(dtt_days(x) != 1L)) return("days")
-  if(any(dtt_months(x) != 1L)) return("months")
+  if(any(dtt_day(x) != 1L)) return("days")
+  if(any(dtt_month(x) != 1L)) return("months")
   "years"
 }
 
@@ -220,11 +234,11 @@ dtt_units.POSIXct <- function(x, ...) {
   x <- x[!is.na(x)]
   if(!length(x)) return("seconds")
   
-  if(any(dtt_seconds(x) != 0L)) return("seconds")
-  if(any(dtt_minutes(x) != 0L)) return("minutes")
-  if(any(dtt_hours(x) != 0L)) return("hours")
-  if(any(dtt_days(x) != 1L)) return("days")
-  if(any(dtt_months(x) != 1L)) return("months")
+  if(any(dtt_second(x) != 0L)) return("seconds")
+  if(any(dtt_minute(x) != 0L)) return("minutes")
+  if(any(dtt_hour(x) != 0L)) return("hours")
+  if(any(dtt_day(x) != 1L)) return("days")
+  if(any(dtt_month(x) != 1L)) return("months")
   "years"
 }
 
@@ -245,28 +259,28 @@ dtt_units.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_seconds.POSIXct <- function(x, ...) {
+dtt_second.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$sec)
 }
 
 #' @export
-dtt_seconds.Date <- function(x, ...) rep(0L, length(x))
+dtt_second.Date <- function(x, ...) rep(0L, length(x))
 
 #' @export
-dtt_seconds.dtt_duration <- function(x, ...) {
+dtt_second.dtt_duration <- function(x, ...) {
   check_unused(...)
   as.integer(x)
 }
 
 #' @export
-dtt_seconds.POSIXct <- function(x, ...) {
+dtt_second.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$sec)
 }
 
 #' @export
-`dtt_seconds<-.POSIXct` <- function(x, value) {
+`dtt_second<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)
@@ -276,23 +290,23 @@ dtt_seconds.POSIXct <- function(x, ...) {
 }
 
 #' @export
-dtt_minutes.Date <- function(x, ...) rep(0L, length(x))
+dtt_minute.Date <- function(x, ...) rep(0L, length(x))
 
 #' @export
-dtt_minutes.POSIXct <- function(x, ...) {
+dtt_minute.POSIXct <- function(x, ...) {
   check_unused(...)
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$min)
 }
 
 #' @export
-dtt_minutes.dtt_duration <- function(x, ...) {
+dtt_minute.dtt_duration <- function(x, ...) {
   check_unused(...)
   as_numeric(x, "minutes")
 }
 
 #' @export
-`dtt_minutes<-.POSIXct` <- function(x, value) {
+`dtt_minute<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)
@@ -302,22 +316,22 @@ dtt_minutes.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_hours.Date <- function(x, ...) rep(0L, length(x))
+dtt_hour.Date <- function(x, ...) rep(0L, length(x))
 
 #' @export
-dtt_hours.POSIXct <- function(x, ...) {
+dtt_hour.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$hour)
 }
 
 #' @export
-dtt_hours.dtt_duration <- function(x, ...) {
+dtt_hour.dtt_duration <- function(x, ...) {
   check_unused(...)
   as_numeric(x, "hours")
 }
 
 #' @export
-`dtt_hours<-.POSIXct` <- function(x, value) {
+`dtt_hour<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 23L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)
@@ -327,22 +341,22 @@ dtt_hours.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_days.Date <- function(x, ...) as.integer(format(x, "%d"))
+dtt_day.Date <- function(x, ...) as.integer(format(x, "%d"))
 
 #' @export
-dtt_days.POSIXct <- function(x, ...) {
+dtt_day.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$mday)
 }
 
 #' @export
-dtt_days.dtt_duration <- function(x, ...) {
+dtt_day.dtt_duration <- function(x, ...) {
   check_unused(...)
   as_numeric(x, "days")
 }
 
 #' @export
-`dtt_days<-.Date` <- function(x, value) {
+`dtt_day<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- format(x)
@@ -351,7 +365,7 @@ dtt_days.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-`dtt_days<-.POSIXct` <- function(x, value) {
+`dtt_day<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)
@@ -361,22 +375,22 @@ dtt_days.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_months.Date <- function(x, ...) as.integer(format(x, "%m"))
+dtt_month.Date <- function(x, ...) as.integer(format(x, "%m"))
 
 #' @export
-dtt_months.POSIXct <- function(x, ...) {
+dtt_month.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$mon + 1L)
 }
 
 #' @export
-dtt_months.dtt_duration <- function(x, ...) {
+dtt_month.dtt_duration <- function(x, ...) {
   check_unused(...)
   as_numeric(x, "months")
 }
 
 #' @export
-`dtt_months<-.Date` <- function(x, value) {
+`dtt_month<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- format(x)
@@ -385,7 +399,7 @@ dtt_months.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-`dtt_months<-.POSIXct` <- function(x, value) {
+`dtt_month<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)
@@ -395,22 +409,22 @@ dtt_months.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-dtt_years.Date <- function(x, ...) as.integer(format(x, "%Y"))
+dtt_year.Date <- function(x, ...) as.integer(format(x, "%Y"))
 
 #' @export
-dtt_years.POSIXct <- function(x, ...) {
+dtt_year.POSIXct <- function(x, ...) {
   x <- as.POSIXlt(x, tz = dtt_tz(x))
   as.integer(x$year + 1900L)
 }
 
 #' @export
-dtt_years.dtt_duration <- function(x, ...) {
+dtt_year.dtt_duration <- function(x, ...) {
   check_unused(...)
   as_numeric(x, "years")
 }
 
 #' @export
-`dtt_years<-.Date` <- function(x, value) {
+`dtt_year<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   x <- format(x)
@@ -419,7 +433,7 @@ dtt_years.dtt_duration <- function(x, ...) {
 }
 
 #' @export
-`dtt_years<-.POSIXct` <- function(x, value) {
+`dtt_year<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
   tz <- dtt_tz(x)

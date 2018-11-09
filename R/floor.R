@@ -26,9 +26,9 @@ dtt_floor.Date <- function(x, units = "days", ...) {
     class(x) <- "Date"
     return(x)
   }
-  dtt_days(x) <- 1L
+  dtt_day(x) <- 1L
   if(identical(units, "months")) return(x)
-  dtt_months(x) <- 1L
+  dtt_month(x) <- 1L
   x
 }
 
@@ -45,14 +45,14 @@ dtt_floor.POSIXct <- function(x, units = "second", ...) {
     x <- as.POSIXct(x, tz = tz)
     return(x)
   }
-  dtt_seconds(x) <- 0L
+  dtt_second(x) <- 0L
   if(identical(units, "minutes")) return(x)
-  dtt_minutes(x) <- 0L
+  dtt_minute(x) <- 0L
   if(identical(units, "hours")) return(x)
-  dtt_hours(x) <- 0L
+  dtt_hour(x) <- 0L
   if(identical(units, "days")) return(x)
-  dtt_days(x) <- 1L
+  dtt_day(x) <- 1L
   if(identical(units, "months")) return(x)
-  dtt_months(x) <- 1L
+  dtt_month(x) <- 1L
   x
 }

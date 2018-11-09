@@ -149,6 +149,9 @@ duration
 class(duration)
 #> [1] "dtt_duration"
 dtt_minutes(duration)
+#> Warning: 'dtt_minutes' is deprecated.
+#> Use 'dtt_minute' instead.
+#> See help("Deprecated")
 #> [1] 0.05
 ```
 
@@ -166,4 +169,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms.
+agree to abide by its terms

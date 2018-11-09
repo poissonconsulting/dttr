@@ -101,9 +101,9 @@ install.packages("dttr")</code></pre>
 <a class="sourceLine" id="cb3-3" data-line-number="3">date_times</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "1899-12-31 23:59:59 -08"</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; [3] "1972-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw"><a href="reference/dtt_years.html">dtt_year</a></span>(date_times)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times)</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; [1] 2000 1899 1972</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw"><a href="reference/dtt_years.html">dtt_year</a></span>(date_times) &lt;-<span class="st"> </span><span class="kw">c</span>(2000L, 2000L, 2002L)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times) &lt;-<span class="st"> </span><span class="kw">c</span>(2000L, 2000L, 2002L)</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">date_times</a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></a>
@@ -185,8 +185,11 @@ install.packages("dttr")</code></pre>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; 3s</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">class</span>(duration)</a>
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [1] "dtt_duration"</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw"><a href="reference/dtt_minutes.html">dtt_minutes</a></span>(duration)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; [1] 0.05</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw"><a href="reference/dtt_minute.html">dtt_minutes</a></span>(duration)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; Warning: 'dtt_minutes' is deprecated.</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; Use 'dtt_minute' instead.</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; See help("Deprecated")</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; [1] 0.05</span></a></code></pre></div>
 </div>
 </div>
 <div id="inspiration" class="section level2">
@@ -199,7 +202,7 @@ install.packages("dttr")</code></pre>
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/dttr/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/dttr/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that the ‘dttr’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the ‘dttr’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms</p>
 </div>
 </div>
   </div>
