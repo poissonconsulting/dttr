@@ -132,28 +132,6 @@ dtt_minutes(duration)
 #> [1] 0.05
 ```
 
-## Citation
-
-    Warning in citation(package = "dttr"): no date field in DESCRIPTION file of
-    package 'dttr'
-    Warning in citation(package = "dttr"): could not determine year for 'dttr'
-    from package DESCRIPTION file
-    
-    To cite package 'dttr' in publications use:
-    
-      Joe Thorley (NA). dttr: Manipulate Date and POSIXct Objects. R
-      package version 0.0.0.9016.
-      https://github.com/poissonconsulting/dttr
-    
-    A BibTeX entry for LaTeX users is
-    
-      @Manual{,
-        title = {dttr: Manipulate Date and POSIXct Objects},
-        author = {Joe Thorley},
-        note = {R package version 0.0.0.9016},
-        url = {https://github.com/poissonconsulting/dttr},
-      }
-
 ## Inspiration
 
 [lubridate](https://lubridate.tidyverse.org)

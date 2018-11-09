@@ -105,12 +105,6 @@ dtt_minutes(duration)
 
 ```
 
-## Citation
-
-```{r, comment="", echo=FALSE}
-citation(package = "dttr")
-```
-
 ## Inspiration
 
 [lubridate](https://lubridate.tidyverse.org)
