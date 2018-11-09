@@ -3,7 +3,7 @@
 
 # dttr
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.com/poissonconsulting/dttr.svg?branch=master)](https://travis-ci.com/poissonconsulting/dttr)
 [![AppVeyor build
@@ -38,10 +38,10 @@ To install the latest development version from the Poisson drat
 
 ## Demonstration
 
-### Get, Set and Seq
+### Get and Set Component
 
 The core functions allow the user to easily get and set the components
-of Date and POSIXct objects and create a sequence.
+of Date and POSIXct objects.
 
 ``` r
 library(dttr)
@@ -60,7 +60,27 @@ dtt_add_years(date_times, 2L)
 #> [3] "2004-06-30 23:59:59 -08"
 dtt_floor(date_times, units = "months")
 #> [1] "2000-01-01 -08" "2000-12-01 -08" "2002-06-01 -08"
-dtt_seq(date_times[1], date_times[2], units = "months")
+seq <- dtt_seq(date_times[1], date_times[2], units = "months")
+seq
+#>  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"
+#>  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"
+#>  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"
+```
+
+### Complete
+
+Completing a sequence is also straightforward
+
+``` r
+seq <- seq[c(1,2,12)]
+seq
+#> [1] "2000-01-01 -08" "2000-02-01 -08" "2000-12-01 -08"
+dtt_completed(seq)
+#> [1] FALSE
+seq <- dtt_complete(seq)
+dtt_completed(seq)
+#> [1] TRUE
+seq
 #>  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"
 #>  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"
 #>  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"
@@ -146,4 +166,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.

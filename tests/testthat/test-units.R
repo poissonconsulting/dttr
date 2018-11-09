@@ -31,7 +31,10 @@ test_that("get", {
   expect_identical(dtt_hours(dates[1]), 0L)
   expect_identical(dtt_hours(dates), c(0L, 0L, 0L))
   expect_identical(dtt_hour(dates_na), c(0L, 0L, 0L))
- 
+  
+  expect_identical(dtt_hours(c(date_times[1])), 0L)
+  expect_identical(dtt_hours(date_times[1]), 0L)
+
   expect_identical(dtt_hour(date_times[integer(0)]), integer(0))
   expect_identical(dtt_hours(date_times[1]), 0L)
   expect_identical(dtt_hours(date_times), c(0L, 23L, 23L))

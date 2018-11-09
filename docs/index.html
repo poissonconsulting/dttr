@@ -92,10 +92,10 @@ install.packages("dttr")</code></pre>
 <div id="demonstration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#demonstration" class="anchor"></a>Demonstration</h2>
-<div id="get-set-and-seq" class="section level3">
+<div id="get-and-set-component" class="section level3">
 <h3 class="hasAnchor">
-<a href="#get-set-and-seq" class="anchor"></a>Get, Set and Seq</h3>
-<p>The core functions allow the user to easily get and set the components of Date and POSIXct objects and create a sequence.</p>
+<a href="#get-and-set-component" class="anchor"></a>Get and Set Component</h3>
+<p>The core functions allow the user to easily get and set the components of Date and POSIXct objects.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(dttr)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">date_times &lt;-<span class="st"> </span>dttr<span class="op">::</span>date_times</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">date_times</a>
@@ -112,63 +112,81 @@ install.packages("dttr")</code></pre>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; [3] "2004-06-30 23:59:59 -08"</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="kw"><a href="reference/dtt_floor.html">dtt_floor</a></span>(date_times, <span class="dt">units =</span> <span class="st">"months"</span>)</a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; [1] "2000-01-01 -08" "2000-12-01 -08" "2002-06-01 -08"</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="kw"><a href="reference/dtt_seq.html">dtt_seq</a></span>(date_times[<span class="dv">1</span>], date_times[<span class="dv">2</span>], <span class="dt">units =</span> <span class="st">"months"</span>)</a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-17" data-line-number="17">seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_seq.html">dtt_seq</a></span>(date_times[<span class="dv">1</span>], date_times[<span class="dv">2</span>], <span class="dt">units =</span> <span class="st">"months"</span>)</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">seq</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></a></code></pre></div>
+</div>
+<div id="complete" class="section level3">
+<h3 class="hasAnchor">
+<a href="#complete" class="anchor"></a>Complete</h3>
+<p>Completing a sequence is also straightforward</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">seq &lt;-<span class="st"> </span>seq[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">12</span>)]</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">seq</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [1] "2000-01-01 -08" "2000-02-01 -08" "2000-12-01 -08"</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [1] FALSE</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_complete.html">dtt_complete</a></span>(seq)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [1] TRUE</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">seq</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></a></code></pre></div>
 </div>
 <div id="time-zones" class="section level3">
 <h3 class="hasAnchor">
 <a href="#time-zones" class="anchor"></a>Time Zones</h3>
 <p>As well as setting the time zone which does not change the clock time the user can adjust the time zone which alters the clock time so that the old and new events are coincident.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">date_times</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="reference/dtt_set_tz.html">dtt_set_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; [1] "2000-01-01 00:00:00 +01" "2000-12-31 23:59:59 +01"</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">#&gt; [3] "2002-06-30 23:59:59 +01"</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw"><a href="reference/dtt_adjust_tz.html">dtt_adjust_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">#&gt; [1] "2000-01-01 09:00:00 +01" "2001-01-01 08:59:59 +01"</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">#&gt; [3] "2002-07-01 08:59:59 +01"</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">date_times</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="reference/dtt_set_tz.html">dtt_set_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; [1] "2000-01-01 00:00:00 +01" "2000-12-31 23:59:59 +01"</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [3] "2002-06-30 23:59:59 +01"</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw"><a href="reference/dtt_adjust_tz.html">dtt_adjust_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; [1] "2000-01-01 09:00:00 +01" "2001-01-01 08:59:59 +01"</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; [3] "2002-07-01 08:59:59 +01"</span></a></code></pre></div>
 <p>The user is also able to use <code><a href="reference/dtt_set_sys_tz.html">dtt_set_sys_tz()</a></code> to define the default time zone for all package function calls.</p>
 </div>
 <div id="timer" class="section level3">
 <h3 class="hasAnchor">
 <a href="#timer" class="anchor"></a>Timer</h3>
 <p>A object of class <code>dtt_timer</code> tracks the clock time in seconds. <code><a href="reference/dtt_timer.html">dtt_elapsed()</a></code> returns the duration for which the timer has been running (see below).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_timer</a></span>(<span class="dt">start =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">timer</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; 0s</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">timer</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; 1s</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">timer</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_stop</a></span>(timer)</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">timer</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">timer</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_start</a></span>(timer)</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">timer</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; 3s</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="kw">as.integer</span>(<span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer))</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_timer</a></span>(<span class="dt">start =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">timer</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; 0s</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">timer</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; 1s</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">timer</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 2s</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_stop</a></span>(timer)</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">timer</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; 2s</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">timer</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 2s</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_start</a></span>(timer)</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="kw">Sys.sleep</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">timer</a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; 3s</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="kw">as.integer</span>(<span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer))</a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
 </div>
 <div id="duration" class="section level3">
 <h3 class="hasAnchor">
 <a href="#duration" class="anchor"></a>Duration</h3>
 <p>An object of class <code>dtt_duration</code> is an integer vector that stores the time in seconds.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">duration &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">duration</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; 3s</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">class</span>(duration)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; [1] "dtt_duration"</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw"><a href="reference/dtt_minutes.html">dtt_minutes</a></span>(duration)</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; [1] 0.05</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">duration &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">duration</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; 3s</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">class</span>(duration)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; [1] "dtt_duration"</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw"><a href="reference/dtt_minutes.html">dtt_minutes</a></span>(duration)</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; [1] 0.05</span></a></code></pre></div>
 </div>
 </div>
 <div id="inspiration" class="section level2">
@@ -181,7 +199,7 @@ install.packages("dttr")</code></pre>
 <a href="#contribution" class="anchor"></a>Contribution</h2>
 <p>Please report any <a href="https://github.com/poissonconsulting/dttr/issues">issues</a>.</p>
 <p><a href="https://github.com/poissonconsulting/dttr/pulls">Pull requests</a> are always welcome.</p>
-<p>Please note that the ‘dttr’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms</p>
+<p>Please note that the ‘dttr’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -213,7 +231,7 @@ install.packages("dttr")</code></pre>
       <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
 <li><a href="https://travis-ci.com/poissonconsulting/dttr"><img src="https://travis-ci.com/poissonconsulting/dttr.svg?branch=master" alt="Travis build status"></a></li>
 <li><a href="https://ci.appveyor.com/project/poissonconsulting/dttr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dttr?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
 <li><a href="https://codecov.io/github/poissonconsulting/dttr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg" alt="Coverage status"></a></li>

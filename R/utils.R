@@ -97,3 +97,8 @@ NA_POSIXct_ <- .POSIXct(NA_real_, tz = "UTC")
 #' A missing Date object
 #' @export
 NA_Date_ <- .Date(NA_real_)
+
+c.POSIXct <- function(..., recursive = FALSE) {
+  dots <- list(...)
+  .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))
+}

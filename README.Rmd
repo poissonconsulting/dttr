@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 # dttr
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build status](https://travis-ci.com/poissonconsulting/dttr.svg?branch=master)](https://travis-ci.com/poissonconsulting/dttr)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dttr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/dttr)
 [![Coverage status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
@@ -42,9 +42,9 @@ install.packages("dttr")
 
 ## Demonstration
 
-### Get, Set and Seq
+### Get and Set Component
 
-The core functions allow the user to easily get and set the components of Date and POSIXct objects and create a sequence.
+The core functions allow the user to easily get and set the components of Date and POSIXct objects.
 
 ```{r}
 library(dttr)
@@ -55,8 +55,22 @@ dtt_year(date_times) <- c(2000L, 2000L, 2002L)
 date_times
 dtt_add_years(date_times, 2L)
 dtt_floor(date_times, units = "months")
-dtt_seq(date_times[1], date_times[2], units = "months")
+seq <- dtt_seq(date_times[1], date_times[2], units = "months")
+seq
 ```
+
+### Complete
+
+Completing a sequence is also straightforward
+```{r}
+seq <- seq[c(1,2,12)]
+seq
+dtt_completed(seq)
+seq <- dtt_complete(seq)
+dtt_completed(seq)
+seq
+```
+
 
 ### Time Zones
 
@@ -115,4 +129,4 @@ Please report any [issues](https://github.com/poissonconsulting/dttr/issues).
 
 [Pull requests](https://github.com/poissonconsulting/dttr/pulls) are always welcome.
 
-Please note that the 'dttr' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms
+Please note that the 'dttr' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

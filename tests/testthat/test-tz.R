@@ -16,6 +16,8 @@ test_that("tz.Date", {
 test_that("tz.POSIXct", {
   expect_identical(dtt_tz(Sys.time()), Sys.timezone())
   expect_identical(dtt_tz(date_times), "Etc/GMT+8")
+  expect_identical(dtt_tz(date_times[1]), "Etc/GMT+8")
+  expect_identical(dtt_tz(c(date_times[1])), "Etc/GMT+8")
 })
 
 test_that("adjust_tz.Date", {

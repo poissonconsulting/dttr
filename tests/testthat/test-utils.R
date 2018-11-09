@@ -22,3 +22,7 @@ test_that("NA", {
   expect_false(is.POSIXct(NA_Date_))
   expect_true(is.Date_or_POSIXct(NA_Date_))
 })
+
+test_that("c", {
+  expect_identical(c(date_times[1]), date_times[1])
+})
