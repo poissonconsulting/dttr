@@ -4,15 +4,19 @@
 \alias{dtt_dayte}
 \title{Dayte}
 \usage{
-dtt_dayte(x)
+dtt_dayte(x, start_month = 1L, start_day = 1L)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
+\item{start_month}{An integer vector specifying the start month of the year.}
+
+\item{start_day}{An integer vector specifying the start day of the year.}
+
 \item{...}{Unused.}
 }
 \value{
-A Date or POSIXct vector with year as 1972.
+A Date or POSIXct vector with the year for February 29th as 1972.
 }
 \description{
 Dayte
