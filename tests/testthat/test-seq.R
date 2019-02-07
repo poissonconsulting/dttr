@@ -21,3 +21,9 @@ test_that("seq", {
   expect_identical(length(x), 3L)
   expect_identical(x[1], dates[1])
 })
+
+test_that("seq works with length_out", {
+  x <- dtt_seq(length_out = 10L)
+  expect_identical(x, as.Date(paste("2000-01-", 1:10)))
+})
+

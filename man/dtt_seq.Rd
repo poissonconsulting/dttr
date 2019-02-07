@@ -4,7 +4,8 @@
 \alias{dtt_seq}
 \title{Sequence}
 \usage{
-dtt_seq(from, to, units = "days")
+dtt_seq(from = dtt_date("2000-01-01"), to = dtt_date("2000-01-01"),
+  units = "days", length_out = NULL)
 }
 \arguments{
 \item{from}{A Date or POSIXct scalar of the start date.}
@@ -12,6 +13,8 @@ dtt_seq(from, to, units = "days")
 \item{to}{A Date or POSIXct scalar of the to date.}
 
 \item{units}{A string of the units.}
+
+\item{length_out}{An integer of the number of units from from.}
 }
 \value{
 A Date or POSIXct vector.
