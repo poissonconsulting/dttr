@@ -1,6 +1,6 @@
 #' Study Year
 #'
-#' @inheritParams dtt_dayte
+#' @inheritParams dtt_daytt
 #' @return A character vector of the study year.
 #' @export
 #'

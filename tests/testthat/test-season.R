@@ -22,3 +22,10 @@ test_that("dtt_season", {
   expect_length(dtt_season(dates[1][-1]), 0)
   expect_is(dtt_season(dates[1][-1]), "ordered")
 })
+
+test_that("dtt_season date_times", {
+  expect_identical(dtt_season(dttr::date_times),
+    ordered(c("Winter", "Winter", "Summer"),
+    levels = c("Winter", "Spring", "Summer", "Autumn")))
+})
+
