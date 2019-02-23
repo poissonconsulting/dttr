@@ -13,6 +13,12 @@ test_that("dtt_season", {
     seasons = c(Spring = 1L, Summer = 6L, Autumn = 8L, Winter = 11L)),
     ordered(c("Spring", "Spring", "Spring", "Spring", "Summer", "Autumn", "Winter", NA),
     levels = c("Spring", "Summer", "Autumn", "Winter")))
+  
+  expect_identical(dtt_season(dates,
+    seasons = c(Spring = as.Date("1972-01-01"), Summer = as.Date("1972-06-01"), 
+                Autumn = as.Date("1972-08-01"), Winter = as.Date("1972-11-01"))),
+    ordered(c("Spring", "Spring", "Spring", "Spring", "Summer", "Autumn", "Winter", NA),
+    levels = c("Spring", "Summer", "Autumn", "Winter")))
 
   expect_identical(dtt_season(dates,
     seasons = c(Monsoon = 2L, `Dry Period` = 6L)),

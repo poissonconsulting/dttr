@@ -21,14 +21,6 @@ objects.
 
 ## Installation
 
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/dttr)
-
-    install.packages("devtools")
-    devtools::install_github("poissonconsulting/err")
-    devtools::install_github("poissonconsulting/checkr")
-    devtools::install_github("poissonconsulting/dttr")
-
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
