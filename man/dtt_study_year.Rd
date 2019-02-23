@@ -4,14 +4,12 @@
 \alias{dtt_study_year}
 \title{Study Year}
 \usage{
-dtt_study_year(x, start_month = 1L, start_day = 1L)
+dtt_study_year(x, start = 1L)
 }
 \arguments{
 \item{x}{A Date or POSIXct vector.}
 
-\item{start_month}{An integer vector specifying the start month of the year.}
-
-\item{start_day}{An integer vector specifying the start day of the year.}
+\item{start}{An integer scalar of the starting month or a Date scalar of the starting dayte.}
 }
 \value{
 A character vector of the study year.
@@ -21,5 +19,5 @@ Study Year
 }
 \examples{
 dtt_study_year(Sys.Date())
-dtt_study_year(as.Date(c("2000-03-31", "2000-04-01", "2001-04-01")), start_month = 4L)
+dtt_study_year(as.Date(c("2000-03-31", "2000-04-01", "2001-04-01")), start = 4L)
 }

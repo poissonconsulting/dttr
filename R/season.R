@@ -33,6 +33,8 @@ dtt_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
     names(breaks) <- names(seasons)
     seasons <- breaks
   }
+  seasons <- dtt_floor(seasons)
+  
   is_length <- length(x)
   if(!is_length) x <- as.Date("2000-01-01")
   

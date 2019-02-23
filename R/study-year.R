@@ -1,25 +1,29 @@
 #' Study Year
 #'
 #' @inheritParams dtt_daytt
+#' @param start An integer scalar of the starting month or a Date scalar of the starting dayte.
 #' @return A character vector of the study year.
 #' @export
 #'
 #' @examples
 #' dtt_study_year(Sys.Date())
-#' dtt_study_year(as.Date(c("2000-03-31", "2000-04-01", "2001-04-01")), start_month = 4L)
-dtt_study_year <- function(x, start_month = 1L, start_day = 1L) {
+#' dtt_study_year(as.Date(c("2000-03-31", "2000-04-01", "2001-04-01")), start = 4L)
+dtt_study_year <- function(x, start = 1L) {
   check_dtt(x)
-  check_vector(start_month, c(1L, 12L), length = c(1L, 1L, length(x)))
-  check_vector(start_day, c(1L, 31L), length = c(1L, 1L, length(x)))
+  checkor(check_vector(start, c(1L, 12L), length = 1L),
+          check_vector(start, dtt_date(c("1972-01-01", "1972-12-31")), length = 1L))
   if(!length(x)) return(character(0))
+  if(is.integer(start)) start <- dtt_date(p("1972", start, "01", sep = "-"))
   year <- dtt_year(x)
-  if(all(start_month == 1L & start_day == 1L)) 
+  start <- dtt_floor(start)
+  if(identical(start, dtt_date("1972-01-01")))
     return(paste(year, year, sep = "-"))
-  start_date <- paste(year, start_month, start_day, sep = "-")
-  start_date <- try(dtt_date(start_date), silent = TRUE)
-  if(inherits(start_date, "try-error"))
-    err("arguments start_month and start_day must define valid dates for each year")
-  date_in_start <- dtt_date(x) >= start_date
+  
+  start <- rep(start, length(year))
+  start <- try(dtt_set_year(start, year), silent = TRUE)
+  if(inherits(start, "try-error"))
+    err("argument start must be a valid date for each year")
+  date_in_start <- dtt_date(x) >= start
   year[!date_in_start] <- year[!date_in_start] - 1L
   paste(year, year + 1L, sep = "-")
 }
