@@ -1,14 +1,12 @@
 Package: dttr
 Title: Manipulate Date and POSIXct Objects
-Version: 0.0.0.9021
+Version: 0.0.0.9022
 Authors@R: 
   person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7683-4592"))
 Description: A light-weight package to manipulate Date and POSIXct objects.
     As well as functions to get, set, add and subtract years, months, days, hours
     etc it includes functions to floor objects, set or adjust time zones and
     create complete sequences. It also provides duration and timer objects.
-URL: https://github.com/poissonconsulting/dttr
-BugReports: https://github.com/poissonconsulting/dttr/issues
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 
@@ -18,6 +16,8 @@ Imports:
 Suggests: 
     testthat,
     covr
+URL: https://github.com/poissonconsulting/dttr
+BugReports: https://github.com/poissonconsulting/dttr/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1

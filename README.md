@@ -1,8 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dttr
-
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.com/poissonconsulting/dttr.svg?branch=master)](https://travis-ci.com/poissonconsulting/dttr)
@@ -12,21 +10,15 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dtt
 status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dttr)](https://cran.r-project.org/package=dttr)
+
+# dttr
 
 `dttr` is a light-weight package to manipulate Date and POSIXct objects.
 As well as functions to get, set, add and subtract years, months, days,
 hours etc it includes functions to floor objects, set or adjust time
 zones and create complete sequences. It also provides duration and timer
 objects.
-
-## Installation
-
-To install the latest development version from the Poisson drat
-[repository](https://github.com/poissonconsulting/drat)
-
-    install.packages("drat")
-    drat::addRepo("poissonconsulting")
-    install.packages("dttr")
 
 ## Demonstration
 
@@ -146,6 +138,25 @@ dtt_minutes(duration)
 #> See help("Deprecated")
 #> [1] 0.05
 ```
+
+## Installation
+
+To install the latest development version from the Poisson drat
+[repository](https://github.com/poissonconsulting/drat)
+
+    if(!"drat" %in% installed.packages()[,1]) 
+      install.packages("drat")
+    drat::addRepo("poissonconsulting")
+    install.packages("dttr")
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/checkr)
+
+    if(!"devtools" %in% installed.packages()[,1]) 
+      install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
+    devtools::install_github("poissonconsulting/dttr")
 
 ## Inspiration
 
