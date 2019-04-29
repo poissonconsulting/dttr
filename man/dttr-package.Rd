@@ -6,7 +6,8 @@
 \alias{dttr-package}
 \title{dttr: Manipulate Date and Time Objects}
 \description{
-A light-weight package to manipulate Date, POSIXct and hms objects.
+A light-weight package to manipulate date (Date), time (hms) 
+    and datetime (POSIXct) and hms objects.
     As well as functions to get, set, add and subtract years, months, days, hours
     etc it includes functions to floor objects, set or adjust time zones and
     create complete sequences. It also provides duration and timer objects.

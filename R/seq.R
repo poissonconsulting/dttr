@@ -22,7 +22,7 @@ dtt_seq <- function(from = dtt_date("2000-01-01"),
   if(is.Date(from)) {
     to <- dtt_date(to)
     if(!units %in% c("years", "months", "days"))
-      err("units must be ", cc(c("years", "months", "days"), "or"))
+      err("units must be 'years', 'months' or 'days'")
     if(!is.null(length_out)) 
       to <- dtt_add_units(from, n = length_out -1L, units = units)
     from <- c(from, to)

@@ -13,7 +13,7 @@ dtt_study_year <- function(x, start = 1L) {
   checkor(check_vector(start, c(1L, 12L), length = 1L),
           check_vector(start, dtt_date(c("1972-01-01", "1972-12-31")), length = 1L))
   if(!length(x)) return(character(0))
-  if(is.integer(start)) start <- dtt_date(p("1972", start, "01", sep = "-"))
+  if(is.integer(start)) start <- dtt_date(paste("1972", start, "01", sep = "-"))
   year <- dtt_year(x)
   start <- dtt_floor(start)
   if(identical(start, dtt_date("1972-01-01")))

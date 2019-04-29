@@ -111,7 +111,7 @@ dtt_add_units <- function(x, n = 1L, units = dtt_units(x)) {
          hours = dtt_add_hours(x, n),
          minutes = dtt_add_minutes(x, n),
          seconds = dtt_add_seconds(x, n),
-         err("units must be ", cc(.units, "or"), " not ('", units, "')")
+         err("units must be 'seconds', 'minutes', 'hours', 'days', 'months' or 'years' not ('", units, "')")
   )
 }
 

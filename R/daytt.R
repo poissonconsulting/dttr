@@ -16,7 +16,7 @@ dtt_daytt <- function(x, start_month = 1L, start_day = 1L) {
   if(!length(x)) return(x)
   dtt_year(x) <- 1972L
   if(all(start_month == 1L & start_day == 1L)) return(x)
-  start_date <- p(1972, start_month, start_day, sep = "-")
+  start_date <- paste(1972, start_month, start_day, sep = "-")
   start_date <- try(dtt_date(start_date), silent = TRUE)
   if(inherits(start_date, "try-error"))
     err("arguments start_month and start_day must define valid dates")
