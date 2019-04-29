@@ -9,16 +9,16 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dtt
 [![Coverage
 status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+GPL3](https://img.shields.io/badge/License-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dttr)](https://cran.r-project.org/package=dttr)
 
 # dttr
 
-`dttr` is a light-weight package to manipulate Date and POSIXct objects.
-As well as functions to get, set, add and subtract years, months, days,
-hours etc it includes functions to floor objects, set or adjust time
-zones and create complete sequences. It also provides duration and timer
-objects.
+`dttr` is a light-weight package to manipulate date (Date), time (hms)
+and datetime (POSIXct) objects. As well as functions to get, set, add
+and subtract years, months, days, hours etc it includes functions to
+floor objects, set or adjust time zones and create complete sequences.
+It also provides duration and timer objects.
 
 ## Demonstration
 
