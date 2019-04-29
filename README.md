@@ -14,10 +14,11 @@ GPL3](https://img.shields.io/badge/License-GPL3-blue.svg)](https://www.gnu.org/l
 
 # dttr
 
-`dttr` is a light-weight package to manipulate date (Date), time (hms)
-and datetime (POSIXct) objects. As well as functions to get, set, add
-and subtract years, months, days, hours etc it includes functions to
-floor objects, set or adjust time zones and create complete sequences.
+`dttr` (date times in R) is a light-weight package to manipulate date
+(Date), time (hms) and datetime (POSIXct) objects. As well as functions
+to get, set, add and subtract years, months, days, hours etc it includes
+functions to floor objects, set or adjust time zones and create complete
+sequences. The default time zone can be set for package function calls.
 It also provides duration and timer objects.
 
 ## Demonstration
