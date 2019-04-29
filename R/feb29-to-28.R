@@ -9,7 +9,7 @@
 #' dtt_feb29_to_28(as.Date("2004-02-29"))
 dtt_feb29_to_28 <- function(x) {
   check_dtt(x)
-  wch <- which(dtt_month(x) == 2L && dtt_day(x) == 29L)
+  wch <- which(dtt_month(x) == 2L & dtt_day(x) == 29L)
   dtt_day(x[wch]) <- 28L
   x
 }
