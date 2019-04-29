@@ -22,3 +22,6 @@ Sets the time zone without adjusting the time.
 \examples{
 dtt_set_tz(Sys.time(), tz = "UTC")
 }
+\seealso{
+\code{\link{dtt_adjust_tz}}
+}

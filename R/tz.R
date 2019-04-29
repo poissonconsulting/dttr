@@ -1,9 +1,9 @@
 #' Set System Time Zone
 #'
-#' @param tz A string of the time zone to treat as if its the system time zone
-#' when call \code{\link{dtt_sys_tz}} or \code{NULL} to reset.
+#' @param tz A string of the time zone to treat as if its the system time zone.
 #'
 #' @return A string of the old value.
+#' @seealso \code{\link{dtt_reset_sys_tz}} and \code{\link{dtt_sys_tz}}
 #' @export
 #'
 #' @examples
@@ -45,7 +45,7 @@ dtt_sys_tz <- function() {
 
 #' Time Zone
 #'
-#' @param x A POSIXct vector.
+#' @param x A \code{\link{dtt}} object.
 #' @param ... Unused.
 #'
 #' @return A string of the time zone.
@@ -71,6 +71,12 @@ dtt_tz.POSIXct <- function(x, ...) {
   tz
 }
 
+#' @export
+dtt_tz.hms <- function(x, ...) {
+  check_unused(...)
+  dtt_sys_tz()
+}
+
 #' Set Time Zone
 #' 
 #' Sets the time zone without adjusting the time.
@@ -80,6 +86,7 @@ dtt_tz.POSIXct <- function(x, ...) {
 #' @param ... Unused.
 #'
 #' @return The POSIXct vector with the new time zone.
+#' @seealso \code{\link{dtt_adjust_tz}}
 #' @export
 #'
 #' @examples
@@ -103,6 +110,7 @@ dtt_set_tz.POSIXct <- function(x, tz = dtt_sys_tz(), ...) {
 #' @param ... Unused.
 #'
 #' @return The POSIXct vector with the new time zone and time.
+#' @seealso \code{\link{dtt_set_tz}}
 #' @export
 #'
 #' @examples

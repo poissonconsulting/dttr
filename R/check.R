@@ -129,9 +129,9 @@ check_complete <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
   invisible(x)
 }
 
-#' Check DateTime Vector
+#' Check dtt Object
 #' 
-#' Checks whether object x is a Date or POSIXct vector.
+#' Checks whether x is a \code{\link{dtt}} object
 #' 
 #' @inheritParams checkr::check_vector
 #' @param nas A flag indicating whether missing values are permitted.
@@ -144,8 +144,9 @@ check_complete <- function(x, floored = TRUE, unique = TRUE, sorted = TRUE,
 #' @export
 #'
 #' @examples
-#' check_dtt(Sys.Date())
-#' check_dtt(Sys.time())
+#' check_dtt(dttr::dates)
+#' check_dtt(dttr::date_times)
+#' check_dtt(dttr::times)
 check_dtt <- function(x, values = NULL, nas = TRUE, 
                       length = NA, unique = FALSE,
                       sorted = FALSE, floored = FALSE, 
@@ -159,14 +160,18 @@ check_dtt <- function(x, values = NULL, nas = TRUE,
   indices <- if(nas) 1:2 else 1L
   if(is.null(values)) {
     checkor(
-      check_vector(x, c(Sys.Date(), NA)[indices], length = length, unique = unique, 
+      check_vector(x, c(Sys.Date(), NA_Date_)[indices], length = length, unique = unique, 
                    sorted = sorted, named = named, x_name = x_name, error = TRUE),
-      check_vector(x, c(Sys.time(), NA)[indices], length = length, unique = unique, 
+      check_vector(x, c(Sys.time(), NA_POSIXct_)[indices], length = length, unique = unique, 
+                   sorted = sorted, named = named, x_name = x_name, error = TRUE),
+      check_vector(x, c(dttr::times[1], NA_hms_)[indices], length = length, unique = unique, 
                    sorted = sorted, named = named, x_name = x_name, error = TRUE)
     )
   } else {
     checkor(check_vector(values, c(Sys.Date, NA)[indices]), 
-            check_vector(values, c(Sys.time(), NA)[indices]))
+            check_vector(values, c(Sys.time(), NA)[indices]),
+            check_vector(values, c(dttr::times[1], NA)[indices]),
+            )
     check_tz(values, tz)
     check_vector(x, values, length = length, unique = unique, 
                  sorted = sorted, named = named, x_name = x_name, error = error)  

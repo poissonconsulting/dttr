@@ -2,7 +2,7 @@
 % Please edit documentation in R/check.R
 \name{check_dtt}
 \alias{check_dtt}
-\title{Check DateTime Vector}
+\title{Check dtt Object}
 \usage{
 check_dtt(x, values = NULL, nas = TRUE, length = NA,
   unique = FALSE, sorted = FALSE, floored = FALSE,
@@ -40,11 +40,12 @@ check_dtt(x, values = NULL, nas = TRUE, length = NA,
 An invisible copy of x (if it doesn't throw an error).
 }
 \description{
-Checks whether object x is a Date or POSIXct vector.
+Checks whether x is a \code{\link{dtt}} object
 }
 \examples{
-check_dtt(Sys.Date())
-check_dtt(Sys.time())
+check_dtt(dttr::dates)
+check_dtt(dttr::date_times)
+check_dtt(dttr::times)
 }
 \seealso{
 \code{\link[checkr]{check_vector}}

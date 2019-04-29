@@ -7,7 +7,7 @@
 dtt_tz(x, ...)
 }
 \arguments{
-\item{x}{A POSIXct vector.}
+\item{x}{A \code{\link{dtt}} object.}
 
 \item{...}{Unused.}
 }

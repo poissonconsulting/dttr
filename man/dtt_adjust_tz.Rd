@@ -22,3 +22,6 @@ Adjust the time zone and time.
 \examples{
 dtt_adjust_tz(Sys.time(), tz = "UTC")
 }
+\seealso{
+\code{\link{dtt_set_tz}}
+}

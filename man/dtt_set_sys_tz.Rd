@@ -10,8 +10,7 @@ dtt_set_sys_tz(tz = NULL)
 dtt_reset_sys_tz()
 }
 \arguments{
-\item{tz}{A string of the time zone to treat as if its the system time zone
-when call \code{\link{dtt_sys_tz}} or \code{NULL} to reset.}
+\item{tz}{A string of the time zone to treat as if its the system time zone.}
 }
 \value{
 A string of the old value.
@@ -34,4 +33,7 @@ dtt_sys_tz()
 dtt_set_sys_tz(old)
 dtt_sys_tz()
 }
+}
+\seealso{
+\code{\link{dtt_reset_sys_tz}} and \code{\link{dtt_sys_tz}}
 }
