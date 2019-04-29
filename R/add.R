@@ -118,35 +118,37 @@ dtt_add_units <- function(x, n = 1L, units = dtt_units(x)) {
 #' @export
 dtt_add_years.default <- function(x, n = 1L, ...) {
   check_dtt(x)
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
-  
-  dtt_year(x) <- dtt_year(x) + n
+
+  years <- dtt_year(x) + n
+  x <- dtt_add_days(x, rep(0L, length(n)))
+  dtt_year(x) <- years
   x
 }
 
 #' @export
 dtt_add_months.default <- function(x, n = 1L, ...) {
   check_dtt(x)
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   months <- dtt_month(x) + n
+  x <- dtt_add_days(x, rep(0L, length(n)))
   years <- months %/% 12L
   months <- months %% 12L
   
-  if(months == 0L) {
-    months <- 12L
-    years <- years - 1L
-  }
-  
+  wh <- which(months == 0L)
+  months[wh] <- 12L
+  years[wh] <- years[wh] - 1L
+
   dtt_month(x) <- months
   dtt_add_years(x, years)
 }
 
 #' @export
 dtt_add_days.Date <- function(x, n = 1L, ...) {
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   x <- x + n
@@ -155,7 +157,7 @@ dtt_add_days.Date <- function(x, n = 1L, ...) {
 
 #' @export
 dtt_add_days.POSIXct <- function(x, n = 1L, ...) {
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   n <- n * 24L
@@ -164,7 +166,7 @@ dtt_add_days.POSIXct <- function(x, n = 1L, ...) {
 
 #' @export
 dtt_add_hours.POSIXct <- function(x, n = 1L, ...) {
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   n <- n * 60L
@@ -173,7 +175,7 @@ dtt_add_hours.POSIXct <- function(x, n = 1L, ...) {
 
 #' @export
 dtt_add_minutes.POSIXct <- function(x, n = 1L, ...) {
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   n <- n * 60L
@@ -182,7 +184,7 @@ dtt_add_minutes.POSIXct <- function(x, n = 1L, ...) {
 
 #' @export
 dtt_add_seconds.POSIXct <- function(x, n = 1L, ...) {
-  check_scalar(n, 1L)
+  check_vector(n, c(1L, NA_integer_), length = TRUE)
   check_unused(...)
   
   x <- x + n

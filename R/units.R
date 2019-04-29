@@ -62,7 +62,6 @@ dtt_minute <- function(x, ...) {
   UseMethod("dtt_minute")
 }
 
-
 #' @rdname dtt_minute
 #' @export
 dtt_minutes <- function(x, ...) {
