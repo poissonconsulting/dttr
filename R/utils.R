@@ -90,7 +90,7 @@ is.Date_or_POSIXct <- function(x) is.Date(x) || is.POSIXct(x)
 #' 
 #' A missing POSIXct object
 #' @export
-NA_POSIXct_ <- .POSIXct(NA_real_, tz = "UTC")
+NA_POSIXct_ <- set_attr(set_class(NA_real_, c("POSIXct", "POSIXt")), "tzone", "UTC")
 
 #' Missing Date
 #' 

@@ -3,6 +3,15 @@ set_class <- function(x, class) {
   x
 }
 
+set_attr <- function(x, attr, value) {
+  attr(x, attr) <- value
+  x
+}
+
+err <- function(...) stop(..., call. = FALSE, domain = NA)
+
+wrn <- function(...) warning(..., call. = FALSE, domain = NA)
+
 duration <- function(x) set_class(as.integer(x), "dtt_duration")
 
 units_less_than <- function(x, y) {
