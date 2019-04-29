@@ -8,6 +8,9 @@ set_attr <- function(x, attr, value) {
   x
 }
 
+# can remove when hms version >= 0.4.3
+as_hms <- function(x) suppressWarnings(as.hms(x))
+
 c.POSIXct <- function(..., recursive = FALSE) {
   dots <- list(...)
   .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))

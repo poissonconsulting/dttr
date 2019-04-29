@@ -1,7 +1,8 @@
 #' Time
-#'
-#' @param x A Date vector.
-#' @param tz A string of the time zone.
+#' 
+#' Coerce to a hms object.
+#' 
+#' @param x The object to coerce.
 #' @param ... Unused.
 #'
 #' @return A hms vector.
@@ -9,12 +10,12 @@
 #'
 #' @examples
 #' dtt_time(Sys.time())
-dtt_time <- function(x, tz, ...) {
+dtt_time <- function(x, ...) {
   UseMethod("dtt_time")
 }
 
 #' @export
-dtt_time.integer <- function(x, ...) {
+dtt_time.default <- function(x, ...) {
   check_unused(...)
   as_hms(x)
 }
@@ -27,15 +28,7 @@ dtt_time.numeric <- function(x, ...) {
 }
 
 #' @export
-dtt_time.character <- function(x, ...) {
+dtt_time.POSIXct <- function(x, ...) {
   check_unused(...)
-  as_hms(x)
-}
-
-#' @export
-dtt_time.POSIXt <- function(x, tz = dtt_tz(x), ...) {
-  check_unused(...)
-  check_string(tz)
-  x <- dtt_adjust_tz(x, tz = tz)
-  as_hms(x)
+  hms(seconds = dtt_second(x), minutes = dtt_minute(x), hours = dtt_hour(x))
 }

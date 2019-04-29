@@ -4,12 +4,10 @@
 \alias{dtt_time}
 \title{Time}
 \usage{
-dtt_time(x, tz, ...)
+dtt_time(x, ...)
 }
 \arguments{
-\item{x}{A Date vector.}
-
-\item{tz}{A string of the time zone.}
+\item{x}{The object to coerce.}
 
 \item{...}{Unused.}
 }
@@ -17,7 +15,7 @@ dtt_time(x, tz, ...)
 A hms vector.
 }
 \description{
-Time
+Coerce to a hms object.
 }
 \examples{
 dtt_time(Sys.time())
