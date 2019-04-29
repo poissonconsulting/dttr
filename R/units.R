@@ -13,7 +13,6 @@ dtt_units <- function(x, ...) {
   UseMethod("dtt_units")
 }
 
-
 #' Get and Set Seconds
 #'
 #' @param x A Date or POSIXct vector.
@@ -265,6 +264,12 @@ dtt_second.POSIXct <- function(x, ...) {
 
 #' @export
 dtt_second.Date <- function(x, ...) rep(0L, length(x))
+
+#' @export
+dtt_second.hms <- function(x, ...) {
+  x <- as.POSIXlt(x)
+  as.integer(x$sec)
+}
 
 #' @export
 dtt_second.dtt_duration <- function(x, ...) {

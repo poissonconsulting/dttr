@@ -8,6 +8,11 @@ set_attr <- function(x, attr, value) {
   x
 }
 
+c.POSIXct <- function(..., recursive = FALSE) {
+  dots <- list(...)
+  .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))
+}
+
 err <- function(...) stop(..., call. = FALSE, domain = NA)
 
 wrn <- function(...) warning(..., call. = FALSE, domain = NA)

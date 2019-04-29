@@ -6,6 +6,9 @@ test_that("get", {
 
   dates_na <- dates
   is.na(dates_na[2]) <- TRUE
+  
+  times_na <- times
+  is.na(times_na[[2]]) <- TRUE
 
   expect_identical(dtt_second(dates[integer(0)]), integer(0))
   expect_identical(dtt_second(dates[1]), 0L)
@@ -16,6 +19,11 @@ test_that("get", {
   expect_identical(dtt_second(date_times[1]), 0L)
   expect_identical(dtt_second(date_times), c(0L, 59L, 59L))
   expect_identical(dtt_second(date_times_na), c(0L, NA, 59L))
+ 
+  expect_identical(dtt_second(times[integer(0)]), integer(0))
+  expect_identical(dtt_second(times[1]), 0L)
+  expect_identical(dtt_second(times), c(0L, 59L, 13L))
+  expect_identical(dtt_second(times_na), c(0L, NA, 13L))
   
   expect_identical(dtt_minute(dates[integer(0)]), integer(0))
   expect_identical(dtt_minute(dates[1]), 0L)

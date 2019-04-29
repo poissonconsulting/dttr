@@ -103,8 +103,3 @@ NA_Date_ <- set_class(NA_real_, "Date")
 #' A missing hms object
 #' @export
 NA_hms_ <- set_class(as.difftime(NA_real_, units = "secs"), c("hms", "difftime"))
-
-c.POSIXct <- function(..., recursive = FALSE) {
-  dots <- list(...)
-  .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))
-}

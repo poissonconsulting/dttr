@@ -5,5 +5,8 @@ date_times <- as.POSIXct(
   tz = "Etc/GMT+8"
   )
 
-devtools::use_data(dates, overwrite = TRUE)
-devtools::use_data(date_times, overwrite = TRUE)
+times <- hms::as_hms(c("00:00:00", "23:59:59", "11:12:13"))
+
+usethis::use_data(dates, overwrite = TRUE)
+usethis::use_data(date_times, overwrite = TRUE)
+usethis::use_data(times, overwrite = TRUE)

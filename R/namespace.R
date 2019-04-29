@@ -1,3 +1,2 @@
-#' @import checkr
-#' @importFrom hms as.hms
+#' @import checkr hms
 NULL
