@@ -2,26 +2,29 @@
 % Please edit documentation in R/tz.R
 \name{dtt_adjust_tz}
 \alias{dtt_adjust_tz}
+\alias{dtt_adjust_tz.POSIXct}
 \title{Adjust Time Zone}
 \usage{
-dtt_adjust_tz(x, tz = dtt_sys_tz(), ...)
-}
-\arguments{
-\item{x}{A POSIXct vector.}
+dtt_adjust_tz(x, tz = dtt_default_tz(), ...)
 
-\item{tz}{A string of the new time zone.}
-
-\item{...}{Unused.}
+\method{dtt_adjust_tz}{POSIXct}(x, tz = dtt_default_tz(), ...)
 }
 \value{
-The POSIXct vector with the new time zone and time.
+The date time vector with the new time zone and time.
 }
 \description{
-Adjust the time zone and time.
+Adjusts the time zone so that clock (but not the actual) time is altered
+for a date time vector.
+Equivalent to \code{lubridate::with_tz()}.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXct}: Adjust the time zone for a POSIXct vector
+}}
+
 \examples{
 dtt_adjust_tz(Sys.time(), tz = "UTC")
 }
 \seealso{
-\code{\link{dtt_set_tz}}
+\code{\link{dtt_set_tz}()}
 }

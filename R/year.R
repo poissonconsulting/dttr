@@ -1,21 +1,24 @@
-#' Get Years
+#' Get and Set Year Values
+#' 
+#' Gets and sets year values for date/time vectors.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param value A numeric vector of the years value(s).
+#' @param x A date/time vector.
+#' @param value A integer vector of the year value(s).
 #' @param ... Unused.
-#' @return An integer vector.
+#' @return An integer vector (or the modified date/time vector).
 #' @export
 #'
 #' @examples
-#' dtt_year(Sys.time())
+#' x <- as.Date("1990-01-02")
+#' dtt_year(x)
+#' dtt_year(x) <- 11L
+#' x
+#' 
+#' x <- as.POSIXct("1990-01-02 23:40:51")
+#' dtt_year(x)
+#' dtt_year(x) <- 2022L
+#' x
 dtt_year <- function(x, ...) {
-  UseMethod("dtt_year")
-}
-
-#' @rdname dtt_year
-#' @export
-dtt_years <- function(x, ...) {
-  .Deprecated("dtt_year")
   UseMethod("dtt_year")
 }
 
@@ -25,19 +28,14 @@ dtt_years <- function(x, ...) {
   UseMethod("dtt_year<-")
 }
 
-#' @rdname dtt_year
-#' @export
-`dtt_years<-` <- function(x, value) {
-  .Deprecated("dtt_year<-")
-  UseMethod("dtt_year<-")
-}
-
+#' @describeIn dtt_year Get integer vector of year values for a Date vector
 #' @export
 dtt_year.Date <- function(x, ...) {
   check_unused(...)
   as.integer(format(x, "%Y"))
 }
 
+#' @describeIn dtt_year Get integer vector of year values for a POSIXct vector
 #' @export
 dtt_year.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -45,18 +43,7 @@ dtt_year.POSIXct <- function(x, ...) {
   as.integer(x$year + 1900L)
 }
 
-#' @export
-dtt_year.hms <- function(x, ...) {
-  check_unused(...)
-  rep(NA_integer_, length(x))
-}
-
-#' @export
-dtt_year.dtt_duration <- function(x, ...) {
-  check_unused(...)
-  as_numeric(x, "years")
-}
-
+#' @describeIn dtt_year Set year values for a Date vector
 #' @export
 `dtt_year<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))
@@ -66,6 +53,7 @@ dtt_year.dtt_duration <- function(x, ...) {
   dtt_date(mapply(FUN = sub_year, x, value))
 }
 
+#' @describeIn dtt_year Set year values for a POSIXct vector
 #' @export
 `dtt_year<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 2999L), length = c(1L, 1L, length(x)))

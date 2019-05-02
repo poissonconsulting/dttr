@@ -8,14 +8,6 @@ set_attr <- function(x, attr, value) {
   x
 }
 
-# can remove when hms version >= 0.4.3
-as_hms <- function(x) suppressWarnings(as.hms(x))
-
-c.POSIXct <- function(..., recursive = FALSE) {
-  dots <- list(...)
-  .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))
-}
-
 err <- function(...) stop(..., call. = FALSE, domain = NA)
 
 wrn <- function(...) warning(..., call. = FALSE, domain = NA)
@@ -23,8 +15,8 @@ wrn <- function(...) warning(..., call. = FALSE, domain = NA)
 duration <- function(x) set_class(as.integer(x), "dtt_duration")
 
 units_less_than <- function(x, y) {
-  x <- ordered(x, levels = .units)
-  y <- ordered(y, levels = .units)
+  x <- ordered(x, levels = .units_POSIXct)
+  y <- ordered(y, levels = .units_POSIXct)
   x < y
 }
 

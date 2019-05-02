@@ -1,21 +1,24 @@
-#' Get and Set Seconds
+#' Get and Set Second Values
+#' 
+#' Gets and sets second values for date/time vectors.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param value A numeric vector of the second value(s).
+#' @param x A date/time vector.
+#' @param value A integer vector of the second value(s).
 #' @param ... Unused.
-#' @return An integer vector.
+#' @return An integer vector (or the modified date/time vector).
 #' @export
 #'
 #' @examples
-#' dtt_second(Sys.time())
+#' x <- as.POSIXct("1990-01-02 23:40:51")
+#' dtt_second(x)
+#' dtt_second(x) <- 27L
+#' x
+#' 
+#' x <- hms::as_hms("23:40:51")
+#' dtt_second(x)
+#' dtt_second(x) <- 27L
+#' x
 dtt_second <- function(x, ...) {
-  UseMethod("dtt_second")
-}
-
-#' @rdname dtt_second
-#' @export
-dtt_seconds <- function(x, ...) {
-  .Deprecated("dtt_second")
   UseMethod("dtt_second")
 }
 
@@ -25,19 +28,14 @@ dtt_seconds <- function(x, ...) {
   UseMethod("dtt_second<-")
 }
 
-#' @rdname dtt_second
-#' @export
-`dtt_seconds<-` <- function(x, value) {
-  .Deprecated("dtt_second<-")
-  UseMethod("dtt_second<-")
-}
-
+#' @describeIn dtt_second Get integer vector of second values for a Date vector
 #' @export
 dtt_second.Date <- function(x, ...) {
   check_unused(...)
   rep(0L, length(x))
 }
 
+#' @describeIn dtt_second Get integer vector of second values for a POSIXct vector
 #' @export
 dtt_second.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -45,19 +43,16 @@ dtt_second.POSIXct <- function(x, ...) {
   as.integer(x$sec)
 }
 
+#' @describeIn dtt_second Get integer vector of second values for a time vector
 #' @export
 dtt_second.hms <- function(x, ...) {
   check_unused(...)
+  x <- dtt_time(x)
   x <- as.POSIXlt(x)
   as.integer(x$sec)
 }
 
-#' @export
-dtt_second.dtt_duration <- function(x, ...) {
-  check_unused(...)
-  as.integer(x)
-}
-
+#' @describeIn dtt_second Set second values for a POSIXct vector
 #' @export
 `dtt_second<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
@@ -68,9 +63,12 @@ dtt_second.dtt_duration <- function(x, ...) {
   as.POSIXct(x, tz = tz)
 }
 
+#' @describeIn dtt_second Set second values for a hms vector
 #' @export
 `dtt_second<-.hms` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  .NotYetImplemented()
+  x <- as.POSIXlt(x)
+  x$sec <- value
+  dtt_time(x)
 }

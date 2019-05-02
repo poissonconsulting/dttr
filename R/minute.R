@@ -1,21 +1,24 @@
-#' Get and Set Minutes
+#' Get and Set Minute Values
+#' 
+#' Gets and sets minute values for date/time vectors.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param value A numeric vector of the minute value(s).
+#' @param x A date/time vector.
+#' @param value A integer vector of the minute value(s).
 #' @param ... Unused.
-#' @return An integer vector.
+#' @return An integer vector (or the modified date/time vector).
 #' @export
 #'
 #' @examples
-#' dtt_minute(Sys.time())
+#' x <- as.POSIXct("1990-01-02 23:40:51")
+#' dtt_minute(x)
+#' dtt_minute(x) <- 27L
+#' x
+#' 
+#' x <- hms::as_hms("23:40:51")
+#' dtt_minute(x)
+#' dtt_minute(x) <- 27L
+#' x
 dtt_minute <- function(x, ...) {
-  UseMethod("dtt_minute")
-}
-
-#' @rdname dtt_minute
-#' @export
-dtt_minutes <- function(x, ...) {
-  .Deprecated("dtt_minute")
   UseMethod("dtt_minute")
 }
 
@@ -25,19 +28,14 @@ dtt_minutes <- function(x, ...) {
   UseMethod("dtt_minute<-")
 }
 
-#' @rdname dtt_minute
-#' @export
-`dtt_minutes<-` <- function(x, value) {
-  .Deprecated("dtt_minute<-")
-  UseMethod("dtt_minute<-")
-}
-
+#' @describeIn dtt_minute Get integer vector of minute values for a Date vector
 #' @export
 dtt_minute.Date <- function(x, ...) {
   check_unused(...)
   rep(0L, length(x))
 }
 
+#' @describeIn dtt_minute Get integer vector of minute values for a POSIXct vector
 #' @export
 dtt_minute.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -45,19 +43,16 @@ dtt_minute.POSIXct <- function(x, ...) {
   as.integer(x$min)
 }
 
+#' @describeIn dtt_minute Get integer vector of minute values for a hms vector
 #' @export
 dtt_minute.hms <- function(x, ...) {
   check_unused(...)
+  x <- dtt_time(x)
   x <- as.POSIXlt(x)
   as.integer(x$min)
 }
 
-#' @export
-dtt_minute.dtt_duration <- function(x, ...) {
-  check_unused(...)
-  as_numeric(x, "minutes")
-}
-
+#' @describeIn dtt_minute Set minute values for a POSIXct vector
 #' @export
 `dtt_minute<-.POSIXct` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
@@ -68,10 +63,12 @@ dtt_minute.dtt_duration <- function(x, ...) {
   as.POSIXct(x, tz = tz)
 }
 
+#' @describeIn dtt_minute Set minute values for a hms vector
 #' @export
 `dtt_minute<-.hms` <- function(x, value) {
   check_vector(value, c(0L, 59L), length = c(1L, 1L, length(x)))
   if(!length(x)) return(x)
-  .NotYetImplemented()
+  x <- as.POSIXlt(x)
+  x$min <- value
+  dtt_time(x)
 }
-

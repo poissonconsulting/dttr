@@ -2,35 +2,65 @@
 % Please edit documentation in R/second.R, R/set.R
 \name{dtt_second}
 \alias{dtt_second}
-\alias{dtt_seconds}
 \alias{dtt_second<-}
-\alias{dtt_seconds<-}
+\alias{dtt_second.Date}
+\alias{dtt_second.POSIXct}
+\alias{dtt_second.hms}
+\alias{dtt_second<-.POSIXct}
+\alias{dtt_second<-.hms}
 \alias{dtt_set_second}
-\title{Get and Set Seconds}
+\title{Get and Set Second Values}
 \usage{
 dtt_second(x, ...)
 
-dtt_seconds(x, ...)
-
 dtt_second(x) <- value
 
-dtt_seconds(x) <- value
+\method{dtt_second}{Date}(x, ...)
+
+\method{dtt_second}{POSIXct}(x, ...)
+
+\method{dtt_second}{hms}(x, ...)
+
+\method{dtt_second}{POSIXct}(x) <- value
+
+\method{dtt_second}{hms}(x) <- value
 
 dtt_set_second(x, value)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{...}{Unused.}
 
-\item{value}{A numeric vector of the second value(s).}
+\item{value}{A integer vector of the second value(s).}
 }
 \value{
-An integer vector.
+An integer vector (or the modified date/time vector).
 }
 \description{
-Get and Set Seconds
+Gets and sets second values for date/time vectors.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Get integer vector of second values for a Date vector
+
+\item \code{POSIXct}: Get integer vector of second values for a POSIXct vector
+
+\item \code{hms}: Get integer vector of second values for a time vector
+
+\item \code{POSIXct}: Set second values for a POSIXct vector
+
+\item \code{hms}: Set second values for a hms vector
+}}
+
 \examples{
-dtt_second(Sys.time())
+x <- as.POSIXct("1990-01-02 23:40:51")
+dtt_second(x)
+dtt_second(x) <- 27L
+x
+
+x <- hms::as_hms("23:40:51")
+dtt_second(x)
+dtt_second(x) <- 27L
+x
 }

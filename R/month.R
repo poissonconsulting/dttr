@@ -1,21 +1,24 @@
-#' Get and Set Months
+#' Get and Set Month Values
+#' 
+#' Gets and sets month values for date/time vectors.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param value A numeric vector of the month value(s).
+#' @param x A date/time vector.
+#' @param value A integer vector of the month value(s).
 #' @param ... Unused.
-#' @return An integer vector.
+#' @return An integer vector (or the modified date/time vector).
 #' @export
 #'
 #' @examples
-#' dtt_month(Sys.time())
+#' x <- as.Date("1990-01-02")
+#' dtt_month(x)
+#' dtt_month(x) <- 11L
+#' x
+#' 
+#' x <- as.POSIXct("1990-01-02 23:40:51")
+#' dtt_month(x)
+#' dtt_month(x) <- 11L
+#' x
 dtt_month <- function(x, ...) {
-  UseMethod("dtt_month")
-}
-
-#' @rdname dtt_month
-#' @export
-dtt_months <- function(x, ...) {
-  .Deprecated("dtt_month")
   UseMethod("dtt_month")
 }
 
@@ -25,19 +28,14 @@ dtt_months <- function(x, ...) {
   UseMethod("dtt_month<-")
 }
 
-#' @rdname dtt_month
-#' @export
-`dtt_months<-` <- function(x, value) {
-  .Deprecated("dtt_month<-")
-  UseMethod("dtt_month<-")
-}
-
+#' @describeIn dtt_month Get integer vector of month values for a Date vector
 #' @export
 dtt_month.Date <- function(x, ...) {
   check_unused(...)
   as.integer(format(x, "%m"))
 }
 
+#' @describeIn dtt_month Get integer vector of month values for a POSIXct vector
 #' @export
 dtt_month.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -45,18 +43,7 @@ dtt_month.POSIXct <- function(x, ...) {
   as.integer(x$mon + 1L)
 }
 
-#' @export
-dtt_month.hms <- function(x, ...) {
-  check_unused(...)
-  rep(NA_integer_, length(x))
-}
-
-#' @export
-dtt_month.dtt_duration <- function(x, ...) {
-  check_unused(...)
-  as_numeric(x, "months")
-}
-
+#' @describeIn dtt_month Set month values for a Date vector
 #' @export
 `dtt_month<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))
@@ -66,6 +53,7 @@ dtt_month.dtt_duration <- function(x, ...) {
   dtt_date(mapply(sub_month, x, value))
 }
 
+#' @describeIn dtt_month Set month values for a POSIXct vector
 #' @export
 `dtt_month<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 12L), length = c(1L, 1L, length(x)))

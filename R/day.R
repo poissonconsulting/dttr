@@ -1,21 +1,24 @@
-#' Get and Set Days
+#' Get and Set Day Values
+#' 
+#' Gets and sets day values for date/time vectors.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param value A numeric vector of the day value(s).
+#' @param x A date/time vector.
+#' @param value A integer vector of the day value(s).
 #' @param ... Unused.
-#' @return An integer vector.
+#' @return An integer vector (or the modified date/time vector).
 #' @export
 #'
 #' @examples
-#' dtt_day(Sys.time())
+#' x <- as.Date("1990-01-02")
+#' dtt_day(x)
+#' dtt_day(x) <- 27L
+#' x
+#' 
+#' x <- as.POSIXct("1990-01-02 23:40:51")
+#' dtt_day(x)
+#' dtt_day(x) <- 27L
+#' x
 dtt_day <- function(x, ...) {
-  UseMethod("dtt_day")
-}
-
-#' @rdname dtt_day
-#' @export
-dtt_days <- function(x, ...) {
-  .Deprecated("dtt_day")
   UseMethod("dtt_day")
 }
 
@@ -25,19 +28,14 @@ dtt_days <- function(x, ...) {
   UseMethod("dtt_day<-")
 }
 
-#' @rdname dtt_day
-#' @export
-`dtt_days<-` <- function(x, value) {
-  .Deprecated("dtt_day<-")
-  UseMethod("dtt_day<-")
-}
-
+#' @describeIn dtt_day Get integer vector of day values for a Date vector
 #' @export
 dtt_day.Date <- function(x, ...) {
   check_unused(...)
   as.integer(format(x, "%d"))
 }
 
+#' @describeIn dtt_day Get integer vector of day values for a POSIXct vector
 #' @export
 dtt_day.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -45,18 +43,7 @@ dtt_day.POSIXct <- function(x, ...) {
   as.integer(x$mday)
 }
 
-#' @export
-dtt_day.hms <- function(x, ...) {
-  check_unused(...)
-  rep(NA_integer_, length(x))
-}
-
-#' @export
-dtt_day.dtt_duration <- function(x, ...) {
-  check_unused(...)
-  as_numeric(x, "days")
-}
-
+#' @describeIn dtt_day Set day values for a Date vector
 #' @export
 `dtt_day<-.Date` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))
@@ -66,6 +53,7 @@ dtt_day.dtt_duration <- function(x, ...) {
   dtt_date(mapply(sub_day, x, value))
 }
 
+#' @describeIn dtt_day Set day values for a POSIXct vector
 #' @export
 `dtt_day<-.POSIXct` <- function(x, value) {
   check_vector(value, c(1L, 31L), length = c(1L, 1L, length(x)))

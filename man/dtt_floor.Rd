@@ -7,16 +7,19 @@
 dtt_floor(x, units, ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{units}{A string of the units to floor by.}
 
 \item{...}{Unused.}
 }
 \value{
-The floored Date or POSIXct vector.
+The floored date/time vector.
 }
 \description{
+Floors a date/time vector
+}
+\details{
 The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
 }
 \examples{

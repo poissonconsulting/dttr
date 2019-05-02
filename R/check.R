@@ -10,7 +10,7 @@
 #' check_time_units("hours")
 check_time_units <- function(x, x_name = substitute(x)) {
   x_name <- chk_deparse(x_name)
-  check_scalar(x, .units, x_name = x_name)
+  check_scalar(x, .units_POSIXct, x_name = x_name)
   invisible(x)
 }
 

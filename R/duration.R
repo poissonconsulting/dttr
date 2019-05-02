@@ -28,7 +28,7 @@ dtt_duration <- function(x, units = "seconds") {
 #' @export
 format.dtt_duration <- function(x, units = "auto", digits = 2, ...) {
   check_unused(...)
-  check_scalar(units, c("auto", .units))
+  check_scalar(units, c("auto", .units_POSIXct))
   if(units == "auto") units <- dtt_units(x)
 
   secs <- unclass(x)

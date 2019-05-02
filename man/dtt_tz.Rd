@@ -2,12 +2,15 @@
 % Please edit documentation in R/tz.R
 \name{dtt_tz}
 \alias{dtt_tz}
-\title{Time Zone}
+\alias{dtt_tz.POSIXct}
+\title{Get, Set or Adjust Time Zone}
 \usage{
 dtt_tz(x, ...)
+
+\method{dtt_tz}{POSIXct}(x, ...)
 }
 \arguments{
-\item{x}{A \code{\link{dtt}} object.}
+\item{x}{A date time vector.}
 
 \item{...}{Unused.}
 }
@@ -15,8 +18,13 @@ dtt_tz(x, ...)
 A string of the time zone.
 }
 \description{
-Time Zone
+Gets, sets or  the time zone for a date time vector.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXct}: Get the time zone for a POSIXct vector.
+}}
+
 \examples{
-dtt_tz(Sys.time())
+dtt_tz(as.POSIXct("1970-01-01", tz = "Etc/GMT+8"))
 }

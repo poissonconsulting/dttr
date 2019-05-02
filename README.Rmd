@@ -22,87 +22,38 @@ knitr::opts_chunk$set(
 
 # dttr
 
-`dttr` (date times in R) is a light-weight package to manipulate date (Date), time (hms) and datetime (POSIXct) objects.
-As well as functions to get, set, add and subtract years, months, days, hours etc it includes functions to floor objects, set or adjust time zones and create complete sequences.
-The default time zone can be set for package function calls.
-It also provides duration and timer objects.
+`dttr` (DaTe Times in R) is an R package to manipulate date/time vectors.
+It provides a light-weight alternative to [`lubridate`](https://lubridate.tidyverse.org) for simple conversion and manipulation of Date, POSIXct and hms vectors.
+It also provides a simple timer.
 
-## Demonstration
+Key design principles include:
 
-### Get and Set Component
+1. time units are discrete
+2. timezone handling should be automatic and platform independent
 
-The core functions allow the user to easily get and set the components of Date and POSIXct objects.
+A consequence of the first principle is that date/time objects are always floored (to remove fractional days or seconds) 
+A consequence of the second is that the default time zone (which the user can override) is UTC.
 
-```{r}
-library(dttr)
-date_times <- dttr::date_times
-date_times
-dtt_year(date_times)
-dtt_year(date_times) <- c(2000L, 2000L, 2002L)
-date_times
-dtt_add_years(date_times, 2L)
-dtt_floor(date_times, units = "months")
-seq <- dtt_seq(date_times[1], date_times[2], units = "months")
-seq
-```
 
-### Complete
+## Introduction
 
-Completing a sequence is also straightforward
-```{r}
-seq <- seq[c(1,2,12)]
-seq
-dtt_completed(seq)
-seq <- dtt_complete(seq)
-dtt_completed(seq)
-seq
-```
+### Time Units
 
+`dttr` floors any objects it encounters to the nearest time unit (days for Date and seconds for POSIXct and hms).
+
+Similarly, the time unit accessor (`dtt_second()`, `dtt_minute()` etc) and settor functions as well as the functions to add (`dtt_add_seconds()`) and subtract time units return or require integers.
 
 ### Time Zones
 
-As well as setting the time zone which does not change the clock time the user can adjust the time zone which alters the clock time so that the old and new events are coincident.
+The user can override the default time zone (UTC) when handling POSIXct vectors using `dtt_set_sys_tz()`.
+They can assign a new time zone to a POSIXct object whilst leaving the clock time unchanged using `dtt_set_tz()` (equivalent to `lubridate::force_tz()`) or adjust the time zone so that clock (but not the actual) time is altered using `dtt_adjust_tz()` (equivalent to `lubridate::with_tz()`) 
 
 ```{r}
-date_times
-dtt_set_tz(date_times, tz = "Etc/GMT-1")
-dtt_adjust_tz(date_times, tz = "Etc/GMT-1")
-```
-
-The user is also able to use `dtt_set_sys_tz()` to define the default time zone for all package function calls.
-
-### Timer
-
-A object of class `dtt_timer` tracks the clock time in seconds.
-`dtt_elapsed()` returns the duration for which the timer has been running (see below).
-
-```{r}
-timer <- dtt_timer(start = TRUE)
-timer
-Sys.sleep(1)
-timer
-Sys.sleep(1)
-timer
-timer <- dtt_stop(timer)
-timer
-Sys.sleep(1)
-timer
-timer <- dtt_start(timer)
-Sys.sleep(1)
-timer
-as.integer(dtt_elapsed(timer))
-```
-
-### Duration
-
-An object of class `dtt_duration` is an integer vector that stores the time in seconds.
-
-```{r}
-duration <- dtt_elapsed(timer)
-duration
-class(duration)
-dtt_minutes(duration)
-
+library(dttr)
+date_time <- dtt_date_time("1970-01-01 03:00:00")
+date_time
+dtt_set_tz(date_time, tz = "Etc/GMT+8")
+dtt_adjust_tz(date_time, tz = "Etc/GMT+8")
 ```
 
 ## Installation

@@ -1,5 +1,6 @@
 #' Get Units
 #' 
+#' Gets the smallest units for a date time vector.
 #' The possible values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
 #'
 #' @param x A Date or POSIXct vector.
@@ -8,11 +9,14 @@
 #' @export
 #'
 #' @examples
-#' dtt_units(Sys.time())
+#' dtt_units(as.Date("2000-01-01"))
+#' dtt_units(as.Date("2000-02-01"))
+#' dtt_units(as.Date("2000-01-02"))
 dtt_units <- function(x, ...) {
   UseMethod("dtt_units")
 }
 
+#' @describeIn dtt_units Get time units for a Date vector
 #' @export
 dtt_units.Date <- function(x, ...) {
   check_unused(...)
@@ -24,6 +28,7 @@ dtt_units.Date <- function(x, ...) {
   "years"
 }
 
+#' @describeIn dtt_units Get time units for a POSIXct vector
 #' @export
 dtt_units.POSIXct <- function(x, ...) {
   check_unused(...)
@@ -38,19 +43,14 @@ dtt_units.POSIXct <- function(x, ...) {
   "years"
 }
 
+#' @describeIn dtt_units Get time units for a hms vector
 #' @export
-dtt_units.dtt_duration <- function(x, ...) {
+dtt_units.hms <- function(x, ...) {
   check_unused(...)
-  x <- unclass(x)
-  if(all(is.na(x))) return("seconds")
-  if(mean(x, na.rm = TRUE) < 60) return("seconds")
-  x <- x / 60
-  if(mean(x, na.rm = TRUE) < 60) return("minutes")
-  x <- x / 60
-  if(mean(x, na.rm = TRUE) < 24) return("hours")
-  x <- x / 24
-  if(mean(x, na.rm = TRUE) < 30.41667) return("days")
-  x < x / 30.41667
-  if(mean(x, na.rm = TRUE) < 12) return("months")
-  "years"
+  x <- x[!is.na(x)]
+  if(!length(x)) return("seconds")
+  
+  if(any(dtt_second(x) != 0L)) return("seconds")
+  if(any(dtt_minute(x) != 0L)) return("minutes")
+  "hours"
 }

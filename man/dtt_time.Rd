@@ -2,21 +2,64 @@
 % Please edit documentation in R/time.R
 \name{dtt_time}
 \alias{dtt_time}
+\alias{dtt_time.integer}
+\alias{dtt_time.double}
+\alias{dtt_time.character}
+\alias{dtt_time.Date}
+\alias{dtt_time.hms}
+\alias{dtt_time.POSIXct}
+\alias{dtt_time.POSIXlt}
 \title{Time}
 \usage{
 dtt_time(x, ...)
+
+\method{dtt_time}{integer}(x, ...)
+
+\method{dtt_time}{double}(x, ...)
+
+\method{dtt_time}{character}(x, ...)
+
+\method{dtt_time}{Date}(x, ...)
+
+\method{dtt_time}{hms}(x, ...)
+
+\method{dtt_time}{POSIXct}(x, ...)
+
+\method{dtt_time}{POSIXlt}(x, ...)
 }
 \arguments{
-\item{x}{The object to coerce.}
+\item{x}{A vector.}
 
 \item{...}{Unused.}
 }
 \value{
-A hms vector.
+A floored hms vector.
 }
 \description{
-Coerce to a hms object.
+Coerces vectors to floored (and wrapped) hms vectors.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{integer}: Coerce integer vector to a floored hms vector
+
+\item \code{double}: Coerce double vector to a floored hms vector
+
+\item \code{character}: Coerce character vector to a floored hms vector
+
+\item \code{Date}: Coerce Date vector to a floored hms vector
+
+\item \code{hms}: Coerce hms vector to a floored hms vector
+
+\item \code{POSIXct}: Coerce POSIXct vector to a floored hms vector
+
+\item \code{POSIXlt}: Coerce POSIXlt vector to a floored hms vector
+}}
+
 \examples{
-dtt_time(Sys.time())
+dtt_time(1L)
+dtt_time(1.999)
+dtt_time(-0.001)
+dtt_time(Sys.Date())
+dtt_time(as.POSIXct("2001-01-01 02:30:40"))
+dtt_time(as.POSIXct("2001-01-01 02:30:40", tz = "Etc/GMT-8"))
 }
