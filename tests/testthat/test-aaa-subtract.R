@@ -135,16 +135,16 @@ test_that("subtract_hours.hms", {
   expect_identical(dtt_subtract_hours(hms::as_hms("00:00:00"), 2L), 
                    hms::as_hms("22:00:00"))
   expect_identical(dtt_subtract_hours(hms::as_hms(c("00:00:00", "00:00:00")), 2L), 
-                   hms::as_hms(c(-2 * 60 * 60, -2 * 60 * 60)))
+                   hms::as_hms(c("22:00:00", "22:00:00")))
 
   expect_identical(dtt_subtract_hours(hms::as_hms(c("00:00:00", "00:00:00")), 2:3), 
-                   hms::as_hms(c(-2 * 60 * 60, -3 * 60 * 60)))
+                   hms::as_hms(c("22:00:00", "21:00:00")))
 
   expect_identical(dtt_subtract_hours(c(hms::as_hms("00:00:00"), NA), 2:3), 
-                   c(hms::as_hms(-2 * 60 * 60), NA))
+                   c(hms::as_hms("22:00:00"), NA))
   
   expect_identical(dtt_subtract_hours(c(hms::as_hms("00:00:00"), NA), 3L), 
-                   c(hms::as_hms("03:00:00"), NA))
+                   c(hms::as_hms("21:00:00"), NA))
   
   expect_identical(dtt_subtract_hours(c(hms::as_hms("00:00:00"), NA), -3L), 
                    c(hms::as_hms("03:00:00"), NA))
@@ -156,17 +156,17 @@ test_that("subtract_minutes.POSIXct", {
   expect_identical(dtt_subtract_minutes(as.POSIXct("2000-01-01", tz = "UTC"), 0L), 
                    as.POSIXct("2000-01-01", tz = "UTC"))
   expect_identical(dtt_subtract_minutes(as.POSIXct("2000-01-01", tz = "UTC"), 2L), 
-                   as.POSIXct("2000-01-01 00:02:00", tz = "UTC"))
+                   as.POSIXct("1999-12-31 23:58:00", tz = "UTC"))
   expect_identical(dtt_subtract_minutes(as.POSIXct(c("2000-01-01", "2002-01-02"), tz = "UTC"), 2L), 
-                   as.POSIXct(c("2000-01-01 00:02:00", "2002-01-02 00:02:00"), tz = "UTC"))
+                   as.POSIXct(c("1999-12-31 23:58:00", "2002-01-01 23:58:00"), tz = "UTC"))
 
   expect_identical(dtt_subtract_minutes(as.POSIXct(c("2000-01-01", "2002-01-01"), tz = "UTC"), 2:3), 
-                   as.POSIXct(c("2000-01-01 00:02:00", "2002-01-01 00:03:00"), tz = "UTC"))
+                   as.POSIXct(c("1999-12-31 23:58:00", "2001-12-31 23:57:00"), tz = "UTC"))
 
   expect_identical(dtt_subtract_minutes(c(as.POSIXct("2002-01-01", tz = "UTC"),NA), 3L), 
-                   c(as.POSIXct("2002-01-01 00:03:00", tz = "UTC"), NA))
+                   c(as.POSIXct("2001-12-31 23:57:00", tz = "UTC"), NA))
   expect_identical(dtt_subtract_minutes(c(as.POSIXct("2002-01-01", tz = "Etc/GMT+8"),NA), -3L), 
-                   c(as.POSIXct("2001-12-31 23:57:00", tz = "Etc/GMT+8"), NA))
+                   c(as.POSIXct("2002-01-01 00:03:00", tz = "Etc/GMT+8"), NA))
 })
 
 test_that("subtract_minutes.hms", {
@@ -175,21 +175,21 @@ test_that("subtract_minutes.hms", {
   expect_identical(dtt_subtract_minutes(hms::as_hms("00:00:00"), 0L), 
                    hms::as_hms("00:00:00"))
   expect_identical(dtt_subtract_minutes(hms::as_hms("00:00:00"), 2L), 
-                   hms::as_hms("00:02:00"))
+                   hms::as_hms("23:58:00"))
   expect_identical(dtt_subtract_minutes(hms::as_hms(c("00:00:00", "00:00:00")), 2L), 
-                   hms::as_hms(c("00:02:00", "00:02:00")))
+                   hms::as_hms(c("23:58:00", "23:58:00")))
 
   expect_identical(dtt_subtract_minutes(hms::as_hms(c("00:00:00", "00:00:00")), 2:3), 
-                   hms::as_hms(c("00:02:00", "00:03:00")))
+                   hms::as_hms(c("23:58:00", "23:57:00")))
 
   expect_identical(dtt_subtract_minutes(c(hms::as_hms("00:00:00"), NA), 2:3), 
-                   c(hms::as_hms("00:02:00"), NA))
+                   c(hms::as_hms("23:58:00"), NA))
   
   expect_identical(dtt_subtract_minutes(c(hms::as_hms("00:00:00"), NA), 3L), 
-                   c(hms::as_hms("00:03:00"), NA))
+                   c(hms::as_hms("23:57:00"), NA))
   
   expect_identical(dtt_subtract_minutes(c(hms::as_hms("00:00:00"), NA), -3L), 
-                   c(hms::as_hms("21:00:00"), NA))
+                   c(hms::as_hms("00:03:00"), NA))
 })
 
 test_that("subtract_seconds.POSIXct", {
@@ -198,17 +198,17 @@ test_that("subtract_seconds.POSIXct", {
   expect_identical(dtt_subtract_seconds(as.POSIXct("2000-01-01", tz = "UTC"), 0L), 
                    as.POSIXct("2000-01-01", tz = "UTC"))
   expect_identical(dtt_subtract_seconds(as.POSIXct("2000-01-01", tz = "UTC"), 2L), 
-                   as.POSIXct("2000-01-01 00:00:02", tz = "UTC"))
+                   as.POSIXct("1999-12-31 23:59:58", tz = "UTC"))
   expect_identical(dtt_subtract_seconds(as.POSIXct(c("2000-01-01", "2002-01-02"), tz = "UTC"), 2L), 
-                   as.POSIXct(c("2000-01-01 00:00:02", "2002-01-02 00:00:02"), tz = "UTC"))
+                   as.POSIXct(c("1999-12-31 23:59:58", "2002-01-01 23:59:58"), tz = "UTC"))
 
   expect_identical(dtt_subtract_seconds(as.POSIXct(c("2000-01-01", "2002-01-01"), tz = "UTC"), 2:3), 
-                   as.POSIXct(c("2000-01-01 00:00:02", "2002-01-01 00:00:03"), tz = "UTC"))
+                   as.POSIXct(c("1999-12-31 23:59:58", "2001-12-31 23:59:57"), tz = "UTC"))
 
   expect_identical(dtt_subtract_seconds(c(as.POSIXct("2002-01-01", tz = "UTC"),NA), 3L), 
-                   c(as.POSIXct("2002-01-01 00:00:03", tz = "UTC"), NA))
+                   c(as.POSIXct("2001-12-31 23:59:57", tz = "UTC"), NA))
   expect_identical(dtt_subtract_seconds(c(as.POSIXct("2002-01-01", tz = "Etc/GMT+8"),NA), -3L), 
-                   c(as.POSIXct("2001-12-31 23:59:57", tz = "Etc/GMT+8"), NA))
+                   c(as.POSIXct("2002-01-01 00:00:03", tz = "Etc/GMT+8"), NA))
 })
 
 test_that("subtract_seconds.hms", {
@@ -217,19 +217,19 @@ test_that("subtract_seconds.hms", {
   expect_identical(dtt_subtract_seconds(hms::as_hms("00:00:00"), 0L), 
                    hms::as_hms("00:00:00"))
   expect_identical(dtt_subtract_seconds(hms::as_hms("00:00:00"), 2L), 
-                   hms::as_hms("00:00:02"))
+                   hms::as_hms("23:59:58"))
   expect_identical(dtt_subtract_seconds(hms::as_hms(c("00:00:00", "00:00:00")), 2L), 
-                   hms::as_hms(c("00:00:02", "00:00:02")))
+                   hms::as_hms(c("23:59:58", "23:59:58")))
 
   expect_identical(dtt_subtract_seconds(hms::as_hms(c("00:00:00", "00:00:00")), 2:3), 
-                   hms::as_hms(c("00:00:02", "00:00:03")))
+                   hms::as_hms(c("23:59:58", "23:59:57")))
 
   expect_identical(dtt_subtract_seconds(c(hms::as_hms("00:00:00"), NA), 2:3), 
-                   c(hms::as_hms("00:00:02"), NA))
+                   c(hms::as_hms("23:59:58"), NA))
   
   expect_identical(dtt_subtract_seconds(c(hms::as_hms("00:00:00"), NA), 3L), 
-                   c(hms::as_hms("00:00:03"), NA))
+                   c(hms::as_hms("23:59:57"), NA))
   
   expect_identical(dtt_subtract_seconds(c(hms::as_hms("00:00:00"), NA), -3L), 
-                   c(hms::as_hms("21:00:00"), NA))
+                   c(hms::as_hms("00:00:03"), NA))
 })
