@@ -4,13 +4,13 @@
 \name{dttr-package}
 \alias{dttr}
 \alias{dttr-package}
-\title{dttr: Manipulate Date and Time Objects}
+\title{dttr: Dates, Times and a Timer}
 \description{
-A light-weight package to manipulate date (Date), datetime (POSIXct) 
+Simple manipulations and conversions for date (Date), date time (POSIXct) 
     and time (hms) objects.
-    As well as functions to get, set, add and subtract years, months, days, hours
-    etc it includes functions to floor objects, set or adjust time zones and
-    create complete sequences. It also provides duration and timer objects.
+    As well as functions to get, set, add and subtract time units it includes 
+    functions to floor objects, set or adjust time zones and complete sequences. 
+    It also provides a timer.
 }
 \seealso{
 Useful links:
