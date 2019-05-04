@@ -11,12 +11,12 @@
 #' @examples
 #' x <- as.POSIXct("1990-01-02 23:40:51")
 #' dtt_hour(x)
-#' dtt_hour(x) <- 27L
+#' dtt_hour(x) <- 01L
 #' x
 #' 
 #' x <- hms::as_hms("23:40:51")
 #' dtt_hour(x)
-#' dtt_hour(x) <- 27L
+#' dtt_hour(x) <- 01L
 #' x
 dtt_hour <- function(x, ...) {
   UseMethod("dtt_hour")

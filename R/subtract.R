@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' dtt_subtract_units(as.Date("1999-12-31"), "days")
+#' dtt_subtract_units(as.Date("1999-12-31"), 2L, "days")
 dtt_subtract_units <- function(x, n = 1L, units = dtt_units(x)) {
   dtt_add_units(x, units = units, n =  n * -1L)
 }

@@ -37,7 +37,7 @@ dtt_floor.Date <- function(x, units = "days", ...) {
 #' @describeIn dtt_floor Floor a POSIXct vector
 #' @export
 dtt_floor.POSIXct <- function(x, units = "seconds", ...) {
-  check_time_units(units)
+  check_scalar(units, .units_POSIXct)
   check_unused(...)
   
   if(!length(x)) return(x)

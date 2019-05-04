@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' dtt_complete(as.Date("2001-01-01", "2001-01-03", "2001-01-01"))
+#' dtt_complete(as.Date(c("2001-01-01", "2001-01-03", "2001-01-01")))
 dtt_complete <- function(x, ...) {
   UseMethod("dtt_complete")
 }

@@ -2,9 +2,13 @@
 % Please edit documentation in R/dayte-time.R
 \name{dtt_dayte_time}
 \alias{dtt_dayte_time}
+\alias{dtt_dayte_time.POSIXct}
 \title{Dayte Time}
 \usage{
 dtt_dayte_time(x, ...)
+
+\method{dtt_dayte_time}{POSIXct}(x, start_month = 1L, start_day = 1L,
+  ...)
 }
 \arguments{
 \item{x}{A date time vector.}
@@ -23,6 +27,11 @@ A Date vector of the daytes.
 \description{
 Dayte Time
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{POSIXct}: Dayte Time a POSIXct vector
+}}
+
 \examples{
 dtt_dayte_time(as.POSIXct(c("2001-01-01 12:13:14", "2015-12-13"), tz = "Etc/GMT+10"))
 }

@@ -44,6 +44,3 @@ Tests whether a date time is complete.
 \item \code{hms}: Test if POSIXct vector is complete
 }}
 
-\examples{
-dtt_completed(date_times)
-}

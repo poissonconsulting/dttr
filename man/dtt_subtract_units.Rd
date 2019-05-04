@@ -40,7 +40,7 @@ The modified date time vector.
 Subtract time units from a date time vector.
 }
 \examples{
-dtt_subtract_units(as.Date("1999-12-31"), "days")
+dtt_subtract_units(as.Date("1999-12-31"), 2L, "days")
 }
 \seealso{
 \code{\link{dtt_add_units}()}

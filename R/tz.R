@@ -92,6 +92,9 @@ dtt_set_tz.POSIXct <- function(x, tz = dtt_default_tz(), ...) {
 #' for a date time vector.
 #' Equivalent to \code{lubridate::with_tz()}.
 #'
+#' @param x A POSIXct vector.
+#' @param tz A string of the time zone.
+#' @param ... Unused
 #' @return The date time vector with the new time zone and time.
 #' @seealso \code{\link{dtt_set_tz}()}
 #' @export

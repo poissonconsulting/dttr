@@ -9,11 +9,12 @@
 #' @param units A string of the time units.
 #' @param length_out An integer of the number of units from from.
 #' @param wrap A flag specifying whether to wrap hms vectors from 23:59:59 to 00:00:00
+#' @param ... Unused
 #' @return The date/time vector.
 #' @export
 #'
 #' @examples
-#' dtt_seq(as.Date("2001-01-01", "2001-01-05"))
+#' dtt_seq(as.Date("2001-01-01"), as.Date("2001-01-05"))
 dtt_seq <- function(from, to, units, length_out = NULL, ...) {
   UseMethod("dtt_seq")
 }
@@ -56,7 +57,7 @@ dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL, ...
 #' @export
 dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NULL, ...) {
   check_scalar(from, Sys.time(), named = NA)
-  check_time_units(units)
+  check_scalar(units, .units_POSIXct)
   checkor(check_null(length_out), check_int(length_out))
   check_unused(...)
   
@@ -94,7 +95,7 @@ dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NUL
 dtt_seq.hms <- function(from, to = from, units = "seconds", length_out = NULL, 
                         wrap = TRUE, ...) {
   check_scalar(from, hms::as_hms(0), named = NA)
-  check_time_units(units)
+  check_scalar(units, .units_hms)
   checkor(check_null(length_out), check_int(length_out))
   check_flag(wrap)
   check_unused(...)

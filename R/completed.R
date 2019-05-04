@@ -9,9 +9,6 @@
 #' @param ... Unused.
 #' @return A flag indicating whether complete.
 #' @export
-#'
-#' @examples
-#' dtt_completed(date_times)
 dtt_completed <- function(x, ...) {
   UseMethod("dtt_completed")
 }

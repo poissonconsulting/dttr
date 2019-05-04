@@ -21,6 +21,3 @@ A Date or POSIXct vector with the year for February 29th as 1972.
 \description{
 Dayte Time
 }
-\examples{
-dtt_daytt(Sys.Date())
-}

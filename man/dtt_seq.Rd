@@ -27,6 +27,8 @@ dtt_seq(from, to, units, length_out = NULL, ...)
 
 \item{length_out}{An integer of the number of units from from.}
 
+\item{...}{Unused}
+
 \item{wrap}{A flag specifying whether to wrap hms vectors from 23:59:59 to 00:00:00}
 }
 \value{
@@ -47,5 +49,5 @@ If length_out is defined then that number of units are added to from.
 }}
 
 \examples{
-dtt_seq(as.Date("2001-01-01", "2001-01-05"))
+dtt_seq(as.Date("2001-01-01"), as.Date("2001-01-05"))
 }

@@ -12,8 +12,6 @@ err <- function(...) stop(..., call. = FALSE, domain = NA)
 
 wrn <- function(...) warning(..., call. = FALSE, domain = NA)
 
-duration <- function(x) set_class(as.integer(x), "dtt_duration")
-
 units_less_than <- function(x, y) {
   x <- ordered(x, levels = .units_POSIXct)
   y <- ordered(y, levels = .units_POSIXct)
@@ -77,5 +75,21 @@ daytte <- function(x, start_month, start_day) {
   date_in_start <- dtt_date(x) >= start_date
   dtt_year(x[start_in_leap & !date_in_start]) <- 1971L
   dtt_year(x[!start_in_leap & date_in_start]) <- 1973L
+  x
+}
+
+seconds_per_unit <- function(units = "seconds") {
+  check_scalar(units, .units_POSIXct)
+  
+  if(units == "seconds") return(1L)
+  x <- 60L
+  if(units == "minutes") return(as.integer(x))
+  x <- x * 60L
+  if(units == "hours") return(as.integer(x))
+  x <- x * 24L
+  if(units == "days") return(as.integer(x))
+  x <- x * 30.41667
+  if(units == "months") return(as.integer(x))
+  x <- x * 12
   x
 }

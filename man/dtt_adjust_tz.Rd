@@ -9,6 +9,13 @@ dtt_adjust_tz(x, tz = dtt_default_tz(), ...)
 
 \method{dtt_adjust_tz}{POSIXct}(x, tz = dtt_default_tz(), ...)
 }
+\arguments{
+\item{x}{A POSIXct vector.}
+
+\item{tz}{A string of the time zone.}
+
+\item{...}{Unused}
+}
 \value{
 The date time vector with the new time zone and time.
 }

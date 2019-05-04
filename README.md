@@ -147,6 +147,34 @@ dtt_date_time(date, time)
 #> [1] "1970-01-01 03:00:00 -10"
 ```
 
+### Timer
+
+An timer is a hms scalar with a start attribute indicating the time in
+seconds since 1970-01-01 00:00:00 GMT when it started. `dtt_elapsed()`
+returns the duration for which the timer has been running (see below).
+
+``` r
+timer <- dtt_timer(start = TRUE)
+dtt_elapsed(timer)
+#> 00:00:00
+Sys.sleep(1)
+dtt_elapsed(timer)
+#> 00:00:01
+Sys.sleep(1)
+dtt_elapsed(timer)
+#> 00:00:02
+timer <- dtt_stop(timer)
+dtt_elapsed(timer)
+#> 00:00:02
+Sys.sleep(1)
+dtt_elapsed(timer)
+#> 00:00:02
+timer <- dtt_start(timer)
+Sys.sleep(1)
+dtt_elapsed(timer)
+#> 00:00:03
+```
+
 ## Inspiration
 
 [lubridate](https://lubridate.tidyverse.org)
@@ -161,4 +189,4 @@ always welcome.
 
 Please note that the ‘dttr’ project is released with a [Contributor Code
 of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you
-agree to abide by its terms
+agree to abide by its terms.

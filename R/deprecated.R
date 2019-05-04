@@ -1,9 +1,11 @@
+#' @rdname dtt_second
 #' @export
 dtt_seconds <- function(x, ...) {
   .Deprecated("dtt_second")
   UseMethod("dtt_second")
 }
 
+#' @rdname dtt_second
 #' @export
 `dtt_seconds<-` <- function(x, value) {
   .Deprecated("dtt_second<-")
@@ -131,11 +133,8 @@ dtt_years <- function(x, ...) {
 #' @param ... Unused.
 #' @return A Date or POSIXct vector with the year for February 29th as 1972.
 #' @export
-#'
-#' @examples
-#' dtt_daytt(Sys.Date())
 dtt_daytt <- function(x, start_month = 1L, start_day = 1L) {
 
   .Deprecated("dtt_dayte or dtt_dayte_time")  
-  daytt(x, start_month = start_month, start_day = start_day)
+  daytte(x, start_month = start_month, start_day = start_day)
 }

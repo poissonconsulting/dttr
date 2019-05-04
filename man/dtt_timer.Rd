@@ -26,23 +26,20 @@ dtt_is_running(x)
 
 \item{start}{A flag indicating whether to start the timer.}
 
-\item{x}{A dtt_timer object.}
-}
-\value{
-A dtt_timer
+\item{x}{A hms scalar.}
 }
 \description{
 Use a dtt_timer
 }
 \section{Functions}{
 \itemize{
-\item \code{dtt_start}: Start
+\item \code{dtt_start}: Start Timer
 
-\item \code{dtt_stop}: Stop
+\item \code{dtt_stop}: Stop Timer
 
-\item \code{dtt_elapsed}: Elapsed Duration
+\item \code{dtt_elapsed}: Elapsed Time
 
-\item \code{dtt_reset}: Reset
+\item \code{dtt_reset}: Reset Timer
 
 \item \code{dtt_is_running}: Is Running
 }}
@@ -59,7 +56,9 @@ t <- dtt_start(t)
 
 # get the time elapsed
 # time elapsed is increasing because the timer is still running
+Sys.sleep(1)
 dtt_elapsed(t)
+Sys.sleep(1)
 dtt_elapsed(t)
 
 # stop the timer
@@ -67,6 +66,7 @@ t <- dtt_stop(t)
 
 # time elapsed is now fixed
 dtt_elapsed(t)
+Sys.sleep(1)
 dtt_elapsed(t)
 
 # reset the timer

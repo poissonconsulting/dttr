@@ -14,7 +14,7 @@ dtt_dayte_time <- function(x, ...) {
   UseMethod("dtt_dayte_time")
 }
 
-#' @describeIn dtt_dayte Dayte Time a POSIXct vector
+#' @describeIn dtt_dayte_time Dayte Time a POSIXct vector
 #' @export
 dtt_dayte_time.POSIXct <- function(x, start_month = 1L, start_day = 1L, ...) {
   check_unused(...)

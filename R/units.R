@@ -1,3 +1,33 @@
+#' Units per Unit
+#'
+#' @param units A string of the time units.
+#' @param unit A string of the time unit.
+#'
+#' @return A number of the units per unit
+#' @export
+#'
+#' @examples
+#' dtt_units_per_unit("hours")
+dtt_units_per_unit <- function(units = "seconds", unit = "days") {
+  seconds_per_unit(unit) / seconds_per_unit(units)
+}
+
+#' Adjust Units
+#'
+#' @param x An integer or numeric vector
+#' @param from A string of the original units.
+#' @param to A string of the new units.
+#'
+#' @return A numeric vector.
+#' @export
+#'
+#' @examples
+#' dtt_adjust_units(60, to = "minutes")
+dtt_adjust_units <- function(x, from = "seconds", to = "seconds") {
+  checkor(check_vector(x, 1), check_vector(x, 1L))
+  x * dtt_units_per_unit(to, from)
+}
+
 #' Get Units
 #' 
 #' Gets the smallest units for a date time vector.

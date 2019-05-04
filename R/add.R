@@ -14,7 +14,7 @@
 #' @examples
 #' dtt_add_units(as.Date("1999-12-31"), "days")
 dtt_add_units <- function(x, units, n = 1L) {
-  check_time_units(units)
+  check_scalar(units, .units_POSIXct)
   
   switch(units,
          years = dtt_add_years(x, n),
