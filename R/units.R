@@ -3,7 +3,7 @@
 #' Gets the smallest units for a date time vector.
 #' The possible values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
 #'
-#' @param x A Date or POSIXct vector.
+#' @param x A Date, POSIXct or hms vector.
 #' @param ... Unused.
 #' @return A string indicating the date time units.
 #' @export

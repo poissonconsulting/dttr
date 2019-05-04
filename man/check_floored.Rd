@@ -9,7 +9,7 @@ check_floored(x, units, x_name = substitute(x), error = TRUE)
 \arguments{
 \item{x}{The object to check.}
 
-\item{units}{A string of the units to floor by.}
+\item{units}{A string of the time units to floor by.}
 
 \item{x_name}{A string of the name of the object.}
 

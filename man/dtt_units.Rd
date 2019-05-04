@@ -16,7 +16,7 @@ dtt_units(x, ...)
 \method{dtt_units}{hms}(x, ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A Date, POSIXct or hms vector.}
 
 \item{...}{Unused.}
 }

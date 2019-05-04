@@ -2,23 +2,41 @@
 % Please edit documentation in R/floored.R
 \name{dtt_floored}
 \alias{dtt_floored}
+\alias{dtt_floored.Date}
+\alias{dtt_floored.POSIXct}
+\alias{dtt_floored.hms}
 \title{Floored}
 \usage{
-dtt_floored(x, units = dtt_units(x))
+dtt_floored(x, ...)
+
+\method{dtt_floored}{Date}(x, units = "days", ...)
+
+\method{dtt_floored}{POSIXct}(x, units = "seconds", ...)
+
+\method{dtt_floored}{hms}(x, units = "seconds", ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
-
-\item{units}{A string of the units to floor by.}
+\item{x}{A Date, POSIXct or hms vector.}
 
 \item{...}{Unused.}
+
+\item{units}{A string of the time units to floor by.}
 }
 \value{
 A flag indicating whether floored.
 }
 \description{
-The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
+Test whether a date time vector is floored.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Test if Date vector is floored
+
+\item \code{POSIXct}: Test if POSIXct vector is floored
+
+\item \code{hms}: Test if hms vector is floored
+}}
+
 \examples{
-dtt_floored(Sys.time(), "hours")
+dtt_floored(as.Date("2002-02-01"))
 }
