@@ -38,6 +38,28 @@ sub_day <- function(x, value) {
   sub("^(\\d{1,4}-\\d{1,2}-)(\\d{1,2})$", paste0("\\1", value), x)
 }
 
+max.hms <- function(..., na.rm = FALSE) {
+  dots <- list(...)
+  dots <- c(unlist(lapply(dots, unclass)))
+  dots <- dtt_time(dots)
+  max <- max(as.integer(dots), na.rm = na.rm)
+  dtt_time(max)
+}
+
+min.hms <- function(..., na.rm = FALSE) {
+  dots <- list(...)
+  dots <- c(unlist(lapply(dots, unclass)))
+  dots <- dtt_time(dots)
+  min <- min(as.integer(dots), na.rm = na.rm)
+  dtt_time(min)
+}
+
+unique.hms <- function(x, incomparables = FALSE, ...) {
+  check_unused(...)
+  x <- dtt_floor(x)
+  x[!duplicated(as.integer(x), incomparables = incomparables)]
+}
+
 daytte <- function(x, start_month, start_day) {
   check_vector(start_month, c(1L, 12L), length = c(1L, 1L, length(x)))
   check_vector(start_day, c(1L, 31L), length = c(1L, 1L, length(x)))

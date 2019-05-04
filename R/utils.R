@@ -41,28 +41,3 @@ c.hms <- function(..., recursive = FALSE) {
   dots <- list(...)
   hms::as_hms(c(unlist(lapply(dots, unclass))))
 }
-
-#' @export
-max.hms <- function(..., na.rm = FALSE) {
-  dots <- list(...)
-  dots <- c(unlist(lapply(dots, unclass)))
-  dots <- dtt_time(dots)
-  max <- max(as.integer(dots), na.rm = na.rm)
-  dtt_time(max)
-}
-
-#' @export
-min.hms <- function(..., na.rm = FALSE) {
-  dots <- list(...)
-  dots <- c(unlist(lapply(dots, unclass)))
-  dots <- dtt_time(dots)
-  min <- min(as.integer(dots), na.rm = na.rm)
-  dtt_time(min)
-}
-
-#' @export
-unique.hms <- function(x, incomparables = FALSE, ...) {
-  check_unused(...)
-  x <- dtt_floor(x)
-  x[!duplicated(as.integer(x), incomparables = incomparables)]
-}

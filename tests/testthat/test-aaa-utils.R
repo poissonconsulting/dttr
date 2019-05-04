@@ -16,13 +16,18 @@ test_that("NA", {
   expect_true(is.na(NA_POSIXct_))
   expect_true(is.POSIXct(NA_POSIXct_))
   expect_false(is.Date(NA_POSIXct_))
-  expect_true(is.Date_or_POSIXct(NA_Date_))
   expect_true(is.na(NA_Date_))
   expect_true(is.Date(NA_Date_))
   expect_false(is.POSIXct(NA_Date_))
-  expect_true(is.Date_or_POSIXct(NA_Date_))
+  expect_true(is.na(NA_hms_))
+  expect_false(is.Date(NA_hms_))
+  expect_false(is.POSIXct(NA_hms_))
 })
 
-test_that("c", {
-  expect_identical(c(date_times[1]), date_times[1])
+test_that("c.POSIXct", {
+  expect_equal(c(as.POSIXct("2001-01-01")), as.POSIXct("2001-01-01"))
+})
+
+test_that("c.hms", {
+  expect_identical(c(hms::as_hms("00:00:00")), hms::as_hms("00:00:00"))
 })
