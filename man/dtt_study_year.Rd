@@ -18,6 +18,5 @@ A character vector of the study year.
 Study Year
 }
 \examples{
-dtt_study_year(Sys.Date())
 dtt_study_year(as.Date(c("2000-03-31", "2000-04-01", "2001-04-01")), start = 4L)
 }

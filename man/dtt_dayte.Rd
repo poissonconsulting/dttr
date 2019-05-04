@@ -19,9 +19,9 @@ dtt_dayte(x, ...)
 \arguments{
 \item{x}{A date time vector.}
 
-\item{start_month}{An integer vector specifying the start month of the year.}
+\item{start_month}{An integer scalar specifying the start month of the year.}
 
-\item{start_day}{An integer vector specifying the start day of the year.}
+\item{start_day}{An integer scalar specifying the start day of the year.}
 
 \item{...}{Unused.}
 }

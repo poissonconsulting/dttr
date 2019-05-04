@@ -17,7 +17,7 @@ test_that("dayte.Date with start and leap year", {
   expect_identical(dtt_dayte(more_dates), 
                    as.Date(c("1972-02-27", "1972-02-28", "1972-02-29", "1972-03-01", "1972-03-02")))
   
-  expect_error(dtt_dayte(more_dates, start_month = 2L, start_day = rep(31L, 5)), 
+  expect_error(dtt_dayte(more_dates, start_month = 2L, start_day = rep(31L)), 
                    "start_month and start_day must define valid dates")
   
   expect_identical(dtt_dayte(more_dates, start_month = 2L, start_day = 27L), 
@@ -32,9 +32,6 @@ test_that("dayte.Date with start and leap year", {
                   as.Date(c("1972-02-27", "1972-02-28", "1972-02-29", "1972-03-01", "1973-03-02")))
   expect_identical(dtt_dayte(more_dates, start_month = 3L, start_day = 3L), 
                   as.Date(c("1972-02-27", "1972-02-28", "1972-02-29", "1972-03-01", "1972-03-02")))
-  
-  expect_identical(dtt_dayte(more_dates, start_month = c(2L,2L,2L,3L,2L), start_day = c(29L, 29L, 29L, 1L, 3L)), 
-                  as.Date(c("1971-02-27", "1971-02-28", "1972-02-29", "1973-03-01", "1972-03-02")))
 })
 
 test_that("dayte.POSIXct", {

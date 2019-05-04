@@ -61,13 +61,13 @@ unique.hms <- function(x, incomparables = FALSE, ...) {
 }
 
 daytte <- function(x, start_month, start_day) {
-  check_vector(start_month, c(1L, 12L), length = c(1L, 1L, length(x)))
-  check_vector(start_day, c(1L, 31L), length = c(1L, 1L, length(x)))
+  check_vector(start_month, c(1L, 12L), length = 1L)
+  check_vector(start_day, c(1L, 31L), length = 1L)
 
   if(!length(x)) return(x)
   
   dtt_year(x) <- 1972L
-  if(all(start_month == 1L & start_day == 1L)) return(x)
+  if(start_month == 1L & start_day == 1L) return(x)
   
   start_date <- paste(1972, start_month, start_day, sep = "-")
   start_date <- try(dtt_date(start_date), silent = TRUE)
