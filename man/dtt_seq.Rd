@@ -4,15 +4,19 @@
 \alias{dtt_seq}
 \alias{dtt_seq.Date}
 \alias{dtt_seq.POSIXct}
+\alias{dtt_seq.hms}
 \title{Sequence}
 \usage{
 dtt_seq(from, to, units, ...)
 
 \method{dtt_seq}{Date}(from, to = from, units = "days",
-  length_out = NULL)
+  length_out = NULL, ...)
 
 \method{dtt_seq}{POSIXct}(from, to = from, units = "seconds",
-  length_out = NULL)
+  length_out = NULL, ...)
+
+\method{dtt_seq}{hms}(from, to = from, units = "seconds",
+  length_out = NULL, ...)
 }
 \arguments{
 \item{from}{A date/time scalar of the start.}
@@ -36,6 +40,8 @@ If length_out is defined then that number of units are added to from.
 \item \code{Date}: Create a Date sequence vector
 
 \item \code{POSIXct}: Create a POSIXct sequence vector
+
+\item \code{hms}: Create a hms sequence vector
 }}
 
 \examples{

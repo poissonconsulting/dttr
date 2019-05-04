@@ -19,19 +19,20 @@ dtt_seq <- function(from, to, units, ...) {
 
 #' @describeIn dtt_seq Create a Date sequence vector
 #' @export
-dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL) {
+dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL, ...) {
   check_scalar(from, Sys.Date(), named = NA)
   check_scalar(units, .units_Date)
   checkor(check_null(length_out), check_pos_int(length_out))
+  check_unused(...)
   
   from <- dtt_floor(from, units = units)
   
-  if(!is.null(length_out)) 
+  if(!is.null(length_out)) {
     to <- dtt_add_units(from, n = length_out -1L, units = units)
-  
-  check_scalar(to, Sys.Date(), named = NA)
-  
-  to <- dtt_floor(to, units = units)
+  } else {
+    check_scalar(to, Sys.Date(), named = NA)
+    to <- dtt_floor(to, units = units)
+  }
   
   if(from == to) return(from)
   
@@ -50,21 +51,22 @@ dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL) {
 
 #' @describeIn dtt_seq Create a POSIXct sequence vector
 #' @export
-dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NULL) {
+dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NULL, ...) {
   check_scalar(from, Sys.time(), named = NA)
   check_time_units(units)
   checkor(check_null(length_out), check_pos_int(length_out))
-  
+  check_unused(...)
+
   from <- dtt_floor(from, units = units)
   
   tz <- dtt_tz(from)
-  if(!is.null(length_out)) 
+  if(!is.null(length_out)) {
     to <- dtt_add_units(from, n = length_out - 1L, units = units)
-  
-  check_scalar(to, Sys.time(), named = NA)
-  check_tz(to, tz = tz)
-
-  to <- dtt_floor(to, units = units)
+  } else {
+    check_scalar(to, Sys.time(), named = NA)
+    check_tz(to, tz = tz)
+    to <- dtt_floor(to, units = units)
+  }
   
   if(from == to) return(from)
   
@@ -76,6 +78,40 @@ dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NUL
   }
   
   seq <- seq(from, to, by = units2by(units), tz = tz)
+  seq <- dtt_aggregate(seq, units = units)
+  if(!ascending) seq <- rev(seq)
+  seq
+}
+
+
+#' @describeIn dtt_seq Create a hms sequence vector
+#' @export
+dtt_seq.hms <- function(from, to = from, units = "seconds", length_out = NULL, ...) {
+  check_scalar(from, hms::as_hms(0), named = NA)
+  check_time_units(units)
+  checkor(check_null(length_out), check_pos_int(length_out))
+  check_unused(...)
+
+  from <- dtt_floor(from, units = units)
+  
+  if(!is.null(length_out)) {
+    to <- dtt_add_units(from, n = length_out - 1L, units = units)
+  } else {
+    check_scalar(to, hms::as_hms(0), named = NA)
+    to <- dtt_floor(to, units = units)
+  }
+  
+  if(from == to) return(from)
+  
+  ascending <- from < to
+  if(!ascending) {
+    to2 <- to
+    to <- from
+    from <- to2
+  }
+  
+  seq <- seq(as.integer(from), as.integer(to), by = dtt_units_per_unit("seconds", units))
+  seq <- dtt_time(seq)
   seq <- dtt_aggregate(seq, units = units)
   if(!ascending) seq <- rev(seq)
   seq
