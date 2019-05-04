@@ -123,3 +123,19 @@ dtt_years <- function(x, ...) {
   UseMethod("dtt_year<-")
 }
 
+#' Dayte Time
+#'
+#' @param x A Date or POSIXct vector.
+#' @param start_month An integer vector specifying the start month of the year.
+#' @param start_day An integer vector specifying the start day of the year.
+#' @param ... Unused.
+#' @return A Date or POSIXct vector with the year for February 29th as 1972.
+#' @export
+#'
+#' @examples
+#' dtt_daytt(Sys.Date())
+dtt_daytt <- function(x, start_month = 1L, start_day = 1L) {
+
+  .Deprecated("dtt_dayte or dtt_dayte_time")  
+  daytt(x, start_month = start_month, start_day = start_day)
+}

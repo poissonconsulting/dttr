@@ -37,3 +37,23 @@ sub_month <- function(x, value) {
 sub_day <- function(x, value) {
   sub("^(\\d{1,4}-\\d{1,2}-)(\\d{1,2})$", paste0("\\1", value), x)
 }
+
+daytte <- function(x, start_month, start_day) {
+  check_vector(start_month, c(1L, 12L), length = c(1L, 1L, length(x)))
+  check_vector(start_day, c(1L, 31L), length = c(1L, 1L, length(x)))
+
+  if(!length(x)) return(x)
+  
+  dtt_year(x) <- 1972L
+  if(all(start_month == 1L & start_day == 1L)) return(x)
+  
+  start_date <- paste(1972, start_month, start_day, sep = "-")
+  start_date <- try(dtt_date(start_date), silent = TRUE)
+  if(inherits(start_date, "try-error"))
+    err("start_month and start_day must define valid dates")
+  start_in_leap <- start_date <= as.Date("1972-02-29")
+  date_in_start <- dtt_date(x) >= start_date
+  dtt_year(x[start_in_leap & !date_in_start]) <- 1971L
+  dtt_year(x[!start_in_leap & date_in_start]) <- 1973L
+  x
+}
