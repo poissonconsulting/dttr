@@ -10,8 +10,6 @@ check_complete(x, floored = TRUE, unique = TRUE, sorted = TRUE,
 \arguments{
 \item{x}{The object to check.}
 
-\item{floored}{A flag indicating whether the values must be floored.}
-
 \item{unique}{A flag indicating whether the values must be unique.}
 
 \item{sorted}{A flag indicating whether the values must be sorted.}

@@ -2,30 +2,48 @@
 % Please edit documentation in R/completed.R
 \name{dtt_completed}
 \alias{dtt_completed}
+\alias{dtt_completed.Date}
+\alias{dtt_completed.POSIXct}
+\alias{dtt_completed.hms}
 \title{Completed}
 \usage{
-dtt_completed(x, floored = TRUE, unique = TRUE, sorted = TRUE,
-  units = dtt_units(x), ...)
+dtt_completed(x, ...)
+
+\method{dtt_completed}{Date}(x, units = "days", unique = TRUE,
+  sorted = TRUE, ...)
+
+\method{dtt_completed}{POSIXct}(x, units = "seconds", unique = TRUE,
+  sorted = TRUE, ...)
+
+\method{dtt_completed}{hms}(x, units = "seconds", unique = TRUE,
+  sorted = TRUE, ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector}
+\item{x}{A date time vector}
 
-\item{floored}{A flag indicating whether the values must be floored.}
+\item{...}{Unused.}
+
+\item{units}{A string of the units.}
 
 \item{unique}{A flag indicating whether the values must be unique.}
 
 \item{sorted}{A flag indicating whether the values must be sorted.}
-
-\item{units}{A string of the units.}
-
-\item{...}{Unused.}
 }
 \value{
 A flag indicating whether complete.
 }
 \description{
-Tests whether a Date or POSIXct object is complete.
+Tests whether a date time is complete.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Test if Date vector is complete
+
+\item \code{POSIXct}: Test if POSIXct vector is complete
+
+\item \code{hms}: Test if POSIXct vector is complete
+}}
+
 \examples{
 dtt_completed(date_times)
 }
