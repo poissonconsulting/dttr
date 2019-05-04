@@ -13,7 +13,7 @@ dtt_feb29_to_28(x)
 The modified Date or POSIXct vector.
 }
 \description{
-Feb 29 to Feb 28
+Converts Feb 29 to Feb 28th
 }
 \examples{
 dtt_feb29_to_28(as.Date("2004-02-29"))
