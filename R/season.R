@@ -18,7 +18,8 @@
 #' dtt_season(dates, season = c(First = dtt_date("1972-01-01"), Second = dtt_date("1972-06-01")))
 dtt_season <- function (x, seasons = c(Spring = 3L, Summer = 6L,
                                        Autumn = 9L, Winter = 12L)) {
-  check_dtt(x)
+  checkor(check_vector(x, c(Sys.Date(), NA)),
+          check_vector(x, c(Sys.time(), NA_POSIXct_)))
   checkor(
     check_vector(seasons, c(1L, 12L), length = TRUE,
                  unique = TRUE, sorted = TRUE), 
