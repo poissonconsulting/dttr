@@ -30,20 +30,20 @@ dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL, ...
   
   if(!is.null(length_out)) {
     if(length_out == 0L) return(from[-1])
-    ascending <- length_out > 0
-    if(!ascending) length_out <- length_out * -1
-    to <- dtt_add_units(from, n = length_out -1L, units = units)
-  } else {
-    check_scalar(to, Sys.Date(), named = NA)
-    to <- dtt_floor(to, units = units)
-    if(from == to) return(from)
-    
-    ascending <- from < to
-    if(!ascending) {
-      to2 <- to
-      to <- from
-      from <- to2
-    }
+    if(length_out < 0) {
+      to <- dtt_subtract_units(from, n = length_out * -1L -1L, units = units)
+    } else
+      to <- dtt_add_units(from, n = length_out -1L, units = units)
+  } 
+  check_scalar(to, Sys.Date(), named = NA)
+  to <- dtt_floor(to, units = units)
+  if(from == to) return(from)
+  
+  ascending <- from < to
+  if(!ascending) {
+    to2 <- to
+    to <- from
+    from <- to2
   }
   
   seq <- seq(from, to, by = units2by(units))
@@ -57,20 +57,22 @@ dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL, ...
 dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NULL, ...) {
   check_scalar(from, Sys.time(), named = NA)
   check_time_units(units)
-  checkor(check_null(length_out), check_pos_int(length_out))
+  checkor(check_null(length_out), check_int(length_out))
   check_unused(...)
   
   from <- dtt_floor(from, units = units)
   
   tz <- dtt_tz(from)
   if(!is.null(length_out)) {
-    to <- dtt_add_units(from, n = length_out - 1L, units = units)
-  } else {
-    check_scalar(to, Sys.time(), named = NA)
-    check_tz(to, tz = tz)
-    to <- dtt_floor(to, units = units)
-  }
-  
+    if(length_out == 0L) return(from[-1])
+    if(length_out < 0) {
+      to <- dtt_subtract_units(from, n = length_out * -1L -1L, units = units)
+    } else
+      to <- dtt_add_units(from, n = length_out -1L, units = units)
+  } 
+  check_scalar(to, Sys.time(), named = NA)
+  check_tz(to, tz = tz)
+  to <- dtt_floor(to, units = units)
   if(from == to) return(from)
   
   ascending <- from < to
@@ -93,31 +95,37 @@ dtt_seq.hms <- function(from, to = from, units = "seconds", length_out = NULL,
                         wrap = TRUE, ...) {
   check_scalar(from, hms::as_hms(0), named = NA)
   check_time_units(units)
-  checkor(check_null(length_out), check_pos_int(length_out))
+  checkor(check_null(length_out), check_int(length_out))
   check_flag(wrap)
   check_unused(...)
   
   from <- dtt_floor(from, units = units)
   
   if(!is.null(length_out)) {
-    to <- dtt_add_units(from, n = length_out - 1L, units = units)
-  } else {
-    check_scalar(to, hms::as_hms(0), named = NA)
-    to <- dtt_floor(to, units = units)
-  }
-  
+    if(length_out == 0L) return(from[-1])
+    if(length_out > dtt_units_per_unit(units))
+      err("length_out of units must not exceed 24 hours")
+    
+    if(length_out < 0) {
+      to <- dtt_subtract_units(from, n = length_out * -1L -1L, units = units)
+    } else
+      to <- dtt_add_units(from, n = length_out -1L, units = units)
+  } 
+  check_scalar(to, hms::as_hms(0), named = NA)
+  to <- dtt_floor(to, units = units)
   if(from == to) return(from)
   
   ascending <- from < to
   if(!ascending) {
-    to2 <- to
-    to <- from
-    from <- to2
+    if(!wrap) {
+      to2 <- to
+      to <- from
+      from <- to2
+    } else {
+      to <- to + dtt_units_per_unit("seconds", "days")
+    }
   }
   
   seq <- seq(as.integer(from), as.integer(to), by = dtt_units_per_unit("seconds", units))
-  seq <- dtt_time(seq)
-  seq <- dtt_aggregate(seq, units = units)
-  if(!ascending) seq <- rev(seq)
-  seq
+  return(dtt_time(seq))
 }

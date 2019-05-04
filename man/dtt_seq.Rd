@@ -7,7 +7,7 @@
 \alias{dtt_seq.hms}
 \title{Sequence}
 \usage{
-dtt_seq(from, to, units, ...)
+dtt_seq(from, to, units, length_out = NULL, ...)
 
 \method{dtt_seq}{Date}(from, to = from, units = "days",
   length_out = NULL, ...)
@@ -16,7 +16,7 @@ dtt_seq(from, to, units, ...)
   length_out = NULL, ...)
 
 \method{dtt_seq}{hms}(from, to = from, units = "seconds",
-  length_out = NULL, ...)
+  length_out = NULL, wrap = TRUE, ...)
 }
 \arguments{
 \item{from}{A date/time scalar of the start.}
@@ -26,6 +26,8 @@ dtt_seq(from, to, units, ...)
 \item{units}{A string of the time units.}
 
 \item{length_out}{An integer of the number of units from from.}
+
+\item{wrap}{A flag specifying whether to wrap hms vectors from 23:59:59 to 00:00:00}
 }
 \value{
 The date/time vector.
@@ -45,5 +47,5 @@ If length_out is defined then that number of units are added to from.
 }}
 
 \examples{
-dtt_seq(Sys.Date() - 1, Sys.time())
+dtt_seq(as.Date("2001-01-01", "2001-01-05"))
 }
