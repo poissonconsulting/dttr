@@ -29,8 +29,8 @@ It also provides a timer.
 Key design principles include
 
 1. use existing classes
-2. time is discrete
-3. floor time units
+2. date times are discrete
+3. floor date times
 4. wrap times
 5. keep the same time zone
 6. use a default origin

@@ -41,5 +41,3 @@ dtt_aggregate.hms <- function(x, units = "seconds", ...) {
   x <- unique(x)
   dtt_time(x)
 }
-
-

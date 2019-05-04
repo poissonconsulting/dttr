@@ -2,34 +2,52 @@
 % Please edit documentation in R/complete.R
 \name{dtt_complete}
 \alias{dtt_complete}
+\alias{dtt_complete.Date}
+\alias{dtt_complete.POSIXct}
+\alias{dtt_complete.hms}
 \title{Complete}
 \usage{
-dtt_complete(x, from = min(x), to = max(x), floor = TRUE,
-  unique = TRUE, sort = TRUE, units = dtt_units(x), ...)
+dtt_complete(x, ...)
+
+\method{dtt_complete}{Date}(x, from = min(x), to = max(x),
+  units = "days", unique = TRUE, sort = TRUE, ...)
+
+\method{dtt_complete}{POSIXct}(x, from = min(x), to = max(x),
+  units = "seconds", unique = TRUE, sort = TRUE, ...)
+
+\method{dtt_complete}{hms}(x, from = min(x), to = max(x),
+  units = "seconds", unique = TRUE, sort = TRUE, ...)
 }
 \arguments{
 \item{x}{A date/time vector.}
+
+\item{...}{Unused.}
 
 \item{from}{A date/time scalar of the start.}
 
 \item{to}{A date/time vector of the end.}
 
-\item{floor}{A flag indicating whether to floor the values.}
-
-\item{unique}{A flag indicating whether to return distinct values.}
-
-\item{sort}{A flag indicating whether the returned vector must be sorted.}
-
 \item{units}{A string of the time units.}
 
-\item{...}{Unused.}
+\item{unique}{A flag specifying whether to only return unique values.}
+
+\item{sort}{A flag specifying whether to sort the vector.}
 }
 \value{
-The complete and possibly unique and sorted floored vector.
+The completed date/time vector.
 }
 \description{
 Completes date/time vector.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Complete a Date sequence vector
+
+\item \code{POSIXct}: Complete a POSIXct sequence vector
+
+\item \code{hms}: Complete a hms sequence vector
+}}
+
 \examples{
-dtt_completed(date_times)
+dtt_complete(as.Date("2001-01-01", "2001-01-03", "2001-01-01"))
 }

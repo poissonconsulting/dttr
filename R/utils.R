@@ -35,3 +35,21 @@ c.POSIXct <- function(..., recursive = FALSE) {
   dots <- list(...)
   .POSIXct(c(unlist(lapply(dots, unclass))), tz = dtt_tz(dots[[1]]))
 }
+
+#' @export
+max.hms <- function(..., na.rm = FALSE) {
+  dots <- list(...)
+  dots <- c(unlist(lapply(dots, unclass)))
+  dots <- dtt_time(dots)
+  max <- max(as.integer(dots), na.rm = na.rm)
+  dtt_time(max)
+}
+
+#' @export
+min.hms <- function(..., na.rm = FALSE) {
+  dots <- list(...)
+  dots <- c(unlist(lapply(dots, unclass)))
+  dots <- dtt_time(dots)
+  min <- min(as.integer(dots), na.rm = na.rm)
+  dtt_time(min)
+}
