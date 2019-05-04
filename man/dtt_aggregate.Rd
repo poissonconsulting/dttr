@@ -2,21 +2,45 @@
 % Please edit documentation in R/aggregate.R
 \name{dtt_aggregate}
 \alias{dtt_aggregate}
-\title{Aggregate}
+\alias{dtt_aggregate.Date}
+\alias{dtt_aggregate.POSIXct}
+\alias{dtt_aggregate.hms}
+\title{Aggregates}
 \usage{
-dtt_aggregate(x, units = dtt_units(x))
+dtt_aggregate(x, units, ...)
+
+\method{dtt_aggregate}{Date}(x, units = "days", ...)
+
+\method{dtt_aggregate}{POSIXct}(x, units = "seconds", ...)
+
+\method{dtt_aggregate}{hms}(x, units = "seconds", ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
 \item{units}{A string of the units to aggregate by.}
+
+\item{...}{Unused.}
 }
 \value{
-The floored, unique Date or POSIXct vector.
+The floored date/time vector.
 }
 \description{
-Aggregate
+Aggregates a date/time vector
 }
+\details{
+The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months'
+ or 'years'.
+}
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Aggregate a Date vector
+
+\item \code{POSIXct}: Aggregate a POSIXct vector
+
+\item \code{hms}: Aggregate a hms vector
+}}
+
 \examples{
-dtt_aggregate(dates)
+dtt_aggregate(as.Date(c("1992-01-01", "1991-02-02", "1991-03-03")), "years")
 }

@@ -2,9 +2,18 @@
 % Please edit documentation in R/floor.R
 \name{dtt_floor}
 \alias{dtt_floor}
+\alias{dtt_floor.Date}
+\alias{dtt_floor.POSIXct}
+\alias{dtt_floor.hms}
 \title{Floor}
 \usage{
 dtt_floor(x, units, ...)
+
+\method{dtt_floor}{Date}(x, units = "days", ...)
+
+\method{dtt_floor}{POSIXct}(x, units = "seconds", ...)
+
+\method{dtt_floor}{hms}(x, units = "seconds", ...)
 }
 \arguments{
 \item{x}{A date/time vector.}
@@ -19,9 +28,15 @@ The floored date/time vector.
 \description{
 Floors a date/time vector
 }
-\details{
-The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
-}
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Floor a Date vector
+
+\item \code{POSIXct}: Floor a POSIXct vector
+
+\item \code{hms}: Floor a hms vector
+}}
+
 \examples{
-dtt_floor(Sys.time(), "hours")
+dtt_floor(hms::as_hms("23:59:59"), "hours")
 }

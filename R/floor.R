@@ -1,8 +1,6 @@
 #' Floor
 #' 
 #' Floors a date/time vector
-#' 
-#' The possible units values are 'seconds', 'minutes', 'hours', 'days', 'months' or 'years'.
 #'
 #' @param x A date/time vector.
 #' @param units A string of the units to floor by.
@@ -11,11 +9,12 @@
 #' @export
 #'
 #' @examples
-#' dtt_floor(Sys.time(), "hours")
+#' dtt_floor(hms::as_hms("23:59:59"), "hours")
 dtt_floor <- function(x, units, ...) {
   UseMethod("dtt_floor")
 }
 
+#' @describeIn dtt_floor Floor a Date vector
 #' @export
 dtt_floor.Date <- function(x, units = "days", ...) {
   check_scalar(units, c("days", "months", "years"))
@@ -35,6 +34,7 @@ dtt_floor.Date <- function(x, units = "days", ...) {
   x
 }
 
+#' @describeIn dtt_floor Floor a POSIXct vector
 #' @export
 dtt_floor.POSIXct <- function(x, units = "seconds", ...) {
   check_time_units(units)
@@ -61,6 +61,7 @@ dtt_floor.POSIXct <- function(x, units = "seconds", ...) {
   x
 }
 
+#' @describeIn dtt_floor Floor a hms vector
 #' @export
 dtt_floor.hms <- function(x, units = "seconds", ...) {
   check_scalar(units, c("seconds", "minutes", "hours"))
@@ -71,7 +72,7 @@ dtt_floor.hms <- function(x, units = "seconds", ...) {
   if(identical(units, "seconds")) {
     x <- unclass(x)
     x <- floor(x)
-    return(as_hms(x))
+    return(dtt_time(x))
   }
   dtt_second(x) <- 0L
   if(identical(units, "minutes")) return(x)
