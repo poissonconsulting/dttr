@@ -7,7 +7,7 @@ test_that("check_time_units", {
 })
 
 test_that("check_tz", {
-  dtt_set_sys_tz("EST")
+  dtt_set_default_tz("EST")
   on.exit(dtt_reset_sys_tz())
   expect_identical(check_tz(dates), dates)
   expect_error(check_tz(dates, "UTC"), "dates's time zone must be 'UTC' not [(]'EST'[)]")

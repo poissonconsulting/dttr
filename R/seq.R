@@ -1,47 +1,82 @@
 #' Sequence
 #' 
-#' Creates a unique, ordered complete Date or POSIXct vector.
+#' Creates a date/time sequence vector.
+#' from and to are first floored and then a sequence is created by units.
+#' If length_out is defined then that number of units are added to from.
 #'
-#' @param from A Date or POSIXct scalar of the start date.
-#' @param to A Date or POSIXct scalar of the to date.
-#' @param units A string of the units.
+#' @param from A date/time scalar of the start.
+#' @param to A date/time scalar of the end.
+#' @param units A string of the time units.
 #' @param length_out An integer of the number of units from from.
-#' @return A Date or POSIXct vector.
+#' @return The date/time vector.
 #' @export
 #'
 #' @examples
 #' dtt_seq(Sys.Date() - 1, Sys.time())
-dtt_seq <- function(from = dtt_date("2000-01-01"), 
-                    to = dtt_date("2000-01-01"), 
-                    units = "days", length_out = NULL) {
-  check_dtt(from, length = 1, nas = FALSE)
-  check_dtt(to, length = 1, nas = FALSE)
-  check_time_units(units)
-  checkor(check_null(length_out), check_int(length_out))
+dtt_seq <- function(from, to, units, ...) {
+  UseMethod("dtt_seq")
+}
+
+#' @describeIn dtt_seq Create a Date sequence vector
+#' @export
+dtt_seq.Date <- function(from, to = from, units = "days", length_out = NULL) {
+  check_scalar(from, Sys.Date(), named = NA)
+  check_scalar(units, .units_Date)
+  checkor(check_null(length_out), check_pos_int(length_out))
   
-  if(is.Date(from)) {
-    to <- dtt_date(to)
-    if(!units %in% c("years", "months", "days"))
-      err("units must be 'years', 'months' or 'days'")
-    if(!is.null(length_out)) 
-      to <- dtt_add_units(from, n = length_out -1L, units = units)
-    from <- c(from, to)
-  } else {
-    tz = dtt_tz(from)
-    to <- dtt_date_time(to, tz = tz)
-    if(!is.null(length_out)) 
-      to <- dtt_add_units(from, n = length_out - 1L, units = units)
-    from <- c(from, to)
-    from <- dtt_set_tz(from, tz = tz)
-  }
   from <- dtt_floor(from, units = units)
-  to <- max(from)
-  from <- min(from)
   
-  if(is.Date(from)) {
-    seq <- seq(from, to, by = dtt_units2by(units))
-  } else
-    seq <- seq(from, to, by = dtt_units2by(units), tz = dtt_tz(from))
-  seq <- dtt_floor(seq, units = units)
+  if(!is.null(length_out)) 
+    to <- dtt_add_units(from, n = length_out -1L, units = units)
+  
+  check_scalar(to, Sys.Date(), named = NA)
+  
+  to <- dtt_floor(to, units = units)
+  
+  if(from == to) return(from)
+  
+  ascending <- from < to
+  if(!ascending) {
+    to2 <- to
+    to <- from
+    from <- to2
+  }
+  
+  seq <- seq(from, to, by = units2by(units))
+  seq <- dtt_aggregate(seq, units = units)
+  if(!ascending) seq <- rev(seq)
+  seq
+}
+
+#' @describeIn dtt_seq Create a POSIXct sequence vector
+#' @export
+dtt_seq.POSIXct <- function(from, to = from, units = "seconds", length_out = NULL) {
+  check_scalar(from, Sys.time(), named = NA)
+  check_time_units(units)
+  checkor(check_null(length_out), check_pos_int(length_out))
+  
+  from <- dtt_floor(from, units = units)
+  
+  tz <- dtt_tz(from)
+  if(!is.null(length_out)) 
+    to <- dtt_add_units(from, n = length_out - 1L, units = units)
+  
+  check_scalar(to, Sys.time(), named = NA)
+  check_tz(to, tz = tz)
+
+  to <- dtt_floor(to, units = units)
+  
+  if(from == to) return(from)
+  
+  ascending <- from < to
+  if(!ascending) {
+    to2 <- to
+    to <- from
+    from <- to2
+  }
+  
+  seq <- seq(from, to, by = units2by(units), tz = tz)
+  seq <- dtt_aggregate(seq, units = units)
+  if(!ascending) seq <- rev(seq)
   seq
 }

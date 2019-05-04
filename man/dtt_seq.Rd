@@ -2,26 +2,42 @@
 % Please edit documentation in R/seq.R
 \name{dtt_seq}
 \alias{dtt_seq}
+\alias{dtt_seq.Date}
+\alias{dtt_seq.POSIXct}
 \title{Sequence}
 \usage{
-dtt_seq(from = dtt_date("2000-01-01"), to = dtt_date("2000-01-01"),
-  units = "days", length_out = NULL)
+dtt_seq(from, to, units, ...)
+
+\method{dtt_seq}{Date}(from, to = from, units = "days",
+  length_out = NULL)
+
+\method{dtt_seq}{POSIXct}(from, to = from, units = "seconds",
+  length_out = NULL)
 }
 \arguments{
-\item{from}{A Date or POSIXct scalar of the start date.}
+\item{from}{A date/time scalar of the start.}
 
-\item{to}{A Date or POSIXct scalar of the to date.}
+\item{to}{A date/time scalar of the end.}
 
-\item{units}{A string of the units.}
+\item{units}{A string of the time units.}
 
 \item{length_out}{An integer of the number of units from from.}
 }
 \value{
-A Date or POSIXct vector.
+The date/time vector.
 }
 \description{
-Creates a unique, ordered complete Date or POSIXct vector.
+Creates a date/time sequence vector.
+from and to are first floored and then a sequence is created by units.
+If length_out is defined then that number of units are added to from.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{Date}: Create a Date sequence vector
+
+\item \code{POSIXct}: Create a POSIXct sequence vector
+}}
+
 \examples{
 dtt_seq(Sys.Date() - 1, Sys.time())
 }

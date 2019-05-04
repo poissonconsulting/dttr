@@ -20,7 +20,7 @@ units_less_than <- function(x, y) {
   x < y
 }
 
-dtt_units2by <- function(x) {
+units2by <- function(x) {
   x <- sub("ond", "", x)
   x <- sub("ute", "", x)
   x

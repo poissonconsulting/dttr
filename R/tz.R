@@ -81,6 +81,8 @@ dtt_set_tz <- function(x, tz = dtt_default_tz(), ...) {
 #' @export
 dtt_set_tz.POSIXct <- function(x, tz = dtt_default_tz(), ...) {
   check_string(tz)
+  check_unused(...)
+  if(dtt_tz(x) == tz) return(x)
   dtt_date_time(format(x, tz = dtt_tz(x)), tz = tz)
 }
 
@@ -104,6 +106,7 @@ dtt_adjust_tz <- function(x, tz = dtt_default_tz(), ...) {
 #' @export
 dtt_adjust_tz.POSIXct <- function(x, tz = dtt_default_tz(), ...) {
   check_string(tz)
+  check_unused(...)
   attr(x, "tzone") <- tz
   x
 }

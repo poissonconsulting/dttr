@@ -1,14 +1,14 @@
 #' Complete
 #' 
-#' Completes a Date or POSIXct vector.
+#' Completes date/time vector.
 #'
-#' @param x A Date or POSIXct vector.
-#' @param from A Date or POSIXct scalar of the start date.
-#' @param to A Date or POSIXct scalar of the to date.
+#' @param x A date/time vector.
+#' @param from A date/time scalar of the start.
+#' @param to A date/time vector of the end.
 #' @param floor A flag indicating whether to floor the values.
 #' @param unique A flag indicating whether to return distinct values.
 #' @param sort A flag indicating whether the returned vector must be sorted.
-#' @param units A string of the units.
+#' @param units A string of the time units.
 #' @param ... Unused.
 #' @return The complete and possibly unique and sorted floored vector.
 #' @export
@@ -29,7 +29,7 @@ dtt_complete.Date <- function(x, from = min(x), to = max(x), floor = TRUE, uniqu
   check_flag(floor)
   check_flag(unique)
   check_flag(sort)
-  check_string(units)
+  check_time_units(units)
   check_unused(...)
   
   from <- dtt_date(from)

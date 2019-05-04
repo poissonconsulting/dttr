@@ -8,11 +8,11 @@ dtt_complete(x, from = min(x), to = max(x), floor = TRUE,
   unique = TRUE, sort = TRUE, units = dtt_units(x), ...)
 }
 \arguments{
-\item{x}{A Date or POSIXct vector.}
+\item{x}{A date/time vector.}
 
-\item{from}{A Date or POSIXct scalar of the start date.}
+\item{from}{A date/time scalar of the start.}
 
-\item{to}{A Date or POSIXct scalar of the to date.}
+\item{to}{A date/time vector of the end.}
 
 \item{floor}{A flag indicating whether to floor the values.}
 
@@ -20,7 +20,7 @@ dtt_complete(x, from = min(x), to = max(x), floor = TRUE,
 
 \item{sort}{A flag indicating whether the returned vector must be sorted.}
 
-\item{units}{A string of the units.}
+\item{units}{A string of the time units.}
 
 \item{...}{Unused.}
 }
@@ -28,7 +28,7 @@ dtt_complete(x, from = min(x), to = max(x), floor = TRUE,
 The complete and possibly unique and sorted floored vector.
 }
 \description{
-Completes a Date or POSIXct vector.
+Completes date/time vector.
 }
 \examples{
 dtt_completed(date_times)
