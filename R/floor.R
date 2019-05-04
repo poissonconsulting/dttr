@@ -44,10 +44,9 @@ dtt_floor.POSIXct <- function(x, units = "seconds", ...) {
   
   if(identical(units, "seconds")) {
     tz <- dtt_tz(x)
-    x <- as.POSIXlt(x, tz = tz)
-    x$sec <- floor(x$sec)
-    x <- as.POSIXct(x, tz = tz)
-    return(x)
+    x <- unclass(x)
+    x <- floor(x)
+    return(dtt_date_time(x, tz = tz))
   }
   dtt_second(x) <- 0L
   if(identical(units, "minutes")) return(x)

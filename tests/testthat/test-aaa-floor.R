@@ -22,6 +22,9 @@ test_that("floor.Date", {
 test_that("floor.POSXIct", {
   expect_identical(dtt_floor(NA_POSIXct_[-1]), NA_POSIXct_[-1])
   expect_identical(dtt_floor(NA_POSIXct_), NA_POSIXct_)
+  
+  expect_identical(as.double(dtt_floor(as.POSIXct(1.99, origin = as.POSIXct("1970-01-01", tz = "GMT"), tz = "GMT"))), 1)
+  expect_identical(as.double(dtt_floor(as.POSIXct(-1.99, origin = as.POSIXct("1970-01-01", tz = "GMT"), tz = "GMT"))), -2)
 
   expect_identical(dtt_floor(as.POSIXct("1969-01-01 23:59:59", tz = "UTC")), 
                    as.POSIXct("1969-01-01 23:59:59", tz = "UTC"))
