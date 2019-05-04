@@ -3,7 +3,6 @@ context("floor")
 test_that("floor.Date", {
   expect_identical(dtt_floor(NA_Date_[-1]), NA_Date_[-1])
   expect_identical(dtt_floor(NA_Date_), NA_Date_)
-  expect_identical(as.double(as.Date("1970-01-01") + 0.99), 0.99)
   expect_identical(as.double(dtt_floor(as.Date("1970-01-01") + 0.99)), 0)
   expect_identical(dtt_floor(as.Date("1991-02-02")), as.Date("1991-02-02"))
   expect_identical(dtt_floor(as.Date("1991-02-02"), "months"), as.Date("1991-02-01"))
@@ -23,14 +22,7 @@ test_that("floor.Date", {
 test_that("floor.POSXIct", {
   expect_identical(dtt_floor(NA_POSIXct_[-1]), NA_POSIXct_[-1])
   expect_identical(dtt_floor(NA_POSIXct_), NA_POSIXct_)
-  expect_identical(as.double(as.POSIXct(1.99, origin = as.POSIXct("1970-01-01", tz = "GMT"))), 1.99)
-  expect_identical(as.double(dtt_floor(as.POSIXct(1.99, origin = as.POSIXct("1970-01-01", tz = "GMT")))), 1)
-  
-  expect_identical(as.double(as.POSIXct(-1.99, origin = as.POSIXct("1970-01-01", tz = "GMT"))), -1.99)
-  expect_identical(as.POSIXct(-1.99, origin = as.POSIXct("1970-01-01", tz = "GMT"), tz = "GMT"), 
-                   as.POSIXct("1969-12-31 23:59:59", tz = "GMT") - 0.99)
-  expect_identical(as.double(dtt_floor(as.POSIXct(-1.99, origin = as.POSIXct("1970-01-01", tz = "GMT")))), -1)
-  
+
   expect_identical(dtt_floor(as.POSIXct("1969-01-01 23:59:59", tz = "UTC")), 
                    as.POSIXct("1969-01-01 23:59:59", tz = "UTC"))
   expect_identical(dtt_floor(as.POSIXct("1969-01-01 23:59:59", tz = "UTC"), "minutes"), 
@@ -48,9 +40,7 @@ test_that("floor.POSXIct", {
 test_that("floor.hms", {
   expect_identical(dtt_floor(NA_hms_[-1]), NA_hms_[-1])
   expect_identical(dtt_floor(NA_hms_), NA_hms_)
-  expect_identical(as.double(hms::as_hms(1.99)), 1.99)
   expect_identical(as.double(dtt_floor(hms::as_hms(1.99))), 1)
-  expect_identical(as.double(hms::as_hms(-1.99)), -1.99)
   expect_identical(dtt_floor(hms::as_hms(-1.99)), hms::as_hms("23:59:58"))
   expect_identical(as.double(dtt_floor(hms::as_hms(-1.99))), 86398)
   

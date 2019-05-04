@@ -8,7 +8,7 @@ Description: Simple manipulations and conversions for date (Date), date time (PO
     As well as functions to get, set, add and subtract time units it includes 
     functions to floor objects, set or adjust time zones and complete sequences. 
     It also provides a timer.
-License: GPL-3
+License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports: 
     checkr,

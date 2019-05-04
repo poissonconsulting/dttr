@@ -9,27 +9,24 @@ status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dtt
 [![Coverage
 status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
 [![License:
-GPL3](https://img.shields.io/badge/License-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dttr)](https://cran.r-project.org/package=dttr)
 
 # dttr
 
 `dttr` (Dates, Times and a TimeR) is an R package to manipulate date
-(Date), date time (POSIXct) and time (hms) vectors. It provides a
-light-weight alternative to
-[`lubridate`](https://lubridate.tidyverse.org) for simple conversions
-and manipulations. It also provides a simple timer.
+(Date), date time (POSIXct) and time (hms) vectors. It provides
+functions to perform simple conversions and manipulations. It also
+provides a timer.
 
-A key design principle is that
+Key design principles include
 
-> dates are dates and times are times.
-
-A consequence of this principle is that dates, date times and times are
-always floored to remove fractional days or seconds. A second
-consequence is that negative times (hms) or times greater than 23:59:59
-are always wrapped to give the actual time. If the user wishes to
-perform arthimetic on date time vectors then they should do so before
-passing the vectors to `dttr`.
+1.  use existing classes
+2.  time is discrete
+3.  floor time units
+4.  wrap times
+5.  keep the same time zone
+6.  use a default origin
 
 ## Installation
 
@@ -117,10 +114,8 @@ date_time
 ```
 
 They can assign a new time zone to a POSIXct object whilst leaving the
-clock time unchanged using `dtt_set_tz()` (equivalent to
-`lubridate::force_tz()`) or adjust the time zone so that clock (but not
-the actual) time is altered using `dtt_adjust_tz()` (equivalent to
-`lubridate::with_tz()`)
+clock time unchanged using `dtt_set_tz()` or adjust the time zone so
+that clock (but not the actual) time is altered using `dtt_adjust_tz()`
 
 ``` r
 date_time
