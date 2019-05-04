@@ -11,6 +11,9 @@ test_that("seq.Date", {
   expect_identical(dtt_seq(as.Date("2001-01-01"), length_out = 2L), 
                    as.Date(c("2001-01-01", "2001-01-02")))
   
+  expect_identical(dtt_seq(as.Date("2001-01-01"), length_out = 0L), 
+                   as.Date("2001-01-01")[-1])
+  
   expect_identical(dtt_seq(as.Date("2001-01-01"), as.Date("2001-01-01")),
                    as.Date("2001-01-01"))
   
@@ -119,8 +122,10 @@ test_that("seq.hms", {
   expect_identical(dtt_seq(hms::as_hms("00:59:59"), hms::as_hms("01:00:00"), units = "hours"),
                    hms::as_hms(c("00:00:00", "01:00:00")))
 
-  expect_identical(dtt_seq(hms::as_hms("23:59:59"), hms::as_hms("00:00:01")),
-                   hms::as_hms(c("23:59:59", "00:00:00", "00:00:01")))
   expect_identical(length(dtt_seq(hms::as_hms("00:00:01"), hms::as_hms("23:59:59"))),
+                   86399L)
+  expect_identical(length(dtt_seq(hms::as_hms("23:59:59"), hms::as_hms("00:00:01"), wrap = FALSE)),
+                   86399L)
+  expect_identical(dtt_seq(hms::as_hms("23:59:59"), hms::as_hms("00:00:01")),
                    hms::as_hms(c("23:59:59", "00:00:00", "00:00:01")))
 })
