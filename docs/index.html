@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manipulate Date and Time Objects • dttr</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Manipulate Date and Time Objects">
 <meta property="og:description" content="A light-weight package to manipulate date (Date), time (hms) 
     and datetime (POSIXct) and hms objects.
@@ -22,7 +23,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -42,7 +43,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -56,7 +57,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/poissonconsulting/dttr">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -69,13 +70,10 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+      </header><div class="row">
+  <div class="contents col-md-9">
+
 
 <div id="dttr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -88,116 +86,116 @@
 <h3 class="hasAnchor">
 <a href="#get-and-set-component" class="anchor"></a>Get and Set Component</h3>
 <p>The core functions allow the user to easily get and set the components of Date and POSIXct objects.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dttr)</a>
-<a class="sourceLine" id="cb1-2" title="2">date_times &lt;-<span class="st"> </span>dttr<span class="op">::</span>date_times</a>
-<a class="sourceLine" id="cb1-3" title="3">date_times</a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "1899-12-31 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="co">#&gt; [3] "1972-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times)</a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="co">#&gt; [1] 2000 1899 1972</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(2000L, 2000L, 2002L)</a>
-<a class="sourceLine" id="cb1-9" title="9">date_times</a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-12" title="12"><span class="kw"><a href="reference/dtt_add_years.html">dtt_add_years</a></span>(date_times, 2L)</a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="co">#&gt; [1] "2002-01-01 00:00:00 -08" "2002-12-31 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="co">#&gt; [3] "2004-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="kw"><a href="reference/dtt_floor.html">dtt_floor</a></span>(date_times, <span class="dt">units =</span> <span class="st">"months"</span>)</a>
-<a class="sourceLine" id="cb1-16" title="16"><span class="co">#&gt; [1] "2000-01-01 -08" "2000-12-01 -08" "2002-06-01 -08"</span></a>
-<a class="sourceLine" id="cb1-17" title="17">seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_seq.html">dtt_seq</a></span>(date_times[<span class="dv">1</span>], date_times[<span class="dv">2</span>], <span class="dt">units =</span> <span class="st">"months"</span>)</a>
-<a class="sourceLine" id="cb1-18" title="18">seq</a>
-<a class="sourceLine" id="cb1-19" title="19"><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></a>
-<a class="sourceLine" id="cb1-20" title="20"><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></a>
-<a class="sourceLine" id="cb1-21" title="21"><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dttr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>date_times &lt;-<span class="st"> </span>dttr<span class="op">::</span>date_times</span>
+<span id="cb1-3"><a href="#cb1-3"></a>date_times</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "1899-12-31 23:59:59 -08"</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#&gt; [3] "1972-06-30 23:59:59 -08"</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; [1] 2000 1899 1972</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="kw"><a href="reference/dtt_year.html">dtt_year</a></span>(date_times) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(2000L, 2000L, 2002L)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>date_times</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw"><a href="reference/dtt_add_years.html">dtt_add_years</a></span>(date_times, 2L)</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; [1] "2002-01-01 00:00:00 -08" "2002-12-31 23:59:59 -08"</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; [3] "2004-06-30 23:59:59 -08"</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="kw"><a href="reference/dtt_floor.html">dtt_floor</a></span>(date_times, <span class="dt">units =</span> <span class="st">"months"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co">#&gt; [1] "2000-01-01 -08" "2000-12-01 -08" "2002-06-01 -08"</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_seq.html">dtt_seq</a></span>(date_times[<span class="dv">1</span>], date_times[<span class="dv">2</span>], <span class="dt">units =</span> <span class="st">"months"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18"></a>seq</span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></span></code></pre></div>
 </div>
 <div id="complete" class="section level3">
 <h3 class="hasAnchor">
 <a href="#complete" class="anchor"></a>Complete</h3>
 <p>Completing a sequence is also straightforward</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">seq &lt;-<span class="st"> </span>seq[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">12</span>)]</a>
-<a class="sourceLine" id="cb2-2" title="2">seq</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co">#&gt; [1] "2000-01-01 -08" "2000-02-01 -08" "2000-12-01 -08"</span></a>
-<a class="sourceLine" id="cb2-4" title="4"><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="co">#&gt; [1] FALSE</span></a>
-<a class="sourceLine" id="cb2-6" title="6">seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_complete.html">dtt_complete</a></span>(seq)</a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</a>
-<a class="sourceLine" id="cb2-8" title="8"><span class="co">#&gt; [1] TRUE</span></a>
-<a class="sourceLine" id="cb2-9" title="9">seq</a>
-<a class="sourceLine" id="cb2-10" title="10"><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></a>
-<a class="sourceLine" id="cb2-11" title="11"><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></a>
-<a class="sourceLine" id="cb2-12" title="12"><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>seq &lt;-<span class="st"> </span>seq[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">12</span>)]</span>
+<span id="cb2-2"><a href="#cb2-2"></a>seq</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; [1] "2000-01-01 -08" "2000-02-01 -08" "2000-12-01 -08"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; [1] FALSE</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>seq &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_complete.html">dtt_complete</a></span>(seq)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="kw"><a href="reference/dtt_completed.html">dtt_completed</a></span>(seq)</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>seq</span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;  [1] "2000-01-01 -08" "2000-02-01 -08" "2000-03-01 -08" "2000-04-01 -08"</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;  [5] "2000-05-01 -08" "2000-06-01 -08" "2000-07-01 -08" "2000-08-01 -08"</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;  [9] "2000-09-01 -08" "2000-10-01 -08" "2000-11-01 -08" "2000-12-01 -08"</span></span></code></pre></div>
 </div>
 <div id="time-zones" class="section level3">
 <h3 class="hasAnchor">
 <a href="#time-zones" class="anchor"></a>Time Zones</h3>
 <p>As well as setting the time zone which does not change the clock time the user can adjust the time zone which alters the clock time so that the old and new events are coincident.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">date_times</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="kw"><a href="reference/dtt_set_tz.html">dtt_set_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="co">#&gt; [1] "2000-01-01 00:00:00 +01" "2000-12-31 23:59:59 +01"</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co">#&gt; [3] "2002-06-30 23:59:59 +01"</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="kw"><a href="reference/dtt_adjust_tz.html">dtt_adjust_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</a>
-<a class="sourceLine" id="cb3-8" title="8"><span class="co">#&gt; [1] "2000-01-01 09:00:00 +01" "2001-01-01 08:59:59 +01"</span></a>
-<a class="sourceLine" id="cb3-9" title="9"><span class="co">#&gt; [3] "2002-07-01 08:59:59 +01"</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>date_times</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt; [1] "2000-01-01 00:00:00 -08" "2000-12-31 23:59:59 -08"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; [3] "2002-06-30 23:59:59 -08"</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw"><a href="reference/dtt_set_tz.html">dtt_set_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; [1] "2000-01-01 00:00:00 +01" "2000-12-31 23:59:59 +01"</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; [3] "2002-06-30 23:59:59 +01"</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="kw"><a href="reference/dtt_adjust_tz.html">dtt_adjust_tz</a></span>(date_times, <span class="dt">tz =</span> <span class="st">"Etc/GMT-1"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; [1] "2000-01-01 09:00:00 +01" "2001-01-01 08:59:59 +01"</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; [3] "2002-07-01 08:59:59 +01"</span></span></code></pre></div>
 <p>The user is also able to use <code><a href="reference/dtt_set_sys_tz.html">dtt_set_sys_tz()</a></code> to define the default time zone for all package function calls.</p>
 </div>
 <div id="timer" class="section level3">
 <h3 class="hasAnchor">
 <a href="#timer" class="anchor"></a>Timer</h3>
 <p>A object of class <code>dtt_timer</code> tracks the clock time in seconds. <code><a href="reference/dtt_timer.html">dtt_elapsed()</a></code> returns the duration for which the timer has been running (see below).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_timer</a></span>(<span class="dt">start =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb4-2" title="2">timer</a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; 0s</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-5" title="5">timer</a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 1s</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-8" title="8">timer</a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb4-10" title="10">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_stop</a></span>(timer)</a>
-<a class="sourceLine" id="cb4-11" title="11">timer</a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-14" title="14">timer</a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt; 2s</span></a>
-<a class="sourceLine" id="cb4-16" title="16">timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_start</a></span>(timer)</a>
-<a class="sourceLine" id="cb4-17" title="17"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.sleep">Sys.sleep</a></span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb4-18" title="18">timer</a>
-<a class="sourceLine" id="cb4-19" title="19"><span class="co">#&gt; 3s</span></a>
-<a class="sourceLine" id="cb4-20" title="20"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/integer">as.integer</a></span>(<span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer))</a>
-<a class="sourceLine" id="cb4-21" title="21"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_timer</a></span>(<span class="dt">start =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>timer</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; 0s</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="kw"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="dv">1</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>timer</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; 1s</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="kw"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="dv">1</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>timer</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="co">#&gt; 2s</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_stop</a></span>(timer)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>timer</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="co">#&gt; 2s</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="kw"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="dv">1</span>)</span>
+<span id="cb4-14"><a href="#cb4-14"></a>timer</span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co">#&gt; 2s</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>timer &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_start</a></span>(timer)</span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="kw"><a href="https://rdrr.io/r/base/Sys.sleep.html">Sys.sleep</a></span>(<span class="dv">1</span>)</span>
+<span id="cb4-18"><a href="#cb4-18"></a>timer</span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="co">#&gt; 3s</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="kw"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span>(<span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer))</span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 </div>
 <div id="duration" class="section level3">
 <h3 class="hasAnchor">
 <a href="#duration" class="anchor"></a>Duration</h3>
 <p>An object of class <code>dtt_duration</code> is an integer vector that stores the time in seconds.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">duration &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer)</a>
-<a class="sourceLine" id="cb5-2" title="2">duration</a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt; 3s</span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/class">class</a></span>(duration)</a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt; [1] "dtt_duration"</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="kw"><a href="reference/dtt_minute.html">dtt_minutes</a></span>(duration)</a>
-<a class="sourceLine" id="cb5-7" title="7"><span class="co">#&gt; Warning: 'dtt_minutes' is deprecated.</span></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="co">#&gt; Use 'dtt_minute' instead.</span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="co">#&gt; See help("Deprecated")</span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="co">#&gt; [1] 0.05</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>duration &lt;-<span class="st"> </span><span class="kw"><a href="reference/dtt_timer.html">dtt_elapsed</a></span>(timer)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>duration</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; 3s</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw"><a href="https://rdrr.io/r/base/class.html">class</a></span>(duration)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; [1] "dtt_duration"</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw"><a href="reference/dtt_minute.html">dtt_minutes</a></span>(duration)</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; Warning: 'dtt_minutes' is deprecated.</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; Use 'dtt_minute' instead.</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; See help("Deprecated")</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">#&gt; [1] 0.05</span></span></code></pre></div>
 </div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest development version from the Poisson drat <a href="https://github.com/poissonconsulting/drat">repository</a></p>
-<pre><code>if(!"drat" %in% installed.packages()[,1]) 
-  install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("dttr")</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="st">"drat"</span> <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>()[,<span class="dv">1</span>]) </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"drat"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>drat<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/drat/man/addRepo.html">addRepo</a></span>(<span class="st">"poissonconsulting"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"dttr"</span>)</span></code></pre></div>
 <p>To install the latest development version from <a href="https://github.com/poissonconsulting/checkr">GitHub</a></p>
-<pre><code>if(!"devtools" %in% installed.packages()[,1]) 
-  install.packages("devtools")
-devtools::install_github("poissonconsulting/err")
-devtools::install_github("poissonconsulting/checkr")
-devtools::install_github("poissonconsulting/dttr")</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="st">"devtools"</span> <span class="op">%in%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>()[,<span class="dv">1</span>]) </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"poissonconsulting/err"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"poissonconsulting/checkr"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"poissonconsulting/dttr"</span>)</span></code></pre></div>
 </div>
 <div id="inspiration" class="section level2">
 <h2 class="hasAnchor">
@@ -212,6 +210,7 @@ devtools::install_github("poissonconsulting/dttr")</code></pre>
 <p>Please note that the ‘dttr’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms</p>
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -231,26 +230,27 @@ devtools::install_github("poissonconsulting/dttr")</code></pre>
 <li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>Joe Thorley <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7683-4592" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID"></a> </li>
 </ul>
 </div>
 
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a></li>
-<li><a href="https://travis-ci.com/poissonconsulting/dttr"><img src="https://travis-ci.com/poissonconsulting/dttr.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://ci.appveyor.com/project/poissonconsulting/dttr"><img src="https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dttr?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
-<li><a href="https://codecov.io/github/poissonconsulting/dttr?branch=master"><img src="https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#archived"><img src="https://img.shields.io/badge/lifecycle-archived-red.svg" alt="Lifecycle: archived"></a></li>
 <li><a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/License-GPL3-blue.svg" alt="License: GPL3"></a></li>
-<li><a href="https://cran.r-project.org/package=dttr"><img src="http://www.r-pkg.org/badges/version/dttr" alt="CRAN_Status_Badge"></a></li>
 </ul>
 </div>
 </div>
-
 </div>
 
 
@@ -259,12 +259,14 @@ devtools::install_github("poissonconsulting/dttr")</code></pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
