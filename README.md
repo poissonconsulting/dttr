@@ -1,16 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build
-status](https://travis-ci.com/poissonconsulting/dttr.svg?branch=master)](https://travis-ci.com/poissonconsulting/dttr)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/dttr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/dttr)
-[![Coverage
-status](https://codecov.io/gh/poissonconsulting/dttr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/dttr?branch=master)
+<!-- badges: start -->
+
+[![Lifecycle:
+archived](https://img.shields.io/badge/lifecycle-archived-red.svg)](https://www.tidyverse.org/lifecycle/#archived)
 [![License:
 GPL3](https://img.shields.io/badge/License-GPL3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dttr)](https://cran.r-project.org/package=dttr)
+<!-- badges: end -->
 
 # dttr
 
